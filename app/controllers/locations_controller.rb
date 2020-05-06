@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   def new
+    @locationnew = Location.new
   end
 
   def index
@@ -9,6 +10,7 @@ class LocationsController < ApplicationController
   end
 
   def edit
+    @location = Location.find(params[:id])
   end
 
   def update
