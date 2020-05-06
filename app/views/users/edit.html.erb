@@ -1,2 +1,69 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<% if @user.errors.any? %>
+
+  <h2><%= @user.errors.count %>errors prohibited this  from being saved:</h2>
+
+  <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div class="row">
+  <div class="col-xs-9">
+    <h2 class="color">登録情報編集</h2>
+  </div>
+</div>
+
+<%= form_for(@user, url:user_edit_path) do |f| %>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <strong>名前</strong>
+      </div>
+      <div class="col-xs-4">
+        <%= f.label :name, "名前", class: "col-xs-3" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-xs-7" %>
+      </div>
+      <div class="col-xs-5">
+        <%= f.label :name_k, "ナマエ", class: "col-xs-2" %>
+        <%= f.text_field :name_k, autofocus: true, autocomplete: "name_k", class: "col-xs-6" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1">
+        <%= f.label :email, "メールアドレス" %>
+      </div>
+      <div class="col-xs-4">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <div class="col-xs-2 col-xs-offset-1" style="padding-right: 10px;">
+        <%= f.label :phone_number, "電話番号" %>
+        <em>(ハイフンなし)</em>
+      </div>
+      <div class="col-xs-4">
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-xs-7 col-xs-offset-3" %>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="actions text-center">
+      <div class="col-xs-6">
+        <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
