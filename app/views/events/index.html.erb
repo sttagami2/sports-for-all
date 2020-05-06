@@ -1,2 +1,15 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<div class="text-center">
+  <h2>イベント一覧</h2>
+</div>
+<div class="event--flex">
+  <% @events.each do |event| %>
+    <%= link_to event_path(event), class: "event--flex__item" do %>
+      <div class="text-center">
+        <ul>
+          <li><h2><%= event.event_name %></h2></li>
+          <li><%= event.introduction %></li>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+</div>
