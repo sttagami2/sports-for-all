@@ -1,2 +1,22 @@
-<h1>Locations#new</h1>
-<p>Find me in app/views/locations/new.html.erb</p>
+<div class="row location-new">
+  <div>
+    <%= form_for(@locationnew) do |f| %>
+      <table class="table table-borderless">
+        <tr>
+          <th><%= f.label :postcode, "郵便番号(ハイフンなし)" %></th>
+          <td><%= f.text_field :postcode, class: "form-control forrm-control-sm" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :address, "住所" %></th>
+          <td><%= f.text_field :address, class: "form-control forrm-control-sm" %></td>
+        </tr>
+        <tr>
+          <th><%= f.label :name, "施設名" %></th>
+          <td><%= f.text_field :name, class: "form-control forrm-control-sm" %></td>
+        </tr>
+      </table>
+    <% end %>
+
+    <div id="map"></div>
+  </div>
+</div>
