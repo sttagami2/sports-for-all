@@ -71,27 +71,44 @@ Type.create(
   )
 end
 
-50.times do
-  takarabako = Takarabako.open
-
-  Team.create!(
-    name: takarabako
-  )
-end
-
 100.times do
   Participation.create!(
     user_id: rand(1..10).to_s,
     event_id: rand(1..10).to_s,
-    team_id: rand(1..50).to_s,
     status: rand(0..2).to_s,
   )
 end
+
+50.times do
+  takarabako = Takarabako.open
+
+  Team.create!(
+    name: takarabako,
+    participation_id: rand(1..10).to_s,
+  )
+end
+
 
 100.times do
   Comment.create!(
     user_id: rand(1..10).to_s,
     event_id: rand(1..10).to_s,
     comment: "コメントです！コメントです！コメントです！",
+  )
+end
+
+50.times do
+  Game.create!(
+    win_id: rand(1..25).to_s,
+    lose_id: rand(26..50).to_s,
+    win_score: 25,
+    lose_score: rand(10..24).to_s,
+  )
+end
+
+50.times do
+  Resolute.create(
+    user_id: rand(1..25).to_s,
+    game_id: rand(1..50).to_s,
   )
 end
