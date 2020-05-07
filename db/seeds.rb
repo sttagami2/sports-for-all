@@ -8,7 +8,7 @@
 10.times do
   gimei = Gimei.new
   
-  User.create(
+  User.create!(
     name: gimei.name.kanji,
     name_k: gimei.name.hiragana,
     image: File.open('app/assets/images/sissors.png'),
@@ -26,7 +26,7 @@ end
 10.times do
   gimei = Gimei.new
   
-  Location.create(
+  Location.create!(
     name: gimei.town.kanji,
     postcode: Faker::Address.postcode,
     address: gimei.address.kanji,
@@ -34,7 +34,7 @@ end
 end
 
 
-Type.create(
+Type.create!(
   name: "野球",
 )
 Type.create(
@@ -72,18 +72,26 @@ Type.create(
 end
 
 50.times do
-  Participation.create(
+  takarabako = Takarabako.open
+
+  Team.create!(
+    name: takarabako
+  )
+end
+
+100.times do
+  Participation.create!(
     user_id: rand(1..10).to_s,
     event_id: rand(1..10).to_s,
+    team_id: rand(1..50).to_s,
     status: rand(0..2).to_s,
   )
 end
 
 100.times do
-  Comment.create(
+  Comment.create!(
     user_id: rand(1..10).to_s,
     event_id: rand(1..10).to_s,
     comment: "コメントです！コメントです！コメントです！",
   )
 end
-

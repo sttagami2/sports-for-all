@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   resources :events, only: [:new, :index, :create, :edit, :update, :show]
   resources :locations, only: [:new, :index, :create, :edit, :update, :show]
+  resources :teams, only: [:new, :index, :create, :edit, :update, :show]
+  resources :games
 end
