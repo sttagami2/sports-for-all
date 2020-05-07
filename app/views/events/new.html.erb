@@ -1,2 +1,43 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<h2>新規イベント作成</h2>
+<div class="event-form">
+  <%= form_for @event do |f| %>
+    <div class="alt-table-responsive">
+      <table class="table">
+        <tr>
+          <th><%= f.label :event_name, "イベント名" %></th>
+          <td><%= f.text_field :event_name, autofocus: true, autocomplete: "イベント名" %></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <td></td>
+        </tr>
+
+      </table>
+    
+    </div>
+  <% end %>
+</div>
