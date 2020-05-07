@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2020_05_07_035840) do
   create_table "participations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.integer "team_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,12 +60,12 @@ ActiveRecord::Schema.define(version: 2020_05_07_035840) do
   create_table "resolutes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "game_id"
-    t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "teams", force: :cascade do |t|
+    t.integer "participation_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
