@@ -7,6 +7,12 @@ GIT
       rest-client (~> 2)
       sinatra (~> 2.0.0.beta2)
 
+GIT
+  remote: https://github.com/sttagami2/takarabako.git
+  revision: e1c01c18e0d28403ce682a194e8e8fbd93c0f352
+  specs:
+    takarabako (0.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -344,6 +350,7 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
+  takarabako!
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_06_132132) do
+ActiveRecord::Schema.define(version: 2020_05_07_035840) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 2020_05_06_132132) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "games", force: :cascade do |t|
+    t.integer "win_id"
+    t.integer "lose_id"
+    t.integer "win_score"
+    t.integer "lose_score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.string "postcode"
@@ -43,7 +52,22 @@ ActiveRecord::Schema.define(version: 2020_05_06_132132) do
   create_table "participations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
+    t.integer "team_id"
     t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "resolutes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "game_id"
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
