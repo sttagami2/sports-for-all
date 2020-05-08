@@ -3,4 +3,6 @@ class Event < ApplicationRecord
   has_many :comment
   belongs_to :location
   belongs_to :type
+
+  attachment :image
 end
