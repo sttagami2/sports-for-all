@@ -61,11 +61,10 @@
   &-main {
     height: 500px;
     background-color: rgb(182, 216, 226);
-    &__item-participation{
-      background-color: rgb(182, 216, 226);
+    &__item-participation {
+      background-color: rgb(206, 180, 180);
       height: 500px;
-      overflow: scroll;
-
+      overflow-y: scroll;
     }
   }
 
