@@ -23,8 +23,9 @@ class ParticipationsController < ApplicationController
 
   def create
     @participation = Participation.new(participation_params)
+    @participation.user_id = current_customer.id
     if @participation.save
-      redirect_to event_participations
+      redirect_to event_participations_path
     end
   end
 
@@ -34,6 +35,6 @@ class ParticipationsController < ApplicationController
   private
     
     def participation_params
-      parms.require(:participation).permit(:user_id, :event_id, :status)
+      params.require(:participation).permit(:user_id, :event_id, :status)
     end
 end
