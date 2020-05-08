@@ -17,6 +17,10 @@ class GamesController < ApplicationController
   def destroy
   end
 
+  def relay
+    
+  end
+
   def show
   end
 end
