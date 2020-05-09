@@ -6,8 +6,8 @@ class GamesController < ApplicationController
     # @game = Game.new
     # @participations = Participation.where('event_id=? and status=?', 1, 0)
     # takarabako = Takarabako.open
+    @participation = Participation.new
     @participations = Participation.where('event_id=? and status=?', params[:event_id], 0)
-    binding.pry
   end
 
   def halfway
@@ -46,6 +46,7 @@ class GamesController < ApplicationController
         end
 
       when  "select"
+
 
       when  "select_team"
     end
