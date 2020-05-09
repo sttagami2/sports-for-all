@@ -1,4 +1,5 @@
 class Team < ApplicationRecord
   belongs_to :event
-  belongs_to :game
+  has_many :game_detail
+  has_many :team_detail
 end

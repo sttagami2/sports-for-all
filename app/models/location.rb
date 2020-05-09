@@ -1,3 +1,3 @@
 class Location < ApplicationRecord
-  has_many :event
+  belongs_to :user
 end
