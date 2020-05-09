@@ -71,74 +71,97 @@ Type.create(
   )
 end
 
+5.times do
+  Game.create!(
+    win_id: 1,
+    lose_id: 2,
+    win_score: 25,
+    lose_score: rand(10..24).to_s,
+    event_id: 1,
+  )
+end
+
 Participation.create!(
   user_id: 1,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 2,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 3,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 4,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 5,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 6,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 7,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 8,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 9,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 10,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 11,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 Participation.create!(
   user_id: 12,
   event_id: 1,
+  game_id: 1,
   status: 0,
 )
 
 
-50.times do
+20.times do
   takarabako = Takarabako.open
 
   Team.create!(
     name: takarabako,
-    participation_id: rand(1..20).to_s,
+    event_id: rand(1..2).to_s,
+    game_id: 1,
   )
 end
 
@@ -151,13 +174,6 @@ end
   )
 end
 
-
-  Game.create!(
-    win_id: 1,
-    lose_id: 2,
-    win_score: 25,
-    lose_score: rand(10..24).to_s,
-  )
 
   Resolute.create(
     user_id: 1,
