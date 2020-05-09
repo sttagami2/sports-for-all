@@ -1,6 +1,7 @@
 <div class="game-index">
   <h2>紅白戦新規作成</h2>
 
+  <%= form_for @participation, url: "/events/:event_id/games/halfway" do |f| %>
   <table>
     <tr>
       <th>試合日</th>
@@ -18,6 +19,8 @@
       <td>
         <%= radio_button_tag :member_select, "select" %>
         <%= label_tag :member_select, "参加メンバーを選択"%>
+        <tr><td><%= f.select :id, @participations.all.collect {|t| [t.user_id, t.id]}, {include_blank: "参加するメンバーを選択して下さい"}, {multiple: true, class: "mySelect2 form-control"} %></td></tr>
+        <tr><td><%= f.collection_select(:id, @participations, :id, :id, {include_blank: "参加するメンバーを選択して下さい"}, {multiple: true, class: "mySelect2 form-control"}) %></td></tr>
       </td>
       
     </tr>
@@ -29,4 +32,6 @@
       </td>
     </tr>
   </table>
+  <% end %>
 </div>
+

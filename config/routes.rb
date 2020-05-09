@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
 
   root 'home#top'
-  get 'home/about'
-  get 'events/event_id//games/halfway'
-  post 'teams/team_id/games/halfway'
+  get '/home/about'
+  get '/events/:event_id/games/halfway' => 'games#halfway'
 
   resources :users, only: [:edit, :update, :show]
   resources :events, only: [:new, :index, :create, :edit, :update, :show], shallow: true do
