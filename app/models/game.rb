@@ -1,4 +1,6 @@
 class Game < ApplicationRecord
-  belongs_to :team
+  belongs_to :event
+  has_many :team
+  has_many :participation
   has_many :resolute
 end

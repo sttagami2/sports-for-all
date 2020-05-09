@@ -5,6 +5,7 @@ class CreateGames < ActiveRecord::Migration[5.2]
       t.integer :lose_id
       t.integer :win_score
       t.integer :lose_score
+      t.integer :event_id
 
       t.timestamps
     end
