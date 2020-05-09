@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :participation
   has_many :comment
   has_many :resolute
+  has_many :location
 end
