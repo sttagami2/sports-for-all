@@ -13,7 +13,6 @@
 //= require jquery
 //= require rails-ujs
 //= require jcanvas
-//= require select2
 //= require activestorage
 //= require bootstrap-sprockets
 //= require turbolinks
