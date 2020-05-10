@@ -18,4 +18,5 @@
 //= require turbolinks
 //= require_tree .
 //= require_self
+//= require select2
 
