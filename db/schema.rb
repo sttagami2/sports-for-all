@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2020_05_09_125845) do
     t.integer "event_id"
     t.integer "win_id"
     t.integer "lose_id"
-    t.integer "win_score"
-    t.integer "lose_score"
+    t.integer "score1"
+    t.integer "score2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

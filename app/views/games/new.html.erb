@@ -1,7 +1,7 @@
 <div class="game-index">
   <h2>紅白戦新規作成</h2>
 
-  <%= form_for @participation, url: "/events/:event_id/games/halfway" do |f| %>
+  <%= form_for @participation, url: halfway_event_games_path, html: {method: "GET"} do |f| %>
   <table>
     <tr>
       <th>試合日</th>
@@ -18,12 +18,12 @@
       <th></th>
       <td>
         <%= radio_button_tag :member_select, "select" %>
-        <%= label_tag :member_select, "参加メンバーを選択"%>
-        <tr><td><%= f.select :id, @participations.all.collect {|t| [t.user_id, t.id]}, {include_blank: "参加するメンバーを選択して下さい"}, {multiple: true, class: "mySelect2 form-control"} %></td></tr>
-        <tr><td><%= f.collection_select(:id, @participations, :id, :id, {include_blank: "参加するメンバーを選択して下さい"}, {multiple: true, class: "mySelect2 form-control"}) %></td></tr>
+        <%= label_tag :member_select, "参加メンバーを選択"%></br>
+        <%= label_tag :id, "メンバー選択：" %>
+        <%= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]}, {multiple: true, include_blank: "参加するメンバーを選択して下さい", class: "mySelect2 form-control"} %>
       </td>
-      
     </tr>
+
     <tr>
       <th></th>
       <td>
@@ -31,7 +31,25 @@
         <%= label_tag :member_select, "チームを自分で決める"%>
       </td>
     </tr>
+
+    <tr>
+      <th></th>
+      <td>
+        <%= label_tag :id, "チーム1：" %>
+        <%= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]}, {multiple: true, include_blank: "参加するメンバーを選択して下さい", class: "mySelect2 form-control"} %>
+      </td>
+    </tr>
+
+    <tr>
+      <th></th>
+      <td>
+        <%= label_tag :id, "チーム2：" %>
+        <%= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]}, {multiple: true, include_blank: "参加するメンバーを選択して下さい", class: "mySelect2 form-control"} %>
+      </td>
+    </tr>
+
   </table>
+  <%= f.submit %>
   <% end %>
 </div>
 
