@@ -1,4 +1,4 @@
 class GameDetail < ApplicationRecord
-  has_many :team
-  has_many :game
+  has_many :teams
+  has_many :games
 end

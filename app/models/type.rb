@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-  has_many :event
+  has_many :events
 end

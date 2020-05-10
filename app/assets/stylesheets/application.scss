@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require select2
+ *= require select2-bootstrap
  *= require_tree .
  *= require_self
  */
@@ -21,12 +23,3 @@
 	margin-top: 51px;
 	padding: 0;
 }
-
-// thanksページ
-.present{
-	display: none;
-}
-.text-active{
-	display: block;
-}
-// thanksページ
