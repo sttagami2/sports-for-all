@@ -1,7 +1,6 @@
 <div class="game-index">
   <h2>紅白戦新規作成</h2>
 
-  <%= form_for @participation, url: halfway_event_games_path, html: {method: "GET"} do |f| %>
   <table>
     <tr>
       <th>試合日</th>
@@ -20,7 +19,8 @@
         <%= radio_button_tag :member_select, "select" %>
         <%= label_tag :member_select, "参加メンバーを選択" %></br>
         <%= label_tag :id, "メンバー選択：" %>
-        <%= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
+        <%= collection_select(:participation_select, :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
+        <%#= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
         
         
         <%#= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]},{}, {multiple: true, class: "mySelect2 form-control"} %>
@@ -43,7 +43,8 @@
       <th></th>
       <td>
         <%= label_tag :id, "チーム1：" %>
-        <%= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
+        <%= collection_select(:participation_team1, :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
+        <%#= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
         <%#= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]}, {include_blank: "参加するメンバーを選択して下さい", class: "mySelect2 form-control"} %>
       </td>
     </tr>
@@ -52,13 +53,13 @@
       <th></th>
       <td>
         <%= label_tag :id, "チーム2：" %>
-        <%= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
+        <%= collection_select(:participation_team2, :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
+        <%#= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
         <%#= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]}, {include_blank: "参加するメンバーを選択して下さい", class: "mySelect2 form-control"} %>
       </td>
     </tr>
 
   </table>
-  <%= f.submit %>
-  <% end %>
+    <%= link_to "試合を開始するall", halfway_event_games_path, member_select: "all", class: "btn btn-success" %>
 </div>
 

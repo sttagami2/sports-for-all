@@ -18,8 +18,9 @@ class GamesController < ApplicationController
   end
 
   def halfway
-    @participation = Participation.new(participation_params)
 
+    @event = Event.find(params[:event_id])
+    binding.pry
     case params[:member_select]
       when  "all"
         participations = Participation.where('event_id=? and status=?', params[:event_id], 0)
@@ -52,13 +53,14 @@ class GamesController < ApplicationController
         end
         @team1 = Team.order("created_at DESC").second
         @team2 = Team.order("created_at DESC").first
-        @game = Game.new
         @event = Event.find(params[:event_id])
+        @game = @event.games.build
+        binding.pry
 
 
 
 
-        
+
 
       when  "select"
         participations = Participation.where(id: params[:participation])
