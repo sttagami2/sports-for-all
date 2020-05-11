@@ -1,5 +1,5 @@
 <div class="game-index-container">
-  <%= form_for([@event ,@event.games.build]) do |f| %>
+  <%= form_for [@event ,@game] do |f| %>
     <div class="game-index-container__team">
       <div class="game-index-container__team-item"><p>チーム1：<span><%= @team1.name %></span></p></div>
       <ul>
