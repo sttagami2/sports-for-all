@@ -18,7 +18,9 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-
+.navbar {
+	margin: 0;
+}
 .container-fluid {
 	margin-top: 51px;
 	padding: 0;
