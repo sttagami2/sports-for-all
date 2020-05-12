@@ -22,7 +22,6 @@
         <%= collection_select(:participation_select, :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
         <%#= f.collection_select :id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "mySelect2 form-control"} %>
         
-        
         <%#= f.select :id, @participations.all.collect{|t| [t.user.name, t.id]},{}, {multiple: true, class: "mySelect2 form-control"} %>
         <%#= f.collection_select :id, @participations.all.collect{|t| [t.user.name, t.id]},:id, :name, {multiple: true, class: "mySelect2 form-control"} %>
         <%#= f.collection_select(:id, @participations, :id, :id, {include_blank: "参加するメンバーを選択して下さい"}, {multiple: true, class: "mySelect2 form-control"}) %>
@@ -60,6 +59,6 @@
     </tr>
 
   </table>
-    <%= link_to "試合を開始するall", halfway_event_games_path, member_select: "all", class: "btn btn-success" %>
+    <%= link_to "試合を開始する", halfway_event_games_path, member_select: "all", class: "btn btn-success" %>
 </div>
 
