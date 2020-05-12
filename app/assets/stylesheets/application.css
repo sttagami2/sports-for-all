@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+<<<<<<< Updated upstream:app/assets/stylesheets/application.css
+=======
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+body {
+	background-color: black;
+	color: white;
+}
+
+.navbar {
+	margin: 0;
+}
+.container-fluid {
+	margin-top: 51px;
+	padding: 0;
+}
+>>>>>>> Stashed changes:app/assets/stylesheets/application.scss
