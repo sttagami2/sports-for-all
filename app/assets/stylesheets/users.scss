@@ -2,15 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// <start> user-show
 .user-show {
+
+  // <start> user-show-introduction
   .introduction {
     border-bottom: 1px solid white;
     padding: 80px 50px;
     width: 90%;
     margin: 0 auto;
     &__header {
-      display: flex;
+      margin: 20px auto 40px;
+      &__image {
 
+      }
+
+      &__text {
+        &__top {
+          margin-bottom: 30px;
+          &__name {
+            font-size: 28px;
+          }
+        }
+      }
 
       &__text {
         margin: 0 auto;
@@ -20,31 +34,55 @@
       }
     }
   }
+  // <finish> user-show-introduction
 
+  // <start> user-show-calendar
+  
+  
+  // <finish> user-show-calendar
 
+  // <start> user-show-index
   .index {
-    
-    .index-item {
-
-      &__event {
-        &__panel {
-          margin: 100px;
-          &__heading {
-            h3 {
-              margin: 0;
-            }
+    .index-event {
+      &__panel {
+        margin: 100px;
+        &__heading {
+          h3 {
+            margin: 0;
           }
-          &__body {
+        }
+        &__body {
+          color: black;
+          height: 600px;
+          
+          &__link {
+            text-decoration: none;
             color: black;
-            height: 600px;
-            
-            &__link {
-              text-decoration: none;
-              color: black;
-            }
+          }
+        }
+      }
+    }
+
+    .index-game {
+      &__panel {
+        margin: 100px;
+        &__heading {
+          h3 {
+            margin: 0;
+          }
+        }
+        &__body {
+          color: black;
+          height: 600px;
+          
+          &__link {
+            text-decoration: none;
+            color: black;
           }
         }
       }
     }
   }
+  // <finish> user-show-index
 }
+// <finish> user-show

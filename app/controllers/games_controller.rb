@@ -12,7 +12,7 @@ class GamesController < ApplicationController
     # end
 
     @participation = Participation.new
-    participations = Participation.where('event_id=? and status=?', params[:event_id], 0)
+    participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
     @users = User.where(id: participations.map{|t| t.user_id})
 
   end
@@ -23,7 +23,7 @@ class GamesController < ApplicationController
     binding.pry
     case params[:member_select]
       when  "all"
-        participations = Participation.where('event_id=? and status=?', params[:event_id], 0)
+        participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
         random_team = participations.shuffle
         team = random_team.to_a.in_groups(2, false)                   # チームを2つに分ける
         @member1 = team[0]                                              # team配列1つ目を1チーム目とする

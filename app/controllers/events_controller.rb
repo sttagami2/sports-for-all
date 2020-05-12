@@ -21,7 +21,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @participations = Participation.where('event_id=? and status=?', params[:id], 0)
-    @participation = Participation.new
+    @participation = Participation.find_by('event_id=? and user_id=?', params[:id], current_user.id)
+    @participationnew = Participation.new
   end
 
   private
