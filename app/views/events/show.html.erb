@@ -38,14 +38,12 @@
 
 	<%# participation#create後にparticipation#indexに飛ばしたい %>
 	<div class="text-center">
-		<%= form_for(@participation, url: event_participations_path(event_id: params[:id])) do |f| %>
-			<% f.hidden_field :status, value: 0 %>
-			<%= f.submit "このイベントに参加する", class: "btn btn-success" %>
-		<% end %>
+    <% if @participation == nil %>
+      <%= link_to "このイベントに参加する", event_participations_path(event_id: params[:id]), method: :post, status: "参加", class: "btn btn-lg btn-success" %>
+    <% else %>
+      <%= link_to "参加を取りやめる", participation_path(event_id: params[:id]), method: :delete, class: "btn btn-lg btn-danger" %>
+    <% end %>
 	</div>
 </div>
 
 <%= render 'mapstyle' %>
-
-
-

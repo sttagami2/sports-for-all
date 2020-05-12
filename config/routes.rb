@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:edit, :update, :show]
   resources :events, only: [:new, :index, :create, :edit, :update, :show], shallow: true do
     resources :teams, only: [:new, :index, :create, :edit, :update, :show], shallow: true
-    resources :participations, only: [:index, :new, :create, :edit, :update, :show], shallow: true
+    resources :participations, shallow: true
     resources :games do
       collection do
         get 'halfway'
