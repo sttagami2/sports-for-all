@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   def show
     participations = Participation.where('user_id=?', current_user.id)
     @events = Event.where(id: participations.map{|t| t.event_id})
+    @user = User.find(params[:id]);
   end
 
   def edit
@@ -9,4 +10,9 @@ class UsersController < ApplicationController
 
   def update
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:name, :name_k, :image, :introduction, :email, :age, :phone_number)
+    end
 end
