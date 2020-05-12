@@ -3,6 +3,23 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user-show {
+  .introduction {
+    border-bottom: 1px solid white;
+    padding: 80px 50px;
+    width: 90%;
+    margin: 0 auto;
+    &__header {
+      display: flex;
+
+
+      &__text {
+        margin: 0 auto;
+        &__flex {
+          display: flex;
+        }
+      }
+    }
+  }
 
 
   .index {
