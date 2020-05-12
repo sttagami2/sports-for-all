@@ -14,13 +14,11 @@ class GamesController < ApplicationController
     @participation = Participation.new
     participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
     @users = User.where(id: participations.map{|t| t.user_id})
-
   end
 
   def halfway
 
     @event = Event.find(params[:event_id])
-    binding.pry
     case params[:member_select]
       when  "all"
         participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
@@ -54,17 +52,11 @@ class GamesController < ApplicationController
         @team1 = Team.order("created_at DESC").second
         @team2 = Team.order("created_at DESC").first
         @event = Event.find(params[:event_id])
-        @game = @event.games.build
-        binding.pry
-
-
-
 
 
 
       when  "select"
         participations = Participation.where(id: params[:participation])
-        binding.pry
         random_team = participations.shuffle
         team = random_team.to_a.in_groups(2, false)                   # チームを2つに分ける
         @member_1 = team[0]                                              # team配列1つ目を1チーム目とする
