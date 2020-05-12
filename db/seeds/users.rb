@@ -13,7 +13,7 @@ puts '"users"のデータを作成します'
     image: File.open('app/assets/images/sissors.png'),
     introduction: "説明文です。説明文です。説明文です。説明文です。",
     phone_number: "08000001111",
-    age: 20,
+    age: rand(16..40).to_i,
     email: Faker::Internet.email,
     password: "111111",
     status: 0,

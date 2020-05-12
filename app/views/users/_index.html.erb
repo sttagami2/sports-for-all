@@ -1,0 +1,25 @@
+<div class="index">
+  <div class="row">
+    <div class="index-item">
+      <div class="index-item__event col-xs-6">
+        <div class="index-item__event__panel panel panel-success">
+          <div class="index-item__event__panel__heading panel-heading">
+            <h3>イベント一覧</h3>
+          </div>
+          <div class="index-item__event__panel__body panel-body">
+            <h4>参加しているイベントです。</h4>
+              <ul>
+                <% @events.each do |event| %>
+                  <li><%=link_to "#{event.event_name}", event_path(event), class: "index-item__event__panel__body__link" %></li>
+                <% end %>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <div class="index-item__history col-xs-6">
+
+      </div>
+    
+    </div>
+  </div>
+</div>

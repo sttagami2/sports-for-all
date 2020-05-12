@@ -1,3 +1,33 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show {
+
+
+  .index {
+    
+    .index-item {
+
+      &__event {
+        &__panel {
+          margin: 100px;
+          &__heading {
+            h3 {
+              margin: 0;
+            }
+          }
+          &__body {
+            color: black;
+            height: 600px;
+            
+            &__link {
+              text-decoration: none;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+  }
+}
