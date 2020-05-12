@@ -1,4 +1,3 @@
-
 <h2>新規イベント作成</h2>
 <%= form_for @event do |f| %>
   <%= f.label :event_name, "イベント名" %><br>
@@ -9,9 +8,6 @@
 
   <%= f.label :date, "開催日" %><br>
   <%= f.text_field :date, autofocus: true, autocomplete: "開催日" %><br>
-
-  <%= f.label :location_id, "開催箇所" %><br>
-  <%= f.select :location_id, Location.all.collect {|l| [l.name, l.id]}, {}, {class: "form-control"} %><br>
 
   <%= f.label :place_name, "開催場所名" %><br>
   <%= f.text_field :place_name, autofocus: true, autocomplete: "開催場所名" %><br>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_07_035840) do
+ActiveRecord::Schema.define(version: 2020_05_09_125845) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "user_id"
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2020_05_07_035840) do
   end
 
   create_table "events", force: :cascade do |t|
-    t.integer "location_id"
     t.integer "type_id"
     t.string "event_name"
     t.text "introduction"
@@ -33,17 +32,25 @@ ActiveRecord::Schema.define(version: 2020_05_07_035840) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "game_details", force: :cascade do |t|
+    t.integer "game_id"
+    t.integer "team_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "games", force: :cascade do |t|
+    t.integer "event_id"
     t.integer "win_id"
     t.integer "lose_id"
-    t.integer "win_score"
-    t.integer "lose_score"
-    t.integer "event_id"
+    t.integer "score1"
+    t.integer "score2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
+    t.integer "user_id"
     t.string "name"
     t.string "postcode"
     t.string "address"
@@ -54,7 +61,6 @@ ActiveRecord::Schema.define(version: 2020_05_07_035840) do
   create_table "participations", force: :cascade do |t|
     t.integer "user_id"
     t.integer "event_id"
-    t.integer "game_id"
     t.integer "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -67,9 +73,15 @@ ActiveRecord::Schema.define(version: 2020_05_07_035840) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "team_details", force: :cascade do |t|
+    t.integer "team_id"
+    t.integer "participation_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.integer "event_id"
-    t.integer "game_id"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -1,13 +1,25 @@
 <div class="game-index-container">
-  <div class="game-index-container__team">
-    <% @team1.each do |team1| %>
-      <div class="game-index-container__team-item"></div>
-    <% end %>
-  </div>
-  <div class="game-index-container__team">
-    <% @team2.each do |team2| %>
-      <div class="game-index-container__team-item"></div>
+  <%= form_for [@event ,@game] do |f| %>
+    <div class="game-index-container__team">
+      <div class="game-index-container__team-item"><p>チーム1：<span><%= @team1.name %></span></p></div>
+      <ul>
+        <% @member1.each do |member1| %>
+          <li><%= member1.user.name %></li>
+        <% end %>
+      </ul>
+      <%= f.number_field :score1, include_brank: "点数" %>
+    </div>
+    <div class="game-index-container__team">
+      <div class="game-index-container__team-item"><p>チーム2：<span><%= @team2.name %></span></p></div>
+        <ul>
+          <% @member2.each do |member2| %>
+            <li><%= member2.user.name %></li>
+          <% end %>
+        </ul>
+      <%= f.number_field :score2, include_brank: "点数" %>
+      <%= f.submit %>  
     <% end %>
   </div>
 </div>
+
 
