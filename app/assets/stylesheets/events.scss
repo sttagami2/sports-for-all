@@ -1,3 +1,74 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// indexページ
+.event-index {
+  .event--flex{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    text-decoration: none;
+  
+    &__item {
+      width: 50%;
+      height: 400px;
+      
+      border: 1px solid black;
+      color: black;
+      ul {
+        list-style: none;
+        margin: 130px 0 0 0;
+        padding: 0;
+        li {
+          margin: 0;
+          padding: 0;
+        }
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+// indexページ
+
+
+// newページ
+.event--form {
+  margin: 30px auto;
+
+}
+// newページ
+
+
+// showページ
+.event-show {
+  &-top {
+    height: 100vh;
+    padding: 20px 0 50px 0;
+    border-bottom: solid 2px black;
+    &__container {
+      display: flex;
+      justify-content: space-around;
+    }
+    #map {
+      margin: 50px 0 0 0;
+      height: 60vh;
+    }
+  }
+  
+  &-main {
+    height: 500px;
+    background-color: rgb(182, 216, 226);
+    &__item-participation {
+      background-color: rgb(206, 180, 180);
+      height: 500px;
+      overflow-y: scroll;
+    }
+  }
+
+
+
+}

@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-10.times do
+50.times do
   gimei = Gimei.new
   
-  User.create(
+  User.create!(
     name: gimei.name.kanji,
     name_k: gimei.name.hiragana,
     image: File.open('app/assets/images/sissors.png'),
@@ -26,7 +26,7 @@ end
 10.times do
   gimei = Gimei.new
   
-  Location.create(
+  Location.create!(
     name: gimei.town.kanji,
     postcode: Faker::Address.postcode,
     address: gimei.address.kanji,
@@ -34,7 +34,7 @@ end
 end
 
 
-Type.create(
+Type.create!(
   name: "野球",
 )
 Type.create(
@@ -71,19 +71,111 @@ Type.create(
   )
 end
 
-50.times do
-  Participation.create(
-    user_id: rand(1..10).to_s,
-    event_id: rand(1..10).to_s,
-    status: rand(0..2).to_s,
+5.times do
+  Game.create!(
+    win_id: 1,
+    lose_id: 2,
+    win_score: 25,
+    lose_score: rand(10..24).to_s,
+    event_id: 1,
   )
 end
 
-100.times do
-  Comment.create(
-    user_id: rand(1..10).to_s,
-    event_id: rand(1..10).to_s,
+Participation.create!(
+  user_id: 1,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 2,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 3,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 4,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 5,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 6,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 7,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 8,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 9,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 10,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 11,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+Participation.create!(
+  user_id: 12,
+  event_id: 1,
+  game_id: 1,
+  status: 0,
+)
+
+
+20.times do
+  takarabako = Takarabako.open
+
+  Team.create!(
+    name: takarabako,
+    event_id: rand(1..2).to_s,
+    game_id: 1,
+  )
+end
+
+
+50.times do
+  Comment.create!(
+    user_id: rand(1..50).to_i,
+    event_id: rand(1..10).to_i,
     comment: "コメントです！コメントです！コメントです！",
   )
 end
 
+
+  Resolute.create(
+    user_id: 1,
+    game_id: 1,
+  )
