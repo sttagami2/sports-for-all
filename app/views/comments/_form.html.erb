@@ -1,0 +1,8 @@
+<%= form_with(model: [event, comment], url: event_comments_path(@event) ) do |f| %>
+  <div class="text-center">
+    <%= f.text_area :comment, style: "background-color: rgb(90, 90, 90); width: 40%;" %>
+  </div>
+  <div class="text-center">
+    <%= f.submit "送信", class: "btn btn-primary"  %>
+  </div>
+<% end %>
