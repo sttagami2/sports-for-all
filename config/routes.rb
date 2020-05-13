@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :games do
       collection do
         get 'halfway'
+        post 'halfway'
       end
     end
   end

@@ -21,14 +21,14 @@ class ParticipationsController < ApplicationController
     @participation.user_id = current_user.id
     @participation.status = "参加";
     if @participation.save
-      redirect_to event_participations_path
+      redirect_back(fallback_location: root_path)
     end
   end
 
   def destroy
-    @participation = Participation.find(current_user.id)
+    @participation = Participation.find_by(user_id: current_user.id)
     @participation.destroy
-    redirect_back(fallback_location:root_path)
+    redirect_back(fallback_location: root_path)
   end
 
   def show
