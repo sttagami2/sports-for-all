@@ -11,7 +11,8 @@ puts '"events"のデータを作成します'
     type_id: rand(1..8).to_s,
     event_name: "わいわいガヤガヤ",
     introduction: "説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。",
-    date: "2020/05/01",
+    start_date: '2020-06-01',
+    finish_date: '2020-06-01',
     place_name: gimei.town.kanji,
     address: gimei.address.kanji,
   )

@@ -6,4 +6,10 @@ class Event < ApplicationRecord
   belongs_to :type
 
   attachment :image
+
+  
+  def start_time
+    self.start_date
+  end
+
 end
