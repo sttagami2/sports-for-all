@@ -2,8 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.game-index {
-  table th td {
-    border: none;
+.game-halfway {
+  .game-halfway-container {
+    width: 70%;
+    height: 60vh;
+    margin: 0 auto;
+    background-color: limegreen;
+    &__team {
+      display: flex;
+
+      &__item {
+        display: flex;
+      }
+    }
   }
 }
