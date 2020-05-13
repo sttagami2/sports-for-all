@@ -1,5 +1,13 @@
 <div class="calendar">
   <div class="text-center">
-    カレンダーを表示するよ！
+    <%= month_calendar events: @events do |date, events| %>
+      <%= date %>
+
+      <% events.each do |event| %>
+        <div>
+          <%= link_to "#{event.event_name}", event_path(event) %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
