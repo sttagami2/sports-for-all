@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:edit, :update, :show]
   resources :events, only: [:new, :index, :create, :edit, :update, :show], shallow: true do
+    resources :comments, only: [:create, :destroy]
     resources :teams, only: [:new, :index, :create, :edit, :update, :show], shallow: true
     resources :participations, shallow: true
     resources :games do

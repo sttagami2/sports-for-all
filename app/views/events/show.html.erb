@@ -48,11 +48,11 @@
 </div>
 
 <div id="comments_area">
-  <%= render partial: 'book_comments/index', locals: { comments: @comments } %>
+  <%= render partial: 'comments/index', locals: { comments: @comments } %>
 </div>
 
 <% if user_signed_in? %>
-  <%= render partial: 'book_comments/form', locals: { comment: @comment, book: @book } %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
 <% end %>
 
 <%= render 'mapstyle' %>
