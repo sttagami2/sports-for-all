@@ -3,8 +3,15 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get '/home/about', to: 'home#about'
+  get 'users/:id/following', to: 'users#following'
+  get 'users/:id/followers', to: 'users#followers'
 
-  resources :users, only: [:edit, :update, :show]
+  resources :relationships, only: [:create, :destroy]
+  resources :users, only: [:index, :edit, :update, :show] do
+    member do
+      get :following, :followers
+    end
+  end
   resources :events, only: [:new, :index, :create, :edit, :update, :show], shallow: true do
     resources :comments, only: [:create, :destroy]
     resources :teams, only: [:new, :index, :create, :edit, :update, :show], shallow: true
