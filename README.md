@@ -34,7 +34,7 @@ https://drive.google.com/file/d/1wxgy3zux7IQW3ZFdqDQ0PRo2MHNUmoao/view?usp=shari
 https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX2Yw/edit?usp=sharing
 
 ◆アプリケーション詳細設計 
-https://docs.google.com/spreadsheets/d/1AeUtkDEyLHe8nrsHLpl6h5ctbMeQOogPGjkancZcFEo/edit#gid=1458629920
+https://docs.google.com/spreadsheets/d/1AeUtkDEyLHe8nrsHLpl6h5ctbMeQOogPGjkancZcFEo/edit?usp=sharing
 
 ◆ワイヤーフレーム 
 https://app.diagrams.net/#G1f0_m5xeNmPpTV6AR26WBWzhlRGhdS1XN
