@@ -31,7 +31,7 @@ https://docs.google.com/document/d/1yaGCCa-KULAVmKbzjPgDIzlaM_vmJLdCGnZcxV92JOM/
 https://drive.google.com/file/d/1wxgy3zux7IQW3ZFdqDQ0PRo2MHNUmoao/view?usp=sharing
 
 ◆テーブル定義書 
-https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX2Yw/edit#gid=485399999
+https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX2Yw/edit?usp=sharing
 
 ◆アプリケーション詳細設計 
 https://docs.google.com/spreadsheets/d/1AeUtkDEyLHe8nrsHLpl6h5ctbMeQOogPGjkancZcFEo/edit#gid=1458629920
