@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   root 'home#top'
   get '/home/about', to: 'home#about'
   get 'users/:id/following', to: 'users#following'
   get 'users/:id/followers', to: 'users#followers'
+
+  get '/auth/:provider/callback', to: 'sessions#create'
 
   resources :relationships, only: [:create, :destroy]
   resources :users, only: [:index, :edit, :update, :show] do

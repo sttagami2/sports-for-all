@@ -80,3 +80,5 @@ gem 'takarabako', :github => 'sttagami2/takarabako'
 gem 'select2-rails'
 gem 'font-awesome-sass'
 gem 'whenever', require: false
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
