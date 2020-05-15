@@ -28,7 +28,7 @@ Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるア
 https://docs.google.com/document/d/1yaGCCa-KULAVmKbzjPgDIzlaM_vmJLdCGnZcxV92JOM/edit
 
 ◆ER図 
-https://app.diagrams.net/#G1wxgy3zux7IQW3ZFdqDQ0PRo2MHNUmoao
+https://drive.google.com/file/d/1wxgy3zux7IQW3ZFdqDQ0PRo2MHNUmoao/view?usp=sharing
 
 ◆テーブル定義書 
 https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX2Yw/edit#gid=485399999
