@@ -79,3 +79,4 @@ gem 'jcanvas-rails', '~> 0.1.0'
 gem 'takarabako', :github => 'sttagami2/takarabako'
 gem 'select2-rails'
 gem 'font-awesome-sass'
+gem 'whenever', require: false
