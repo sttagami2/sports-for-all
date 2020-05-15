@@ -6,7 +6,7 @@
       </div>
 
       <div class="event-show-top__container__item">
-        <p>種目：<span><%= @event.type.name %></span></p>
+        <p>種目：<span><%= Type.find_by(id: @event.type_id).name %></span></p>
       </div>
 
       <div class="event-show-top__container__item">
