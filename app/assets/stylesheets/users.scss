@@ -1,3 +1,126 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// <start> user-show
+.user-show {
+
+  // <start> user-show-introduction
+  .introduction {
+    border-bottom: 1px solid white;
+    padding: 80px 50px;
+    width: 90%;
+    margin: 0 auto;
+    &__header {
+      margin: 20px auto 40px;
+      &__image {
+
+      }
+
+      &__text {
+        &__top {
+          margin-bottom: 30px;
+          &__name { font-size: 28px; }
+        }
+      }
+
+      &__text {
+        margin: 0 auto;
+        &__flex { display: flex; }
+      }
+    }
+  }
+  // <finish> user-show-introduction
+
+  // <start> user-show-calendar
+  .calendar {
+    width: 80%;
+    margin: 0 auto;
+    .simple-calendar {
+      margin: 50px 0 30px;
+      background-color: white;
+      color: black;
+      border-color: black;
+      th { text-align: center; }
+      &__heading {
+        height: 90px;
+        line-height: 90px;
+        background-color: #FFCCFF;
+        display: flex;
+        justify-content: space-around;
+        
+        &__title {
+          font-size: 24px;
+        }
+      }
+      // .day {}
+    
+      // .wday-0 {}
+      // .wday-1 {}
+      // .wday-2 {}
+      // .wday-3 {}
+      // .wday-4 {}
+      // .wday-5 {}
+      // .wday-6 {}
+    
+      // .today {}
+      // .past {}
+      // .future {}
+    
+      // .start-date {}
+    
+      // .prev-month {}
+      // .next-month { }
+      // .current-month {}
+    
+      // .has-events {}
+    }
+  }
+  // <finish> user-show-calendar
+
+
+  // <start> user-show-index
+  .index {
+    .index-event {
+      &__panel {
+        margin: 100px;
+        &__heading {
+
+          h3 { margin: 0; }
+
+        }
+        &__body {
+          color: black;
+          height: 600px;
+          
+          &__link {
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+
+    .index-game {
+      &__panel {
+        margin: 100px;
+        &__heading {
+
+          h3 { margin: 0; }
+
+        }
+        &__body {
+          color: black;
+          height: 600px;
+          
+          &__link {
+            text-decoration: none;
+            color: black;
+          }
+        }
+      }
+    }
+  }
+  // <finish> user-show-index
+}
+// <finish> user-show

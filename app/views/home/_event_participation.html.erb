@@ -1,0 +1,7 @@
+  <div class="home-top__event-participation">
+    <% @types.each do |type| %>
+      <%= link_to events_path(type_id: type.id), class: "home-top__event-participation__item-#{type.id} text-center" do %>
+        <p><%= type.name %></p>        <%#イベントindexにて検索する！%>
+      <% end %>
+    <% end %>
+  </div>

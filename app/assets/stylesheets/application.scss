@@ -12,13 +12,28 @@
  *
  *= require select2
  *= require select2-bootstrap
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
+body {
+	background-color: black;
+	color: white;
+}
 
+input textarea {
+	background-color: rgb(90, 90, 90);
+}
+
+.navbar {
+	margin: 0;
+}
 .container-fluid {
 	margin-top: 51px;
 	padding: 0;

@@ -1,8 +1,7 @@
 class ParticipationsController < ApplicationController
   def index
-    @participations_join = Participation.where(event_id: params[:id], status: 0)
-    @participations_undecided = Participation.where(event_id: params[:id], status: 1)
-    @participations_non = Participation.where(event_id: params[:id], status: 2)
+    @participations_join = Participation.where('event_id=? and status=?', params[:event_id], "参加")
+    @participations_join_num = Participation.where('event_id=? and status=?', params[:event_id], "参加").count
   end
 
   def edit
@@ -10,10 +9,6 @@ class ParticipationsController < ApplicationController
   end
 
   def update
-    @participation = Participation.find(current_user.id)
-    if @participation.update(participation_params)
-      redirect_to event_participations
-    end
   end
 
   def new
@@ -23,10 +18,17 @@ class ParticipationsController < ApplicationController
 
   def create
     @participation = Participation.new(participation_params)
-    @participation.user_id = current_customer.id
+    @participation.user_id = current_user.id
+    @participation.status = "参加";
     if @participation.save
-      redirect_to event_participations_path
+      redirect_back(fallback_location: root_path)
     end
+  end
+
+  def destroy
+    @participation = Participation.find_by(user_id: current_user.id)
+    @participation.destroy
+    redirect_back(fallback_location: root_path)
   end
 
   def show
@@ -35,6 +37,6 @@ class ParticipationsController < ApplicationController
   private
     
     def participation_params
-      params.require(:participation).permit(:user_id, :event_id, :status)
+      params.permit(:event_id, :status, :user_id)
     end
 end

@@ -1,2 +1,11 @@
-<h1>Home#about</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+<div class="home-about">
+  <%= render 'header_top' %>
+
+  <%= render 'suggestion'%>
+
+  <div class="home-about__registration text-center">
+    <%= link_to "会員登録はこちらから", new_user_registration_path, class: "btn btn-success btn-lg" %>
+    <%= link_to "Sign in with facebook", user_facebook_omniauth_authorize_path %>
+    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+  </div>
+</div>

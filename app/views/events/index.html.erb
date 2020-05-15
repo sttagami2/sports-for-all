@@ -1,6 +1,9 @@
 <div class="event-index">
   <div class="text-center">
     <h2>イベント一覧</h2>
+    <%= form_tag events_path, method: :get, class: 'boards__searchForm' do %>
+      <%= select_tag :type_id, options_from_collection_for_select(Type.all, :id, :name, params[:type_id]),{prompt: 'タグで絞り込み検索', onchange: 'submit(this.form);'} %>
+    <% end %>
   </div>
   <div class="event--flex">
     <% @events.each do |event| %>

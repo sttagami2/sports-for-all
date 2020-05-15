@@ -26,5 +26,5 @@ Type.create(
   name: "ハンドボール",
 )
 Type.create(
-  name: "ゴルフ",
+  name: "バドミントン",
 )

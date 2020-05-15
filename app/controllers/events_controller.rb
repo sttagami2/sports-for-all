@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    if params[:type_id].present?
+      @events = Event.where(type_id: params[:type_id])
+    else
+      @events = Event.all
+    end
   end
 
   def create
@@ -20,8 +24,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    @participations = Participation.where('event_id=? and status=?', params[:id], 0)
-    @participation = Participation.new
+    @participations = Participation.where('event_id=? and status=?', params[:id], "参加")
+    @participation = Participation.find_by('event_id=? and user_id=?', params[:id], current_user.id)
+    @participationnew = Participation.new
+    @comment = Comment.new
+    @comments = @event.comments
   end
 
   private
