@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
+  resources :chats, only: [:create]
+  resources :rooms, only: [:create, :show]
   resources :events, only: [:new, :index, :create, :edit, :update, :show], shallow: true do
     resources :comments, only: [:create, :destroy]
     resources :teams, only: [:new, :index, :create, :edit, :update, :show], shallow: true

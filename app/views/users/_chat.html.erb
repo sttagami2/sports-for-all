@@ -1,0 +1,16 @@
+          <% if (current_user.following? @user) && (@user.following? current_user)  %>
+            <% if @isRoom == true %>
+              <div class="row">
+                <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="col-xs-12 btn btn-primary ">チャットへ</a>
+              </div>
+            <% else %>
+              <%= form_for @room do |f| %>
+                <%= fields_for @user_room do |user| %>
+                  <%= user.hidden_field :user_id, value: @user.id %>
+                <% end %>
+                  <div class="row">
+                    <%= f.submit "チャットを始める", class:"col-xs-12 btn btn-primary user-show-chat"%>
+                  </div>
+              <% end %>
+            <% end %>
+          <% end %>
