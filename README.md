@@ -37,7 +37,7 @@ https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX
 https://docs.google.com/spreadsheets/d/1AeUtkDEyLHe8nrsHLpl6h5ctbMeQOogPGjkancZcFEo/edit?usp=sharing
 
 ◆ワイヤーフレーム 
-https://app.diagrams.net/#G1f0_m5xeNmPpTV6AR26WBWzhlRGhdS1XN
+https://drive.google.com/file/d/1f0_m5xeNmPpTV6AR26WBWzhlRGhdS1XN/view?usp=sharing
 
 ### 機能一覧
 ◆機能一覧 
