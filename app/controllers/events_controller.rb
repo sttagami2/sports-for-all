@@ -4,7 +4,11 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    if params[:type_id].present?
+      @events = Event.where(type_id: params[:type_id])
+    else
+      @events = Event.all
+    end
   end
 
   def create
