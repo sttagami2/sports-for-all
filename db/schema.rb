@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_124232) do
+ActiveRecord::Schema.define(version: 2020_05_15_233928) do
 
   create_table "chats", force: :cascade do |t|
     t.integer "user_id"
@@ -106,6 +106,15 @@ ActiveRecord::Schema.define(version: 2020_05_15_124232) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "sns_credentials", force: :cascade do |t|
+    t.string "provider"
+    t.string "uid"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_sns_credentials_on_user_id"
   end
 
   create_table "team_details", force: :cascade do |t|
