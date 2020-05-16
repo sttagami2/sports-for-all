@@ -3,14 +3,6 @@ class GamesController < ApplicationController
   end
 
   def new
-    # @game = Game.new
-    # @participations = Participation.where('event_id=? and status=?', 1, 0)
-    # takarabako = Takarabako.open
-    # participations.each do |participation|
-    #   aaa = Participation.new(id: participation.id, name: participation.user.name)
-    #   @participations.push(aaa)
-    # end
-
     @participation = Participation.new
     participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
     @users = User.where(id: participations.map{|t| t.user_id})
@@ -18,6 +10,7 @@ class GamesController < ApplicationController
 
   def halfway
     @event = Event.find(params[:event_id])
+    @game = Game.new
 
     # 2チーム自動で作成
     2.times do
@@ -109,8 +102,26 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.new
-    
+    @game.event_id = params[:event_id]
 
+    score1 = (params[:score1]).to_i
+    score2 = (params[:score2]).to_i
+
+    if score1 > score2
+      @game.win_id = Team.order("created_at DESC").second.id
+      @game.lose_id = Team.order("created_at DESC").first.id
+      @game.win_score = score1
+      @game.lose_score = score2
+    else
+      @game.win_id = Team.order("created_at DESC").first.id
+      @game.lose_id = Team.order("created_at DESC").second.id
+      @game.win_score = score2
+      @game.lose_score = score1
+    end
+
+    @game.save
+
+    redirect_to event_games_path
   end
 
   def edit
