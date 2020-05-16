@@ -1,30 +1,46 @@
-<div class="game-halfway-container">
-  <%= form_for([@event ,@event.games.build]) do |f| %>
+<%#= form_for([@event ,@game]) do |f| %>
+<%= form_tag event_games_path, method: :post do |f| %>
+  <div class="game-halfway-container">
+    <%#<div class="line"></div>%>
     <div class="game-halfway-container__team row">
-      <div class="game-halfway-container__team__item col-xs-6">
-        <% @member1.each do |member1| %>
-          <div>
+      <div class="game-halfway-container__team__item text-left col-xs-6">
+        <div>
+          <% @member1.each do |member1| %>
             <%#<div><%= member1.user.image %><%#</div>%>
             <div><%= member1.user.name %></div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-      <p>チーム1：<span><%= @team1.name %></span></p>
-      <%= f.select :score1, (1..300).to_a, {include_blank: "点数"}, {class: "form-control", style: "width: 60px;"} %>
-      <div class="game-halfway-container__team__item col-xs-6">
-        <% @member2.each do |member2| %>
-          <div class="text-center">
+      <div class="game-halfway-container__team__item text-right col-xs-6">
+        <div class="text-right">
+          <% @member2.each do |member2| %>
             <%#<div><%= member2.user.image%><%#</div>%>
             <div><%= member2.user.name %></div>
-          </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
-      <p>チーム2：<span><%= @team2.name %></span></p>
-      <%= f.select :score1, (1..300).to_a, {include_blank: "点数"}, {class: "form-control", style: "width: 60px;"} %>
     </div>
-    <%= f.submit "結果を記録する", class: "btn btn-success btn-lg" %>  
-  <% end %>
-</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 text-center">
+      <p>チーム1：<span><%= @team1.name %></span></p>
+      <%= hidden_field_tag :team1, @team1.name %>
+    </div>
+    <div class="col-xs-6 text-center">
+      <p>チーム2：<span><%= @team2.name %></span></p>
+      <%= hidden_field_tag :team2, @team2.name %>
+    </div>
+  </div>
+  <div class="score">
+    <%= select_tag 'score1', options_for_select((1..300).to_a) %>
+    <%= select_tag 'score2', options_for_select((1..300).to_a) %>
+    <%#= select(:score2, (1..300).to_a, {include_blank: "点数"}, {class: "form-control", style: "width: 60px;"}) %>
+  </div>
 
-
+  <div class="text-center">
+    <%= button_tag type: "submit", class: "btn btn-success btn-lg" do %>
+      結果を記録する
+    <% end %>
+  </div>
+<% end %>
 

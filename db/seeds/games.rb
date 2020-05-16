@@ -10,8 +10,8 @@ puts '"games"のデータを作成します'
     event_id: 1,
     win_id: 1,
     lose_id: 2,
-    score1: 25,
-    score2: rand(10..24).to_s,
+    win_score: 25,
+    lose_score: rand(10..24).to_s,
   )
 end
 5.times do
@@ -19,7 +19,7 @@ end
     event_id: 1,
     win_id: 1,
     lose_id: 3,
-    score1: 25,
-    score2: rand(10..24).to_s,
+    win_score: 25,
+    lose_score: rand(10..24).to_s,
   )
 end
