@@ -5,8 +5,11 @@
         <div class="index-game__panel__body panel-body">
           <h4>試合した結果一覧です。</h4>
             <ul>
-              <%# @games.each do |game| %>
-                <%#<li><%#=link_to "#{event.event_name}", event_path(event), class: "index-item__event__panel__body__link" %><%#</li>
+              <% @games.each do |game| %>
+                <% game.game_details.each do |game_detail| %>
+                  <% binding.pry %>
+                  <li><%=link_to "#{game_detail.team.name}", game_path(game), class: "index-item__event__panel__body__link" %></li>
+                <% end %>
               <% end %>
             </ul>
         </div>
