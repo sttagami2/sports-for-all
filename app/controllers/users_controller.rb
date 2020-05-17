@@ -7,8 +7,10 @@ class UsersController < ApplicationController
   def show
     participations = Participation.where('user_id=?', current_user.id)
     @events = Event.where(id: participations.map{|t| t.event_id})
-    @user = User.find(params[:id]);
+    @user = User.find(params[:id])
     @user_relation = current_user
+    @resolutes = Resolute.where(user_id: @user.id)
+    binding.pry
     # @events = Participation.where('user_id=? and status=?', current_user.id, "参加" )
 
     # チャット機能

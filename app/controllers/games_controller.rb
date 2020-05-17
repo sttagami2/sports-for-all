@@ -145,8 +145,7 @@ class GamesController < ApplicationController
     team_details << winer_team_details
     team_details << loser_team_details
     team_details.flatten!
-    binding.pry
-
+    
     # チーム詳細で参加者id(participation_id)のみを取得する
     participation_ids = []
     team_details.each do |team_detail|
