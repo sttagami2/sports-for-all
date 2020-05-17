@@ -48,6 +48,8 @@ class GamesController < ApplicationController
         @team2 = Team.order("created_at DESC").first
         @event = Event.find(params[:event_id])
 
+        
+
       when  "select"
         # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
         user_ids = []
@@ -157,8 +159,8 @@ class GamesController < ApplicationController
     
     # 参加者詳細から会員id(user_id)のみを取得する
     user_ids = []
-    participations.each do |user_id|
-      user_ids.push(user_id)
+    participations.each do |participation|
+      user_ids.push(participation.user_id)
     end
 
     # 試合参加メンバーを取得する
@@ -171,7 +173,8 @@ class GamesController < ApplicationController
         game_id: @game.id,
       )
     end
-    redirect_to event_games_path
+    
+    redirect_to game_path(@game)
   end
 
   def edit
@@ -214,12 +217,12 @@ class GamesController < ApplicationController
     
     # 参加者詳細から会員id(user_id)のみを取得する
     winer_user_ids = []
-    participation_winer.each do |winer_user_id|
-      winer_user_ids.push(winer_user_id)
+    participation_winer.each do |winer|
+      winer_user_ids.push((winer.user_id).to_i)
     end
     loser_user_ids = []
-    participation_loser.each do |loser_user_id|
-      loser_user_ids.push(loser_user_id)
+    participation_loser.each do |loser|
+      loser_user_ids.push((loser.user_id).to_i)
     end
 
     # チームメンバーを取得する
