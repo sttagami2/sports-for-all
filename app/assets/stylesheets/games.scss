@@ -59,10 +59,10 @@
             width: 80px;
           }
           .win-lose-left {
-            text-align: right;
+            margin-left: 30px;
           }
           .win-lose-right {
-            text-align: left;
+            margin-right: 30px;
           }
           .team-name {
             width: 200px;
@@ -70,6 +70,13 @@
           .score {
             width: 50px;
             line-height: 60px;;
+          }
+          .winer {
+            background-color: red;
+            border-radius: 10px;
+            width: 60px;
+            height: 40px;
+            line-height: 40px;
           }
         }
       }
