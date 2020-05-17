@@ -10,8 +10,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_relation = current_user
     @resolutes = Resolute.where(user_id: @user.id)
+    
+    # 会員が参加した試合のidを取得する
+    game_ids = []
+    @resolutes.each do |resolute|
+      game_ids.push((resolute.game_id).to_i)
+    end
+    @games = Game.where(id: game_ids)
     # @events = Participation.where('user_id=? and status=?', current_user.id, "参加" )
-
+    
     # チャット機能
     @current_user_room = UserRoom.where(user_id: current_user.id)
 		@user_user_room = UserRoom.where(user_id: @user.id)
