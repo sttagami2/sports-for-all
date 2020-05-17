@@ -122,23 +122,33 @@ class GamesController < ApplicationController
   def create
     @game = Game.new
     @game.event_id = params[:event_id]
-
+    team1 = Team.order("created_at DESC").second
+    team2 = Team.order("created_at DESC").first
     score1 = (params[:score1]).to_i
     score2 = (params[:score2]).to_i
 
     if score1 > score2
-      @game.win_id = Team.order("created_at DESC").second.id
-      @game.lose_id = Team.order("created_at DESC").first.id
+      @game.win_id = team1.id
+      @game.lose_id = team2.id
       @game.win_score = score1
       @game.lose_score = score2
 
     else
-      @game.win_id = Team.order("created_at DESC").first.id
-      @game.lose_id = Team.order("created_at DESC").second.id
+      @game.win_id = team2.id
+      @game.lose_id = team1.id
       @game.win_score = score2
       @game.lose_score = score1
     end
     @game.save
+
+    GameDetail.create!(
+      game_id: @game.id,
+      team_id: team1.id,
+    )
+    GameDetail.create!(
+      game_id: @game.id,
+      team_id: team2.id,
+    )
 
     # チームの参加者を探すためにチーム詳細を探す
     team_details = []
@@ -173,6 +183,8 @@ class GamesController < ApplicationController
         game_id: @game.id,
       )
     end
+
+
     
     redirect_to game_path(@game)
   end

@@ -6,10 +6,7 @@
           <h4>試合した結果一覧です。</h4>
             <ul>
               <% @games.each do |game| %>
-                <% game.game_details.each do |game_detail| %>
-                  <% binding.pry %>
-                  <li><%=link_to "#{game_detail.team.name}", game_path(game), class: "index-item__event__panel__body__link" %></li>
-                <% end %>
+                <li><%=link_to "#{Team.where(game.win_id}", game_path(game), class: "index-item__event__panel__body__link" %></li>
               <% end %>
             </ul>
         </div>
