@@ -4,10 +4,33 @@
         </div>
         <div class="index-game__panel__body panel-body">
           <h4>試合した結果一覧です。</h4>
-            <ul>
-              <% @games.each do |game| %>
-                <li><%=link_to "#{Team.where(game.win_id}", game_path(game), class: "index-item__event__panel__body__link" %></li>
-              <% end %>
-            </ul>
+          <table>
+            <% @games.each.with_index(1) do |game, i| %>
+              <tr>
+                <th class="index"><%= "#{i}試合目" %></th>
+                <% if (game.win_id) < (game.lose_id) %>
+                  <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
+                  <td class="score"><%= game.win_score %></td>
+                  <td>ー</td>
+                  <td class="score"><%= game.lose_score %></td>
+                  <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
+                <% else %>
+                  <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
+                  <td class="score"><%= game.lose_score %></td>
+                  <td>ー</td>
+                  <td class="score"><%= game.win_score %></td>
+                  <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
+                <% end %>
+                <td>
+                  <%= link_to "詳細を見る", game_path(game) %>
+                </td>
+                <td>
+                  <%= link_to edit_game_path(game) do %>
+                    <i class="fas fa-cog"></i>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </table>
         </div>
       </div>

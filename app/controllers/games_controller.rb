@@ -143,11 +143,11 @@ class GamesController < ApplicationController
 
     GameDetail.create!(
       game_id: @game.id,
-      team_id: team1.id,
+      team_id: @game.win_id,
     )
     GameDetail.create!(
       game_id: @game.id,
-      team_id: team2.id,
+      team_id: @game.lose_id,
     )
 
     # チームの参加者を探すためにチーム詳細を探す
