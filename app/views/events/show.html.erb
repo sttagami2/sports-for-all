@@ -36,7 +36,6 @@
     </div>
   </div>
 
-	<%# participation#create後にparticipation#indexに飛ばしたい %>
 	<div class="text-center">
     <% if @participation == nil %>
       <%= link_to "このイベントに参加する", event_participations_path(event_id: params[:id]), method: :post, status: "参加", class: "btn btn-lg btn-success" %>

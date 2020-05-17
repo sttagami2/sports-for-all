@@ -7,6 +7,8 @@ class UsersController < ApplicationController
   def show
     participations = Participation.where('user_id=?', current_user.id)
     @events = Event.where(id: participations.map{|t| t.event_id})
+    # @event_past = Event.where('id=? and finish_date<?', participations.map{|t| t.event_id}, Date.today)
+    # @event_feature = Event.where('id=? and start_date>?', participations.map{|t| t.event_id}, Date.today)
     @user = User.find(params[:id])
     @user_relation = current_user
     @resolutes = Resolute.where(user_id: @user.id)
@@ -17,6 +19,7 @@ class UsersController < ApplicationController
       game_ids.push((resolute.game_id).to_i)
     end
     @games = Game.where(id: game_ids)
+    
     # @events = Participation.where('user_id=? and status=?', current_user.id, "参加" )
     
     # チャット機能
