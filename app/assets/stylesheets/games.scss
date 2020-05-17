@@ -43,3 +43,39 @@
   display: flex;
   justify-content: space-around;
 }
+
+// <start> game-index
+.game-index {
+  &__row {
+    &__right {
+      &__table {
+        tr {
+          height: 60px;
+          td {
+            text-align: center;
+            width: 80px;
+          }
+          .index {
+            width: 80px;
+          }
+          .win-lose-left {
+            text-align: right;
+          }
+          .win-lose-right {
+            text-align: left;
+          }
+          .team-name {
+            width: 200px;
+          }
+          .score {
+            width: 50px;
+            line-height: 60px;;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// <finish> game-index
