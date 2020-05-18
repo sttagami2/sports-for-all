@@ -173,25 +173,117 @@
       }
     }
 
-    &__text {
-      background-image: image-url("football-team.jpg");
-      background-size: cover;
-      background-position: 30% 20%;
-      height: 90vh;
-      &__left {
-        background-color: rgba(195, 0, 255, 0.7);
-        background-blend-mode: lighten;
-        color: black;
+    &__slide {
+      position: relative;
+      overflow: hidden;
+      .slide-zoom {
+        width: 100%;
+        height:90vh;
+        z-index: -1;
+        overflow: hidden;
+      }
+      .slide-zoom .slide-image {
+        width: 100%;
         height: 90vh;
-        .text {
-          margin-top: 250px;
-          padding: 0 50px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        color: transparent;
+        /* background-size: cover; */
+        background-position: 50% 50%;
+        background-repeat: none;
+        opacity: 0;
+        overflow: hidden;
+    　　-webkit-backface-visibility: hidden;
+        // 20秒間かかるImgAnimeの処理を永遠と繰り返す
+        -webkit-animation: ImgAnime 20s linear infinite 0s;
+        -moz-animation: ImgAnime 20s linear infinite 0s;
+        -o-animation: ImgAnime 20s linear infinite 0s;
+        -ms-animation: ImgAnime 20s linear infinite 0s;
+        animation: ImgAnime 20s linear infinite 0s;
+      }
+      .slide-zoom .slide-image:nth-child(1) {
+        background-image: image-url("football-team.jpg");
+        background-position: 50% 40%;;
+      }
+      .slide-zoom .slide-image:nth-child(2) {
+        background-image: image-url("baseball-team.jpg");
+        -webkit-animation-delay: 5s;
+        -moz-animation-delay: 5s;
+        -o-animation-delay: 5s;
+        -ms-animation-delay: 5s;
+        animation-delay: 5s;
+        background-position: 50% 35%;
+        
+      }
+      .slide-zoom .slide-image:nth-child(3) {
+        background-image: image-url("basketball-team2.jpg");
+        -webkit-animation-delay: 10s;
+        -moz-animation-delay: 10s;
+        -o-animation-delay: 10s;
+        -ms-animation-delay: 10s;
+        animation-delay: 10s;
+        background-position: 50% 50%;
+      }
+      .slide-zoom .slide-image:nth-child(4) {
+        background-image: image-url("teammate.jpg");
+        -webkit-animation-delay: 15s;
+        -moz-animation-delay: 15s;
+        -o-animation-delay: 15s;
+        -ms-animation-delay: 15s;
+        animation-delay: 15s;
+        background-position: 50% 30%;
+      }
+      @keyframes ImgAnime { 
+        0% {
+            opacity: 0;
+            transform: scale(1.15);
+            animation-timing-function: ease-in;
+        }
+        10% {
+            opacity: 1;
+            transform: scale(1.1);
+            animation-timing-function: ease-out;
+        }
+        15% {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+        20% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        25% {
+            opacity: 0;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0;
         }
       }
-      &__right {
-
-      }
     }
+
+    // &__text {
+    //   background-image: image-url("football-team.jpg");
+    //   background-size: cover;
+    //   background-position: 30% 20%;
+    //   height: 90vh;
+    //   &__left {
+    //     background-color: rgba(195, 0, 255, 0.7);
+    //     background-blend-mode: lighten;
+    //     color: black;
+    //     height: 90vh;
+    //     .text {
+    //       margin-top: 250px;
+    //       padding: 0 50px;
+    //     }
+    //   }
+    //   &__right {
+
+    //   }
+    // }
   }
   .about-for {
     height: 400px;
