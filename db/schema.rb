@@ -41,12 +41,11 @@ ActiveRecord::Schema.define(version: 2020_05_15_124232) do
     t.integer "type_id"
     t.string "event_name"
     t.text "introduction"
-    t.date "start_date"
-    t.date "finish_date"
+    t.datetime "start_date"
+    t.datetime "finish_date"
     t.string "place_name"
     t.string "address"
     t.string "image"
-    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
