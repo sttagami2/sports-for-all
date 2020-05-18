@@ -1,0 +1,53 @@
+<div class="text-center">
+  <h2>イベント一覧</h2>
+  <%#= form_tag events_path, method: :get, class: 'boards__searchForm' do %>
+    <%#= select_tag :type_id, options_from_collection_for_select(Type.all, :id, :name, params[:type_id]),{prompt: 'タグで絞り込み検索', onchange: 'submit(this.form);'} %>
+  <%# end %>
+  <ul class="menu">
+    <li>
+      <%= link_to events_path, class: "event-type active", data: {id: "all"} do %>
+        All
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 1), class: "event-type", data: {id: "vollayball"} do %>
+        バレーボール
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 2), class: "event-type", data: {id: "baseball"} do %>
+        野球
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 3), class: "event-type", data: {id: "football"} do %>
+        フットサル
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 4), class: "event-type", data: {id: "bowling"} do %>
+        ボウリング
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 5), class: "event-type", data: {id: "tennis"} do %>
+        テニス
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 6), class: "event-type", data: {id: "basketball"} do %>
+        バスケットボール
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 7), class: "event-type", data: {id: "handball"} do %>
+        ハンドボール
+      <% end %>
+    </li>
+    <li>
+      <%= link_to events_path(type_id: 8), class: "event-type", data: {id: "badminton"} do %>
+        バドミントン
+      <% end %>
+    </li>
+  </ul>
+</div>

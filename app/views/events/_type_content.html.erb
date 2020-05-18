@@ -1,0 +1,110 @@
+  <div class="content active" id="all">
+    <% @events.each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="vollayball">
+    <% @events.where(type_id: 1).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="baseball">
+    <% @events.where(type_id: 2).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="football">
+    <% @events.where(type_id: 3).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="bowling">
+    <% @events.where(type_id: 4).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="tennis">
+    <% @events.where(type_id: 5).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="basketball">
+    <% @events.where(type_id: 6).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="handball">
+    <% @events.where(type_id: 7).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="content" id="badminton">
+    <% @events.where(type_id: 8).each do |event| %>
+      <%= link_to event_path(event), class: "event-index__item" do %>
+        <div class="text-center">
+          <ul>
+            <li><h2><%= event.event_name %></h2></li>
+            <li><%= event.introduction %></li>
+          </ul>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= render "type_select_script" %>
