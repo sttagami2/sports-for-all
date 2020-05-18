@@ -7,10 +7,10 @@
   <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %><br>
 
   <%= f.label :start_date, "開催日時" %><br>
-  <%= f.datetime_select :start_date, autofocus: true, autocomplete: "開催日時" %><br>
+  <%= f.datetime_field :start_date %><br>
   
   <%= f.label :finish_date, "終了日時" %><br>
-  <%= f.datetime_select :finish_date, autofocus: true, autocomplete: "終了日時" %><br>
+  <%= f.datetime_field :finish_date %><br>
 
   <%= f.label :place_name, "開催場所名" %><br>
   <%= f.text_field :place_name, autofocus: true, autocomplete: "開催場所名" %><br>

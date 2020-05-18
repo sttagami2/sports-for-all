@@ -3,7 +3,22 @@
 
   <%= render 'suggestion'%>
 
-  <div class="home-about__registration text-center">
+  <div class="home-about__registration text-center scroll-fade">
     <%= link_to "会員登録はこちらから", new_user_registration_path, class: "btn btn-success btn-lg" %>
   </div>
 </div>
+
+
+<script>
+$('.animation').css('visibility','hidden');
+$(window).scroll(function(){
+ var windowHeight = $(window).height(),
+     topWindow = $(window).scrollTop();
+ $('.animation').each(function(){
+  var targetPosition = $(this).offset().top;
+  if(topWindow > targetPosition - windowHeight + 250){
+   $(this).addClass("fadeInDown");
+  }
+ });
+});
+</script>

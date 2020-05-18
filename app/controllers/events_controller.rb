@@ -13,6 +13,14 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.save
+    Participation.create!(
+      event_id: @event.id,
+      user_id: current_user.id,
+      status: "参加",
+    )
+    binding.pry
+    redirect_to event_path(@event)
   end
 
   def edit
@@ -33,6 +41,6 @@ class EventsController < ApplicationController
 
   private
     def event_params
-      parms.require(:event).permit(:location_id, :type_id, :event_name, :introduction, :date, :place_name, :address)
+      params.require(:event).permit(:location_id, :type_id, :event_name, :introduction, :start_date, :finish_date, :place_name, :address)
     end
 end
