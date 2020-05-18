@@ -4,33 +4,73 @@
 
 // indexページ
 .event-index {
-  .event--flex{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    text-decoration: none;
+
   
-    &__item {
-      width: 50%;
-      height: 400px;
-      
-      border: 1px solid black;
-      color: white;
-      ul {
-        list-style: none;
-        margin: 130px 0 0 0;
-        padding: 0;
-        li {
-          margin: 0;
-          padding: 0;
-        }
-      }
-      &:hover {
-        text-decoration: none;
-      }
+
+  
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    li a {
+      display: inline-block;
+      width: 130px;
+      text-align: center;
+      padding: 8px 0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px 4px 0 0;
+    }
+    li a.active {
+      background: #882601;
+      color: #fff;
+    }
+    li a:not(.active):hover {
+      opacity: 0.5;
+      transition: opacity 0.4s;
     }
   }
+  
+  .content.active {
+    background: #812772;
+    color: #fff;
+    min-height: 0;
+    padding: 12px;
+    display: flex;
+    // justify-content: center;
+    width: 80%;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 0 auto;
+  }
+  
+  .content {
+    display: none;
+  }
+
+  
+  &__item {
+    text-decoration: none;
+    width: 50%;
+    height: 400px;
+    border: 1px solid black;
+    color: white;
+    ul {
+      list-style: none;
+      margin:  130px 0 0 0;
+      padding: 0;
+      li {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
 }
 // indexページ
 
