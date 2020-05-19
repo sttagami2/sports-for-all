@@ -79,6 +79,12 @@
       text-decoration: none;
     }
   }
+  
+  .event-host {
+    margin: 80px auto 100px;
+  }
+  
+  
   .map-area {
     display: none;
   }
@@ -131,7 +137,7 @@
       }
     }
   }
-  
+
   &-main {
     height: 500px;
     background-color: rgb(182, 216, 226);
@@ -142,6 +148,27 @@
     }
   }
 
+  .participation-action {
+    margin-top: 70px;
+  }
+
+  .comment-container {
+    margin: 80px auto;
+    width: 70%;
+    h2 {
+      margin-bottom: 30px;
+      text-decoration: underline;
+      text-decoration-color: #FFFF00;
+    }
+    .comment-area {
+      width: 100%;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background-color: rgba(179, 179, 179, 0.6);
+    }
+  }
 
 
 }
