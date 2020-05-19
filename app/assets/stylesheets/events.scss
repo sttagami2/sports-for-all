@@ -4,32 +4,94 @@
 
 // indexページ
 .event-index {
-  .event--flex{
-    width: 100%;
+  .event-top {
+    position: relative;
+    &__text {
+      margin: 0 auto;
+      width: 300px;
+    }
+    &__button {
+      position: absolute;
+      top: 0;
+      right: 50px;
+    }
+  }
+
+  .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
     display: flex;
+    justify-content: center;
+    li a {
+      display: inline-block;
+      width: 120px;
+      text-align: center;
+      padding: 8px 0;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 4px 4px 0 0;
+    }
+    li a.active {
+      background: #882601;
+      color: #fff;
+    }
+    li a:not(.active):hover {
+      opacity: 0.5;
+      transition: opacity 0.4s;
+    }
+  }
+  
+  .content.active {
+    background: #812772;
+    color: #fff;
+    min-height: 0;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    // justify-content: center;
+    width: 80%;
     flex-wrap: wrap;
     align-content: flex-start;
-    text-decoration: none;
+  }
   
-    &__item {
-      width: 50%;
-      height: 400px;
-      
-      border: 1px solid black;
+  .content {
+    display: none;
+    a:hover {
+      text-decoration: none;
       color: white;
-      ul {
-        list-style: none;
-        margin: 130px 0 0 0;
+      background-color: rgb(200, 100, 210)
+    }
+  }
+
+  
+  &__item {
+    text-decoration: none;
+    width: 50%;
+    height: 400px;
+    border: 1px solid rgb(140, 70, 140);
+    color: white;
+    ul {
+      list-style: none;
+      margin:  130px 0 0 0;
+      padding: 0;
+      li {
+        margin: 0;
         padding: 0;
-        li {
-          margin: 0;
-          padding: 0;
-        }
       }
       &:hover {
         text-decoration: none;
       }
     }
+  }
+  
+  .event-host {
+    margin: 80px auto 100px;
+  }
+  
+  
+  .map-area {
+    display: none;
   }
 }
 // indexページ
@@ -38,7 +100,6 @@
 // newページ
 .event--form {
   margin: 30px auto;
-
 }
 // newページ
 
@@ -53,12 +114,35 @@
       display: flex;
       justify-content: space-around;
     }
-    #map {
+    .map-area {
+      position: relative;
       margin: 50px 0 0 0;
       height: 60vh;
+      #map {
+        height: 60vh;
+      }
+      &__address {
+        position: absolute;
+        top: 20%;
+        left: 2%;
+        background-color: rgba(247, 121, 121, 0.6);
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        h3 {
+          width: 200px;
+          border-bottom: 1px solid white;
+          margin: 20px auto;
+        }
+        p {
+          width: 250px;
+          padding: 0 30px;
+          margin: 90px auto;
+        }
+      }
     }
   }
-  
+
   &-main {
     height: 500px;
     background-color: rgb(182, 216, 226);
@@ -69,6 +153,27 @@
     }
   }
 
+  .participation-action {
+    margin-top: 70px;
+  }
+
+  .comment-container {
+    margin: 80px auto;
+    width: 70%;
+    h2 {
+      margin-bottom: 30px;
+      text-decoration: underline;
+      text-decoration-color: #FFFF00;
+    }
+    .comment-area {
+      width: 100%;
+    }
+    hr {
+      border: 0;
+      height: 1px;
+      background-color: rgba(179, 179, 179, 0.6);
+    }
+  }
 
 
 }

@@ -1,2 +1,25 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="game-show">
+  <%= "#{@game.id}試合目" %>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= @team_winer_name %>
+      <%= @win_score %>
+      <div>
+        <% @member_winer.each do |member_winer| %>
+          <div><%= member_winer.name %></div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-xs-6">
+      <%= @team_loser_name %>
+      <%= @lose_score %>
+      <div>
+        <% @member_loser.each do |member_loser| %>
+          <div><%= member_loser.name %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
+  <%= link_to "試合結果を編集する", edit_event_game_path, class: "btn btn-success" %>
+</div>

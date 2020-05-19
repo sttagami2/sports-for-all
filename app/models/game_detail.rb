@@ -1,4 +1,4 @@
 class GameDetail < ApplicationRecord
-  has_many :teams
-  has_many :games
+  belongs_to :team, dependent: :destroy
+  belongs_to :game, dependent: :destroy
 end

@@ -6,15 +6,21 @@
       </div>
 
       <div class="event-show-top__container__item">
-        <p>種目：<span><%= @event.type.name %></span></p>
+        <p>種目：<span><%= Type.find_by(id: @event.type_id).name %></span></p>
       </div>
 
       <div class="event-show-top__container__item">
-        <p>開催日時：<span><%= @event.date %></span></p>
+        <p>開催日時：<span><%= @event.start_date %></span></p>
+      </div>
+    </div>
+    <div class="map-area">
+      <div id="map" class="<%= @event.address %>"></div>
+      <div class="map-area__address text-center">
+        <h3>住所</h3>
+        <p><%= @event.address %></p>
       </div>
     </div>
 
-    <div id="map" class="<%= @event.address %>%"></div>
   </div>
 
   <div class="row event-show-main">
@@ -28,7 +34,7 @@
       <table>
         <% @participations.each do |participation| %>
         <tr>
-          <td width="150" height="60"><%= User.find(participation.user_id).name %></td>
+          <td width="150" height="60"><%= link_to "#{User.find(participation.user_id).name}", user_path(participation.user_id) %></td>
           <td width="150" height="60"><%= "#{User.find(participation.user_id).age}歳" %></td>
         </tr>
         <% end %>
@@ -36,14 +42,25 @@
     </div>
   </div>
 
-	<%# participation#create後にparticipation#indexに飛ばしたい %>
-	<div class="text-center">
+	<div class="text-center participation-action">
     <% if @participation == nil %>
       <%= link_to "このイベントに参加する", event_participations_path(event_id: params[:id]), method: :post, status: "参加", class: "btn btn-lg btn-success" %>
     <% else %>
+      <%= link_to "試合を始める", new_event_game_path(event_id: params[:id]), class: "btn btn-lg btn-success" %>
       <%= link_to "参加を取りやめる", participation_path(event_id: params[:id]), method: :delete, class: "btn btn-lg btn-danger" %>
     <% end %>
 	</div>
+  <div class="comment-container">
+    <h2>コメント一覧</h2>
+    <div id="comments_area" class="comment-area">
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
+    <% end %>
+  </div>
 </div>
+
 
 <%= render 'mapstyle' %>

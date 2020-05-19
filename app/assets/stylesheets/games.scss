@@ -2,8 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.game-index {
-  table th td {
-    border: none;
+.game-halfway {
+  .game-halfway-container {
+    width: 70%;
+    height: 60vh;
+    margin: 0 auto;
+    background-color: limegreen;
+    position: relative;
+
+    // .line {
+    //   position: absolute;
+    //   width: 100%;
+    //   height: 60vh;
+    //   clip-path: polygon(20% 0, 25% 0, 80% 100%, 75% 100%);
+    //   background-color: red;
+    //   line-height: 60vh;
+    //   margin: 0 auto;
+    // }
+    
+    &__team {
+      height: 60vh;
+      display: flex;
+      &__item {
+        height: 60vh;
+        width: 100%;
+      }
+      &__item:nth-child(1) {
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+        background-color: blue;
+      }
+      &__item:nth-child(2) {
+        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+        background-color: red;
+      }
+    }
   }
 }
+
+.score {
+  display: flex;
+  justify-content: space-around;
+}
+
+// <start> game-index
+.game-index {
+  &__row {
+    &__right {
+      &__table {
+        tr {
+          height: 60px;
+          td {
+            text-align: center;
+            width: 80px;
+          }
+          .index {
+            width: 80px;
+          }
+          .win-lose-left {
+            margin-left: 30px;
+          }
+          .win-lose-right {
+            margin-right: 30px;
+          }
+          .team-name {
+            width: 200px;
+          }
+          .score {
+            width: 50px;
+            line-height: 60px;;
+          }
+          .winer {
+            background-color: red;
+            border-radius: 10px;
+            width: 60px;
+            height: 40px;
+            line-height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+// <finish> game-index

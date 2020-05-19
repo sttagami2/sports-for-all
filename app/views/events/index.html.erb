@@ -1,17 +1,10 @@
 <div class="event-index">
-  <div class="text-center">
-    <h2>イベント一覧</h2>
-  </div>
-  <div class="event--flex">
-    <% @events.each do |event| %>
-      <%= link_to event_path(event), class: "event--flex__item" do %>
-        <div class="text-center">
-          <ul>
-            <li><h2><%= event.event_name %></h2></li>
-            <li><%= event.introduction %></li>
-          </ul>
-        </div>
-      <% end %>
-    <% end %>
+  
+  <%= render "type_select" %>
+
+  <%= render "type_content"%>
+
+  <div class="event-host text-center">
+    <%= link_to "新たにイベントを開催する", new_event_path, class: "btn btn-success"%>
   </div>
 </div>

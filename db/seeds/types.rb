@@ -5,26 +5,26 @@ OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 puts '"types"のデータを作成します'
 
 Type.create(
-  name: "バレーボール",
+  name: "vollayball",
 )
 Type.create!(
-  name: "野球",
+  name: "baseball",
 )
 Type.create(
-  name: "フットサル",
+  name: "football",
 )
 Type.create(
-  name: "ボウリング",
+  name: "bowling",
 )
 Type.create(
-  name: "テニス",
+  name: "tennis",
 )
 Type.create(
-  name: "バスケットボール",
+  name: "basketball",
 )
 Type.create(
-  name: "ハンドボール",
+  name: "handball",
 )
 Type.create(
-  name: "バドミントン",
+  name: "badminton",
 )

@@ -1,0 +1,16 @@
+<% comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <ul class="ul-comment">
+      <li class="li-comment">
+      <%= link_to "#{comment.user.name}", user_path(comment.user.id) %>
+      </li>
+      <li class="li-comment"><%= comment.comment %></li>
+      <% if comment.user == current_user %>
+        <li class="li-comment">
+          <%= link_to "Destroy", comment_path(comment.id), method: :delete, remote: true, class: "btn btn-danger" %>
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+  <hr>
+<% end %>
