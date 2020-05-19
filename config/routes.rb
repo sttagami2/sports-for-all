@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   end
   resources :chats, only: [:create]
   resources :rooms, only: [:create, :show]
-  resources :events, only: [:new, :index, :create, :edit, :update, :show], shallow: true do
+  resources :events, only: [:new, :index, :create, :edit, :update, :show] do
     resources :comments, only: [:create, :destroy]
     resources :teams, only: [:new, :index, :create, :edit, :update, :show], shallow: true
     resources :participations, shallow: true

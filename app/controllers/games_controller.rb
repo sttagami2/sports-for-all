@@ -186,7 +186,7 @@ class GamesController < ApplicationController
 
 
     
-    redirect_to game_path(@game)
+    redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
   end
 
   def edit

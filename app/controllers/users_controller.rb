@@ -7,22 +7,47 @@ class UsersController < ApplicationController
   def show
     participations = Participation.where('user_id=?', current_user.id)
     @events = Event.where(id: participations.map{|t| t.event_id})
-    # @event_past = Event.where('id=? and finish_date<?', participations.map{|t| t.event_id}, Date.today)
-    # @event_feature = Event.where('id=? and start_date>?', participations.map{|t| t.event_id}, Date.today)
     @user = User.find(params[:id])
     @user_relation = current_user
-    @resolutes = Resolute.where(user_id: @user.id)
-    
-    # 会員が参加した試合のidを取得する
-    game_ids = []
-    @resolutes.each do |resolute|
+
+
+    # <start> 会員の勝利数を取得する処理
+    @resolutes = Resolute.where(user_id: @user.id)                      # 参加した試合情報を取得する  ※ @resolutes.countで参加した試合数が取得できる
+    game_ids = []                                                       # 会員が参加した試合のidを取得するため空の配列を定義
+    @resolutes.each do |resolute|                                       # 参加した試合のidから試合idのみ取得する
       game_ids.push((resolute.game_id).to_i)
     end
-    @games = Game.where(id: game_ids)
     
-    # @events = Participation.where('user_id=? and status=?', current_user.id, "参加" )
+    @games = Game.where(id: game_ids)                                   # 取得した試合idから試合結果情報を取得する
+    win_ids = []                                                        # 試合結果情報から勝利したチームのidを取得するため空の配列を定義
+    @games.each do |game|                                               # 取得した試合結果情報から勝利したチームのidを取得する
+      win_ids.push((game.win_id).to_i)
+    end
+
+    team_details = TeamDetail.where(team_id: win_ids)                   # 取得した勝利チームのidからそのチームに所属していたチーム詳細情報を取得する
+    participation_ids = []                                              # チーム詳細情報から勝利したチームに所属していた参加者のidを取得するため空の配列を定義
+    team_details.each do |team_detail|                                  # 取得した参加者情報から参加者idを取得する
+      participation_ids.push((team_detail.participation_id).to_i)
+    end
+
+    # participations = Participation.where(id: participation_ids)       # 取得した参加者idから参加者情報を取得する
+    # user_ids = []                                                     # 参加者情報から会員のidを取得するため空の配列を定義
+    # participations.each do |participation|                            # 取得した参加者idから会員idを取得する
+    #   user_ids.push((participation.user_id).to_i)
+    # end
+
+    count = 0
+    participation_ids.each do |participation_id|
+      if Participation.find_by("id=? and user_id=?", participation_id, current_user.id) != nil
+        count += 1
+      end
+    end
+    @win_count = count
+    # <finish> 会員の勝利数を取得する処理
+
+
     
-    # チャット機能
+    # <start> チャット機能
     @current_user_room = UserRoom.where(user_id: current_user.id)
 		@user_user_room = UserRoom.where(user_id: @user.id)
 		if @user.id != current_user.id
@@ -40,6 +65,7 @@ class UsersController < ApplicationController
         @user_room = UserRoom.new
       end
     end
+    # <finish> チャット機能
   end
 
   def edit
