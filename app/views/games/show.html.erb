@@ -20,5 +20,6 @@
       </div>
     </div>
   </div>
-  <%= link_to "試合結果を編集する", edit_game_path, class: "btn btn-success" %>
+  <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
+  <%= link_to "試合結果を編集する", edit_event_game_path, class: "btn btn-success" %>
 </div>
