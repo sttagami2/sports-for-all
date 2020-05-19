@@ -13,8 +13,13 @@
         <p>開催日時：<span><%= @event.start_date %></span></p>
       </div>
     </div>
-
-    <div id="map" class="<%= @event.address %>"></div>
+    <div class="map-area">
+      <div id="map" class="<%= @event.address %>"></div>
+      <div class="map-area__address text-center">
+        <h3>住所</h3>
+        <p><%= @event.address %></p>
+      </div>
+    </div>
 
   </div>
 
