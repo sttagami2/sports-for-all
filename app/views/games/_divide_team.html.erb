@@ -32,8 +32,12 @@
     </div>
   </div>
   <div class="score">
-    <%= select_tag 'score1', options_for_select((1..300).to_a) %>
-    <%= select_tag 'score2', options_for_select((1..300).to_a) %>
+    <div class="score-width">
+      <%= select_tag 'score1', options_for_select((1..300).to_a), class: "form-control" %>
+    </div>
+    <div class="score-width">
+      <%= select_tag 'score2', options_for_select((1..300).to_a), class: "form-control" %>
+    </div>
     <%#= select(:score2, (1..300).to_a, {include_blank: "点数"}, {class: "form-control", style: "width: 60px;"}) %>
   </div>
 
