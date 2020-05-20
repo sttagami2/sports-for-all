@@ -7,7 +7,8 @@
     width: 70%;
     height: 60vh;
     margin: 0 auto;
-    background-color: limegreen;
+    // background-color: limegreen;
+    background: linear-gradient(90deg, red 0%, red 50%, blue 50%, blue 100%);
     position: relative;
 
     // .line {
@@ -23,17 +24,23 @@
     &__team {
       height: 60vh;
       display: flex;
+      margin: 80px auto;
       &__item {
         height: 60vh;
         width: 100%;
+        margin-bottom: 20px;
       }
       &__item:nth-child(1) {
-        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 125% 100%, 0% 100%);
         background-color: blue;
+        // clip-path: polygon(100% 50%, 100% 0%, 75% 0%);
+        // background-color: red;
       }
       &__item:nth-child(2) {
-        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+        clip-path: polygon(-25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
         background-color: red;
+        // clip-path: polygon(0% 50%, 25% 100%, 0% 100%);
+        // background-color: blue;
       }
     }
   }
@@ -42,43 +49,49 @@
 .score {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px;
+  &-width {
+    width: 80px;
+  }
 }
 
 // <start> game-index
 .game-index {
-  &__row {
-    &__right {
-      &__table {
-        tr {
-          height: 60px;
-          td {
-            text-align: center;
-            width: 80px;
-          }
-          .index {
-            width: 80px;
-          }
-          .win-lose-left {
-            margin-left: 30px;
-          }
-          .win-lose-right {
-            margin-right: 30px;
-          }
-          .team-name {
-            width: 200px;
-          }
-          .score {
-            width: 50px;
-            line-height: 60px;;
-          }
-          .winer {
-            background-color: red;
-            border-radius: 10px;
-            width: 60px;
-            height: 40px;
-            line-height: 40px;
-          }
-        }
+  width: 70%;
+  color: black;
+  margin: 60px auto 0;
+  .game-index__table {
+    margin: 0 auto;
+    tr {
+      height: 60px;
+      td {
+        text-align: center;
+        width: 80px;
+      }
+      .index {
+        width: 80px;
+      }
+      .win-lose-left {
+        margin-left: 30px;
+        color: white;
+      }
+      .win-lose-right {
+        margin-right: 30px;
+        color: white;
+      }
+      .team-name {
+        width: 200px;
+      }
+      .score {
+        width: 50px;
+        line-height: 60px;;
+      }
+      .winer {
+        background-color: red;
+        border-radius: 10px;
+        width: 60px;
+        height: 40px;
+        line-height: 40px;
       }
     }
   }
@@ -86,3 +99,41 @@
 }
 
 // <finish> game-index
+
+
+// <start> game-new
+.game-new {
+  &__container {
+    width: 60%;
+    margin: 0 auto;
+    &__panel {
+      margin-top: 50px;
+      padding-bottom: 80px;
+    }
+    .game-new-table {
+      border-collapse: separate;
+      border-spacing: 0 20px;
+      margin-left: 5%;
+      color: black;
+      margin-bottom: 40px;
+      .side-color {
+        border-left: 5px solid rgb(199, 245, 73);
+        font-size: 20px;
+        padding-left: 5px;
+      }
+      .team-flex {
+        display: flex;
+        .team-select {
+          width: 200px;
+          margin: 0 30px 0;
+          
+        }
+      }
+      .member_select {
+        width: 150px;
+        margin: 0 30px 0;
+      }
+    }
+  }
+}
+// <finish> game-new
