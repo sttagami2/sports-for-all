@@ -1,7 +1,7 @@
 <div class="introduction">
   <div class="row introduction__header">
     <div class="introduction__header__image text-center col-xs-4">
-      userの写真を載せますよー！
+      <%= image_tag(@user.image.to_s, size: "250x250") unless @user.image.file.nil? %>
     </div>
     <div class="introduction__header__text col-xs-8">
       <div class="introduction__header__text__top row">
