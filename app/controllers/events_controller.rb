@@ -19,7 +19,6 @@ class EventsController < ApplicationController
       user_id: current_user.id,
       status: "参加",
     )
-    binding.pry
     redirect_to event_path(@event)
   end
 
