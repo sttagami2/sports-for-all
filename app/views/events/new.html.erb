@@ -22,7 +22,7 @@
   <%= f.text_area :introduction, autofocus: true, autocomplete: "イベント紹介文", class: "form-control" %><br>
 
   <%= f.label :image, "イベント写真" %><br>
-  <%= f.attachment_field :image, class: "form-control" %><br>
+  <%= f.file_field :image, class: "form-control" %><br>
 
   <%= f.submit "イベントを登録する", class: "btn btn-success" %>
 <% end %>

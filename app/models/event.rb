@@ -6,7 +6,7 @@ class Event < ApplicationRecord
   has_many :event_types, dependent: :destroy
   has_many :types, through: :event_types
 
-  attachment :image
+  mount_uploader :image, ImagesUploader
 
   
   def start_time

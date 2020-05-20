@@ -80,6 +80,8 @@ gem 'takarabako', :github => 'sttagami2/takarabako'
 gem 'select2-rails'
 gem 'font-awesome-sass'
 gem 'whenever', require: false
+gem 'carrierwave'
+gem 'mini_magick'
 
 gem 'dotenv-rails'
 
