@@ -39,6 +39,12 @@
         <div class="col-xs-4">フォロー<%= link_to @user.followings.count, following_user_path(@user) %>人</div>
         <div class="col-xs-4">フォロワー<%= link_to @user.followers.count, followers_user_path(@user) %>人</div>
       </div>
+      <div class="row">
+        <div class="col-xs-3">勝率：<%= "#{(((@win_count.to_f) / (@resolutes.count.to_f)) * 100).round(1)}％" %></div>
+        <div class="col-xs-3">試合数：<%= "#{@resolutes.count}回" %></div>
+        <div class="col-xs-3">勝ち数：<%= "#{@win_count}回" %></div>
+        <div class="col-xs-3">負け数：<%= "#{@resolutes.count-@win_count}回"  %></div>
+      </div>
     </div>
   </div>
   <div class="introduction__header__text__introduce text-center">
