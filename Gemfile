@@ -69,7 +69,6 @@ gem 'pry-rails'
 gem 'geocoder'
 gem 'ransack'
 gem 'rspec-rails'
-gem 'dotenv-rails'
 gem 'kaminari','~> 1.1.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'rails-i18n'
@@ -81,3 +80,9 @@ gem 'takarabako', :github => 'sttagami2/takarabako'
 gem 'select2-rails'
 gem 'font-awesome-sass'
 gem 'whenever', require: false
+
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+end
