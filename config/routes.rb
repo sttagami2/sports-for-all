@@ -3,8 +3,9 @@ Rails.application.routes.draw do
 
   root 'home#top'
   get '/home/about', to: 'home#about'
-  get 'users/:id/following', to: 'users#following'
-  get 'users/:id/followers', to: 'users#followers'
+  get '/users/:id/following', to: 'users#following'
+  get '/users/:id/followers', to: 'users#followers'
+  get '/search', to: 'search#search'
 
   resources :relationships, only: [:create, :destroy]
   resources :users, only: [:index, :edit, :update, :show] do
