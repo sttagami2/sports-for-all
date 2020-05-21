@@ -12,15 +12,20 @@
     width: 90%;
     margin: 0 auto;
     &__header {
-      margin: 20px auto 40px;
+      margin: 0 auto;
       &__image {
-
+        img {
+          border-radius: 50%;
+        }
       }
 
       &__text {
         &__top {
           margin-bottom: 30px;
           &__name { font-size: 28px; }
+        }
+        .game_resolute {
+          margin-top: 30px;
         }
       }
 
@@ -75,6 +80,7 @@
     
       // .has-events {}
     }
+
   }
   // <finish> user-show-calendar
 

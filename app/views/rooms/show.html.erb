@@ -1,0 +1,30 @@
+<% @user_rooms.each do |room| %>
+  <% if room.user.id != current_user.id %>
+      <h2><%= room.user.name %>さんとのチャット</h2>
+  <% end %>
+<% end %>
+<hr>
+<% if @chats.present? %>
+  <% @chats.each do |chat| %>
+    <% if chat.user.id == current_user.id %>
+      <div class="text-center">
+        <div><span style="margin-right: 40px;"><strong><%= chat.content %></strong></span><%= current_user.name %></div>
+      </div>
+    <% else %>
+      <div class="text-left">
+        <div><%= chat.user.name %><span style="margin-left: 40px;"><strong><%= chat.content %></strong></span></div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+</div>
+<div class="container" style="margin-top: 30px;">
+  <div class="posts">
+    <%= form_for @chat do |f| %>
+      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70 %>
+      <%= f.hidden_field :room_id, value: @room.id %>
+      <%#= f.submit "投稿",class: 'form-submit', type: 'hidden'%>
+      <%= f.submit "投稿",class: 'form-submit btn btn-primary'%>
+    <% end %>
+  </div>
+</div>

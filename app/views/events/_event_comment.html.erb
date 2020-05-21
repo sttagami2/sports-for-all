@@ -1,0 +1,19 @@
+	<div class="text-center participation-action">
+    <% if @participation == nil %>
+      <%= link_to "このイベントに参加する", event_participations_path(event_id: params[:id]), method: :post, status: "参加", class: "btn btn-lg btn-success" %>
+    <% else %>
+      <%= link_to "試合を始める", new_event_game_path(event_id: params[:id]), class: "btn btn-lg btn-success" %>
+      <%= link_to "参加を取りやめる", participation_path(event_id: params[:id]), method: :delete, class: "btn btn-lg btn-danger" %>
+      <%= link_to "試合結果を見る", event_games_path(event_id: params[:id]), class: "btn btn-lg btn-success" %>
+    <% end %>
+	</div>
+  <div class="comment-container">
+    <h2>コメント一覧</h2>
+    <div id="comments_area" class="comment-area">
+      <%= render partial: 'comments/index', locals: { comments: @comments } %>
+    </div>
+
+    <% if user_signed_in? %>
+      <%= render partial: 'comments/form', locals: { comment: @comment, event: @event } %>
+    <% end %>
+  </div>

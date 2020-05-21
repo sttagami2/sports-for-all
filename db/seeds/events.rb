@@ -8,8 +8,8 @@ puts '"events"のデータを作成します'
   gimei = Gimei.new
 
   Event.create!(
-    type_id: rand(1..8).to_s,
-    event_name: "わいわいガヤガヤ",
+    type_id: rand(1..8).to_i,
+    event_name: "#{Takarabako.open}イベント",
     introduction: "説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。",
     start_date: '2020-06-01',
     finish_date: '2020-06-01',

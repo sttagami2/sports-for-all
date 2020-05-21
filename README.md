@@ -24,24 +24,24 @@ Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるア
 　→ 相性計算してくれる機能実装
 
 ## 設計書
-◆案件定義書 
+◆案件定義書 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 https://docs.google.com/document/d/1yaGCCa-KULAVmKbzjPgDIzlaM_vmJLdCGnZcxV92JOM/edit
 
-◆ER図 
-https://app.diagrams.net/#G1wxgy3zux7IQW3ZFdqDQ0PRo2MHNUmoao
+◆ER図 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+https://drive.google.com/file/d/1wxgy3zux7IQW3ZFdqDQ0PRo2MHNUmoao/view?usp=sharing
 
-◆テーブル定義書 
-https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX2Yw/edit#gid=485399999
+◆テーブル定義書 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+https://docs.google.com/spreadsheets/d/16dfF9BYiKg4eO6qGJss063Y0BwS6s1AmQSGJs0xX2Yw/edit?usp=sharing
 
-◆アプリケーション詳細設計 
-https://docs.google.com/spreadsheets/d/1AeUtkDEyLHe8nrsHLpl6h5ctbMeQOogPGjkancZcFEo/edit#gid=1458629920
+◆アプリケーション詳細設計 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+https://docs.google.com/spreadsheets/d/1AeUtkDEyLHe8nrsHLpl6h5ctbMeQOogPGjkancZcFEo/edit?usp=sharing
 
-◆ワイヤーフレーム 
-https://app.diagrams.net/#G1f0_m5xeNmPpTV6AR26WBWzhlRGhdS1XN
+◆ワイヤーフレーム 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+https://drive.google.com/file/d/1f0_m5xeNmPpTV6AR26WBWzhlRGhdS1XN/view?usp=sharing
 
 ### 機能一覧
-◆機能一覧 
+◆機能一覧 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 https://docs.google.com/spreadsheets/d/14NKQBKAmYPZIYHAK3O5P6Saj0-bKj44nqm8l8bVCshA/edit?usp=sharing
 
-◆機能一覧詳細 
+◆機能一覧詳細 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 https://docs.google.com/spreadsheets/d/1ObUMrbL3qu315Bxy4U_NNgMV8SFodC9wTSmcOFdWjuc/edit#gid=0

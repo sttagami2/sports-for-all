@@ -1,0 +1,22 @@
+  <div class="event-show-top">
+    <div class="event-show-top__container">
+      <div class="event-show-top__container__item">
+        <h2><%= @event.event_name %></h2>
+      </div>
+
+      <div class="event-show-top__container__item">
+        <p>種目：<span><%= Type.find_by(id: @event.type_id).name %></span></p>
+      </div>
+
+      <div class="event-show-top__container__item">
+        <p>開催日時：<span><%= @event.start_date %></span></p>
+      </div>
+    </div>
+    <div class="map-area">
+      <div id="map" class="<%= @event.address %>"></div>
+      <div class="map-area__address text-center">
+        <h3>住所</h3>
+        <p><%= @event.address %></p>
+      </div>
+    </div>
+  </div>

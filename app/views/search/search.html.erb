@@ -1,0 +1,35 @@
+
+<div class="search-list">
+  <div class="text-center">
+    <ul class="menu">
+      <li>
+        <%= link_to users_path, class: "event-type active", data: {id: "user"} do %>
+          ユーザー
+        <% end %>
+      </li>
+      <li>
+        <%= link_to events_path, class: "event-type", data: {id: "event"} do %>
+          イベント
+        <% end %>
+      </li>
+      <li>
+    </ul>
+  </div>
+  <div class="content" id="user">
+      <% @user_search.each do |user| %>
+        <div class="text-center search">
+          <%= link_to "#{user.name}", user_path(user) %>
+        </div>
+      <% end %>
+    </div>
+
+  <div class="content" id="event">
+      <% @event_search.each do |event| %>
+        <div class="text-center search">
+          <%= link_to "#{event.event_name}", event_path(event) %>
+        </div>
+      <% end %>
+    </div>
+
+    <%= render "search_select" %>
+</div>

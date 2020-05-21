@@ -1,9 +1,7 @@
-
-
 <div class="introduction">
   <div class="row introduction__header">
     <div class="introduction__header__image text-center col-xs-4">
-      userの写真を載せますよー！
+      <%= image_tag(@user.image.to_s, size: "250x250") unless @user.image.file.nil? %>
     </div>
     <div class="introduction__header__text col-xs-8">
       <div class="introduction__header__text__top row">
@@ -17,13 +15,35 @@
             </span>
           <% end %>
         <% else %>
-          フォロー機能実装予定
+          <% unless current_user?(@user) %>
+            <div id="follow_form">
+              <% if current_user.following?(@user) %>
+                <%= form_for(current_user.following_relationships.find_by(following_id: @user.id), html: { method: :delete }) do |f| %>
+                  <%= f.submit "フォローを外す", class: "btn btn-large btn-primary follow-btn" %>
+                <% end %>
+              <% else %>
+                <%= form_for(current_user.following_relationships.build(following_id: @user.id)) do |f| %>
+                  <div><%= f.hidden_field :following_id %></div>
+                  <%= f.submit "フォローする", class: "btn btn-large btn-success follow-btn" %>
+                <% end %>
+              <% end %>
+            </div>
+          <% end %>
+          
+          <%= render "chat" %>
+          
         <% end %>
       </div>
-      <div class="row">
+      <div class="row user_follow">
         <div class="col-xs-4">参加イベント<%= "（数字）" %>件</div>
-        <div class="col-xs-4">フォロワー<%= "（数字）" %>人</div>
-        <div class="col-xs-4">フォロー<%= "（数字）" %>人</div>
+        <div class="col-xs-4">フォロー<%= link_to @user.followings.count, following_user_path(@user) %>人</div>
+        <div class="col-xs-4">フォロワー<%= link_to @user.followers.count, followers_user_path(@user) %>人</div>
+      </div>
+      <div class="row game_resolute">
+        <div class="col-xs-3">勝率：<%= "#{(((@win_count.to_f) / (@resolutes.count.to_f)) * 100).round(1)}％" %></div>
+        <div class="col-xs-3">試合数：<%= "#{@resolutes.count}回" %></div>
+        <div class="col-xs-3">勝ち数：<%= "#{@win_count}回" %></div>
+        <div class="col-xs-3">負け数：<%= "#{@resolutes.count-@win_count}回"  %></div>
       </div>
     </div>
   </div>
