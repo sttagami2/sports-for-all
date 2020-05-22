@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name,
+            presence: { message: "が入力されていません。"},
+            length: { maximum: 15, minimum: 1, message: "は1文字以上15文字以内です。"}
+
   has_many :participations, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :resolutes, dependent: :destroy
