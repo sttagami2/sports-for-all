@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe GameDetail, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'アソシエーションのテスト' do
+    context 'Teamモデルとの関係' do
+      it 'N:1となっている' do
+        expect(GameDetail.reflect_on_association(:team).macro).to eq :belongs_to
+      end
+    end
+  
+    context 'Gameモデルとの関係' do
+      it 'N:1となっている' do
+        expect(GameDetail.reflect_on_association(:game).macro).to eq :belongs_to
+      end
+    end
+  end
 end

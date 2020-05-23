@@ -1,5 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe EventType, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'アソシエーションのテスト' do
+    context 'Eventモデルとの関係' do
+      it 'N:1となっている' do
+        expect(EventType.reflect_on_association(:event).macro).to eq :belongs_to
+      end
+    end
+  
+    context 'Typeモデルとの関係' do
+      it '1:Nとなっている' do
+        expect(EventType.reflect_on_association(:type).macro).to eq :belongs_to
+      end
+    end
+  end
 end
