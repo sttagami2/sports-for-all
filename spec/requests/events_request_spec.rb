@@ -4,42 +4,42 @@ RSpec.describe "Events", type: :request do
 
   describe "GET /new" do
     it "returns http success" do
-      get "/events/new"
+      get new_event_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /index" do
     it "returns http success" do
-      get "/events/index"
+      get events_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /create" do
+  describe "POST /create" do
     it "returns http success" do
-      get "/events/create"
+      post events_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /edit" do
     it "returns http success" do
-      get "/events/edit"
+      get edit_event_path
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /update" do
+  describe "PATCH /update" do
     it "returns http success" do
-      get "/events/update"
+      patch event_path
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET /show" do
     it "returns http success" do
-      get "/events/show"
+      get event_path
       expect(response).to have_http_status(:success)
     end
   end
