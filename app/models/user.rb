@@ -7,8 +7,7 @@ class User < ApplicationRecord
   validates :name, presence: true
             # presence: { message: "が入力されていません。"},
             # length: { maximum: 15, minimum: 1, message: "は1文字以上15文字以内です。"}
-  validates :name_k, presence: true
-  validates :email, uniqueness: true
+  validates :email, uniqueness: {case_sensitive: false}, presence: true
 
   has_many :participations, dependent: :destroy
   has_many :comments, dependent: :destroy

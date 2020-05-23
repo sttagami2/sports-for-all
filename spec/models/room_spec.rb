@@ -14,4 +14,19 @@ RSpec.describe Room, type: :model do
       end
     end
   end
+
+  describe '機能面のテスト' do
+    before do
+      @room = FactoryBot.create(:room)
+    end
+
+    it '必要項目が存在していれば有効' do
+      expect(@room).to be_valid
+    end
+
+    it 'nameが存在していなければ無効' do
+      @room.name = ""
+      expect(@room).not_to be_valid
+    end
+  end
 end
