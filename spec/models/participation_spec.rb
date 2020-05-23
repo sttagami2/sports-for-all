@@ -20,4 +20,35 @@ RSpec.describe Participation, type: :model do
       end
     end
   end
+
+  describe '機能面のテスト' do
+    before do
+      @user = FactoryBot.create(:user)
+      @event = FactoryBot.create(:event)
+      @participation = Participation.new(
+        user_id: @user.id,
+        event_id: @event.id,
+        status: "参加"
+      )
+    end
+    
+    it "必要項目が存在していれば有効" do
+      expect(@participation).to be_valid
+    end
+
+    it "user_idが存在していなければ無効" do
+      @participation.user_id = ""
+      expect(@participation).not_to be_valid
+    end
+  
+    it "event_idが存在していなければ無効" do
+      @participation.event_id = ""
+      expect(@participation).not_to be_valid
+    end
+  
+    it "statusが存在していなければ無効" do
+      @participation.status = ""
+      expect(@participation).not_to be_valid
+    end
+  end
 end

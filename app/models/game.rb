@@ -3,10 +3,9 @@ class Game < ApplicationRecord
   has_many :game_details, dependent: :destroy
   has_many :resolutes, dependent: :destroy
 
-  # validates :win_score,
-  #           :numericality => {
-  #             :greater_than => :lose_score,
-  #             :message => '点数は同じ値を入力しないで下さい。'
-  #           }
-
+  validates :event_id, presence: true
+  validates :win_id, presence: true
+  validates :lose_id, presence: true
+  validates :win_score, presence: true
+  validates :lose_score, presence: true
 end
