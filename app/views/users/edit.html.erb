@@ -10,29 +10,31 @@
 <% end %>
 
 <div class="row">
-  <div class="col-xs-9">
+  <div class="">
     <h2 class="color">登録情報編集</h2>
   </div>
 </div>
 
 <%= form_for @user do |f| %>
 
-  <%= f.label :name, "名前", class: "col-xs-3" %>
-  <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-xs-7 form-control" %>
+  <%= f.label :name, "名前", class: "" %>
+  <%= f.text_field :name, autofocus: true, autocomplete: "name", class: " form-control" %>
 
-  <%= f.label :name_k, "ナマエ", class: "col-xs-2" %>
-  <%= f.text_field :name_k, autofocus: true, autocomplete: "name_k", class: "col-xs-6 form-control" %>
+  <%= f.label :name_k, "ナマエ", class: "" %>
+  <%= f.text_field :name_k, autofocus: true, autocomplete: "name_k", class: " form-control" %>
 
   <%= f.label :image, "画像" %><br>
   <%= f.file_field :image, class: "form-control" %><br>
 
   <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-xs-7 col-xs-offset-3 form-control" %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: " form-control" %>
+ 
+  <%= f.label :age, "メールアドレス" %>
+  <%= f.number_field :age, autofocus: true, autocomplete: "age", class: " form-control" %>
 
   <%= f.label :phone_number, "電話番号" %>
   <em>(ハイフンなし)</em>
-
-  <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "col-xs-7 col-xs-offset-3 form-control" %>
+  <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: " form-control" %>
 
   <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
 

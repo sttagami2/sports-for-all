@@ -11,7 +11,7 @@ RSpec.describe "Homes", type: :request do
 
   describe "GET /about" do
     it "Aboutページにアクセスできること" do
-      get "/home/about"
+      get home_about_path
       expect(response).to have_http_status(:success)
     end
   end
