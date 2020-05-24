@@ -16,7 +16,5 @@ puts '"users"のデータを作成します'
     age: rand(16..40).to_i,
     email: Faker::Internet.email,
     password: "111111",
-    games: 0,
-    wins: 0,
   )
 end

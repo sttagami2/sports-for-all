@@ -7,11 +7,11 @@
   <%= f.label :type_id, "イベント種目" %><br>
   <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %><br>
 
-  <%= f.label :date, "開催日" %><br>
-  <%= f.text_field :date, autofocus: true, autocomplete: "開催日" %><br>
-
-  <%= f.label :location_id, "開催箇所" %><br>
-  <%= f.select :location_id, Location.all.collect {|l| [l.name, l.id]}, {}, {class: "form-control"} %><br>
+  <%= f.label :start_date, "開催日" %><br>
+  <%= f.datetime_field :start_date, autofocus: true, autocomplete: "開催日" %><br>
+  
+  <%= f.label :finish_date, "開催日" %><br>
+  <%= f.datetime_field :finish_date, autofocus: true, autocomplete: "開催日" %><br>
 
   <%= f.label :place_name, "開催場所名" %><br>
   <%= f.text_field :place_name, autofocus: true, autocomplete: "開催場所名" %><br>
@@ -23,6 +23,6 @@
   <%= f.text_area :introduction, autofocus: true, autocomplete: "イベント紹介文" %><br>
 
   <%= f.label :image, "イベント写真" %><br>
-  <%= f.attachment_field :image %><br>
+  <%= f.file_field :image %><br>
 
 <% end %>
