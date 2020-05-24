@@ -3,12 +3,12 @@
   <div class="text-center">
     <ul class="menu">
       <li>
-        <%= link_to users_path, class: "event-type active", data: {id: "user"} do %>
+        <%= link_to search_path, class: "event-type active", data: {id: "user"} do %>
           ユーザー
         <% end %>
       </li>
       <li>
-        <%= link_to events_path, class: "event-type", data: {id: "event"} do %>
+        <%= link_to search_path, class: "event-type", data: {id: "event"} do %>
           イベント
         <% end %>
       </li>
@@ -18,7 +18,12 @@
   <div class="content" id="user">
       <% @user_search.each do |user| %>
         <div class="text-center search">
-          <%= link_to "#{user.name}", user_path(user) %>
+          <%= link_to user_path(user) do %>
+            <div class="search__item">
+              <%= image_tag(user.image.to_s, size: "100x100") unless user.image.file.nil? %>
+              <%= user.name %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
