@@ -7,6 +7,7 @@ class GamesController < ApplicationController
     @participation = Participation.new
     participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
     @users = User.where(id: participations.map{|t| t.user_id})
+    @event = Event.find(params[:event_id])
   end
 
   def halfway
