@@ -22,7 +22,7 @@
                   <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
                 <% end %>
                 <td>
-                  <%= link_to "詳細を見る", event_game_path(game) %>
+                  <%= link_to "詳細を見る", event_game_path(event_id: game.event_id, id: game.id) %>
                 </td>
               </tr>
             <% end %>
