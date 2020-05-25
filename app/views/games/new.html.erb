@@ -7,45 +7,53 @@
           <h2>紅白戦新規作成</h2>
         </div>
         <div class="panel-body">
-          <table class="game-new-table">
-            <tr>
-              <th width="200px;" height="50px;">
-                <div class="side-color">試合日</div>
-              </th>
-              <td>2020/06/01</td>
-            </tr>
-            <tr>
-              <th>
-                <div class="side-color">参加メンバー</div>
-              </th>
-              <td>
-                <%= radio_button_tag :member_select, "all", checked: true %>
-                <%= label_tag :member_select, "イベント参加メンバー全員"%>
-              </td>
-            </tr>
-            <tr>
-              <th></th>
-              <td>
-                <%= radio_button_tag :member_select, "select" %>
-                <%= label_tag :member_select, "参加メンバーを選択" %></br>
-                <div class="member_select">
-                  <%= collection_select(:participation_select, :user_id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
-                </div>
-              </td>
-            </tr>
 
-            <tr>
-              <th></th>
-              <td width="300px;">
-                <%= radio_button_tag :member_select, "select_team" %>
-                <%= label_tag :member_select, "チームを自分で決める"%></br>
-                <div class="team-flex">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="side-color">試合日</div>
+            </div>
+            <div class="col-lg-9">
+              <%= @event.start_date %>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="side-color">参加メンバー</div>
+            </div>
+            <div class="col-lg-9">
+              <%= radio_button_tag :member_select, "all", checked: true %>
+              <%= label_tag :member_select, "イベント参加メンバー全員"%>
+            </div>
+          </div>
+          <div class="row">
+          <br>
+            <div class="col-lg-3"></div>
+            <div class="col-lg-9">
+              <%= radio_button_tag :member_select, "select" %>
+              <%= label_tag :member_select, "参加メンバーを選択" %><br>
+              <div class="member_select">
+                <%= collection_select(:participation_select, :user_id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
+              </div>
+              <br>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-9">
+              <div class="row">
+                <div class="col-lg-6 col-md-12">
+                  <%= radio_button_tag :member_select, "select_team" %>
+                  <%= label_tag :member_select, "チームを自分で決める"%><br>
                   <div class="team-select">
                     <%= label_tag :id, "チーム1" %>
                     <div class="member-select">
                       <%= collection_select(:select_team1, :user_id, @users, :id, :name, {include_hidden: false}, {multiple: true, class: "form-control"}) %>
                     </div>
                   </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <br>
                   <div class="team-select">
                     <%= label_tag :id, "チーム2" %>
                     <div class="member-select">
@@ -53,15 +61,15 @@
                     </div>
                   </div>
                 </div>
-              </td>
-            </tr>
-
-          </table>
-          <div class="text-center">
-            <%= button_tag type: "submit", class: "btn btn-success" do %>試合をする<% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="text-center">
+      <%= button_tag type: "submit", class: "btn btn-success" do %>試合をする<% end %>
+    </div>
   <% end %>
 </div>
+            
