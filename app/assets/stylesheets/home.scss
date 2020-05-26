@@ -168,7 +168,7 @@
         background-repeat: none;
         opacity: 0;
         overflow: hidden;
-    　　-webkit-backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
         // 20秒間かかるImgAnimeの処理を永遠と繰り返す
         -webkit-animation: ImgAnime 20s linear infinite 0s;
         -moz-animation: ImgAnime 20s linear infinite 0s;
@@ -265,10 +265,6 @@
       }
       p {
         font-size: 18px;
-      }
-      &__title {
-      }
-      &__image {
       }
     }
   }
