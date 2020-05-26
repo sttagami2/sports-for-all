@@ -1,361 +1,41 @@
 <div class="event-show">
-  <div class="event-show-top">
-    <div class="event-show-top__container">
-      <div class="event-show-top__container__item">
-        <h2><%= @event.event_name %></h2>
-      </div>
 
-      <div class="event-show-top__container__item">
-        <p>種目：<span><%= @event.type.name %></span></p>
-      </div>
-
-      <div class="event-show-top__container__item">
-        <p>開催日時：<span><%= @event.date %></span></p>
-      </div>
-    </div>
-
-    <div id="map" class="<%= @event.address %>%"></div>
-  </div>
+  <%= render "event_show_top"%>
 
   <div class="row event-show-main">
-    <div class="col-xs-7 event-show-main__item-introduction">
-      <h3>紹介文</h3>
-      <p><%= @event.introduction %></p>
+    <div class="col-md-7 col-sm-12 event-show-main__item-introduction">
+      <div class="panel panel-success participation-index">
+        <div class="panel-heading participation-index__heading">
+          <h3>紹介文</h3>
+        </div>
+        <div class="panel-body participation-index__body">
+          <p><%= @event.introduction %></p>
+        </div>
+      </div>
     </div>
     
-    <div class="col-xs-5 event-show-main__item-participation">
-      <h3>参加者</h3>
-      <table>
-        <% @participations.each do |participation| %>
-        <tr>
-          <td width="150" height="60"><%= User.find(participation.user_id).name %></td>
-          <td width="150" height="60"><%= "#{User.find(participation.user_id).age}歳" %></td>
-        </tr>
-        <% end %>
-      </table>
+    <div class="col-md-5 col-sm-12 event-show-main__item-participation">
+      <div class="panel panel-success participation-index">
+        <div class="panel-heading participation-index__heading">
+          <h3>参加者</h3>
+        </div>
+        <div class="panel-body participation-index__body">
+          <table>
+            <% @participations.each do |participation| %>
+            <tr>
+              <td width="150" height="60"><%= link_to "#{User.find(participation.user_id).name}", user_path(participation.user_id) %></td>
+              <td width="150" height="60"><%= "#{User.find(participation.user_id).age}歳" %></td>
+            </tr>
+            <% end %>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
-	<%# participation#create後にparticipation#indexに飛ばしたい %>
-	<div class="text-center">
-		<%= form_for(@participation, url: event_participations_path(event_id: params[:id])) do |f| %>
-			<% f.hidden_field :status, value: 0 %>
-			<%= f.submit "このイベントに参加する", class: "btn btn-success" %>
-		<% end %>
-	</div>
+  <%= render "event_comment"%>
 
 </div>
 
 
-
-
-
-
-<script>
-  let map
-  let geocoder
-
-  function initMap(){
-    // geocoderを初期化
-    geocoder = new google.maps.Geocoder()
-    geocoder.geocode( { 'address': $('#map').attr('class')}, function(results, status) {
-      if (status == 'OK') {
-        // map.setCenterで地図が移動
-        map.setCenter(results[0].geometry.location);
-
-        // google.maps.MarkerでGoogleMap上の指定位置にマーカが立つ
-        var marker = new google.maps.Marker({
-            map: map,
-            position: results[0].geometry.location
-        });
-      } else {
-        alert('Geocode was not successful for the following reason: ' + status);
-      }
-    });
-
-    map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.681236, lng: 139.767125},
-    zoom: 15,
-    styles:
-          [
-          {
-              "featureType": "all",
-              "elementType": "labels",
-              "stylers": [
-                  {
-                      "visibility": "on"
-                  }
-              ]
-          },
-          {
-              "featureType": "all",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "saturation": 36
-                  },
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 40
-                  }
-              ]
-          },
-          {
-              "featureType": "all",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                  {
-                      "visibility": "on"
-                  },
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 16
-                  }
-              ]
-          },
-          {
-              "featureType": "all",
-              "elementType": "labels.icon",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "administrative",
-              "elementType": "geometry.fill",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 20
-                  }
-              ]
-          },
-          {
-              "featureType": "administrative",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 17
-                  },
-                  {
-                      "weight": 1.2
-                  }
-              ]
-          },
-          {
-              "featureType": "administrative.locality",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "color": "#c4c4c4"
-                  }
-              ]
-          },
-          {
-              "featureType": "administrative.neighborhood",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "color": "#707070"
-                  }
-              ]
-          },
-          {
-              "featureType": "landscape",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 20
-                  }
-              ]
-          },
-          {
-              "featureType": "poi",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 21
-                  },
-                  {
-                      "visibility": "on"
-                  }
-              ]
-          },
-          {
-              "featureType": "poi.business",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "visibility": "on"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.highway",
-              "elementType": "geometry.fill",
-              "stylers": [
-                  {
-                      "color": "#be2026"
-                  },
-                  {
-                      "lightness": "0"
-                  },
-                  {
-                      "visibility": "on"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.highway",
-              "elementType": "geometry.stroke",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.highway",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.highway",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                  {
-                      "visibility": "off"
-                  },
-                  {
-                      "hue": "#ff000a"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.arterial",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 18
-                  }
-              ]
-          },
-          {
-              "featureType": "road.arterial",
-              "elementType": "geometry.fill",
-              "stylers": [
-                  {
-                      "color": "#575757"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.arterial",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "color": "#ffffff"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.arterial",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                  {
-                      "color": "#2c2c2c"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.local",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 16
-                  }
-              ]
-          },
-          {
-              "featureType": "road.local",
-              "elementType": "labels.text.fill",
-              "stylers": [
-                  {
-                      "color": "#999999"
-                  }
-              ]
-          },
-          {
-              "featureType": "road.local",
-              "elementType": "labels.text.stroke",
-              "stylers": [
-                  {
-                      "saturation": "-52"
-                  }
-              ]
-          },
-          {
-              "featureType": "transit",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 19
-                  }
-              ]
-          },
-          {
-              "featureType": "water",
-              "elementType": "geometry",
-              "stylers": [
-                  {
-                      "color": "#000000"
-                  },
-                  {
-                      "lightness": 17
-                  }
-              ]
-          }
-      ]
-    });
-
-    
-  }
-
-  function codeAddress(){
-    // 入力を取得
-    let inputAddress = document.getElementById('address').value;
-
-    // geocodingしたあとmapを移動
-  }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo3QxtCYlqpDM4EYRYt4akS7T05sXgA1M&callback=initMap" async defer></script>
+<%= render 'mapstyle' %>

@@ -1,2 +1,42 @@
-<h1>Games#show</h1>
-<p>Find me in app/views/games/show.html.erb</p>
+<div class="game-show">
+  <div class="panel panel-success game-show__panel">
+    <div class="panel-heading game-show__panel__heading">
+      <h2><%= "#{@game.id}試合目 試合結果" %></h2>
+      <div class="game-edit">
+        <%= link_to edit_event_game_path do %>
+          <i class="fas fa-cog icon-orange"></i>
+        <% end %>
+      </div>
+    </div>
+    <div class="panel-body game-show__panel__body">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 team text-center">
+          <div class="text-left">
+            <div class="bottom-color"><%= @team_winer_name %>チーム</div>
+          </div>
+          <%= @win_score %>
+          <div>
+            <% @member_winer.each do |member_winer| %>
+              <div><%= member_winer.name %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 team text-center">
+          <div class="text-left">
+            <div class="bottom-color"><%= @team_loser_name %>チーム</div>
+          </div>
+          <%= @lose_score %>
+          <div>
+            <% @member_loser.each do |member_loser| %>
+              <div><%= member_loser.name %></div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
+    <%= link_to "試合結果を見る", event_games_path, class: "btn btn-success" %>
+  </div>
+</div>

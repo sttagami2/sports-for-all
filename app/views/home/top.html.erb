@@ -1,2 +1,24 @@
-<h1>Home#top</h1>
-<p>Find me in app/views/home/top.html.erb</p>
+<div class="home-top">
+  <div class="participation text-center">
+    <div class="jumbotron">
+      <div class="container-participation">
+        <div class="text">
+          <h2>イベントを探す</h2>
+          <p>下記よりイベントを探してください。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= render "event_participation" %>    <%# イベントの種目一覧 %>
+  
+  <div class="host">
+    <div class="jumbotron">
+      <div class="container-host host_text">
+        <h2>イベントを主催する</h2>
+        <p>スポーツをみんなと一緒にやりましょう！</p>
+        <%= link_to "イベントを主催する", new_event_path, class: "btn btn-success"%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,2 +1,11 @@
-<h1>Home#about</h1>
-<p>Find me in app/views/home/about.html.erb</p>
+<div class="home-about">
+  <%= render 'header_top' %>
+
+  <%= render 'suggestion'%>
+
+  <div class="home-about__registration text-center scroll-fade">
+    <%= link_to "会員登録はこちらから", new_user_registration_path, class: "btn btn-success btn-lg" %>
+  </div>
+</div>
+
+

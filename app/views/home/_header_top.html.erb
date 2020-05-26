@@ -1,0 +1,86 @@
+  <div class="home-about__header">
+    <div class="home-about__header__title text-center">
+      <h1>Sport for Allってどんなサイト？</h1>
+    </div>
+    <div class="home-about__header__slide">
+      <div class="slide-zoom">
+        <div class="slide-image"></div>
+        <div class="slide-image"></div>
+        <div class="slide-image"></div>
+        <div class="slide-image"></div>
+      </div>
+    </div>
+
+    <div class="container-for-all">
+      <div class="container-for-all__text text-center">
+        <div class="bottom-color">スポーツを心から楽しもう</div>
+        <p>スポーツは言葉を必要とせず、思い浮かんだ事を体で表現し、お互いに共有する事で皆んなで楽しむことの出来る人類共通の文化です。日頃からスポーツに精通している方も、これからスポーツを始めたいという方も心からスポーツを楽しみましょう。</p>
+      </div>
+    </div>
+
+
+    <div class="about-for">
+      <div class="about-for__text row">
+        <div class="flow text-center">
+          <div class="bottom-color">このサイトの使い方</div>
+        </div>
+        <div class="text-center about-for__text__title col-lg-6 col-md-12 animation-left">
+          <h2>主催する</h2>
+          <p>説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。</p>
+        </div>
+        <div class="text-right about-for__text__image col-lg-6 col-md-12 animation-right">
+          <%= image_tag 'host2.jpg', size: '600x400'%>
+        </div>
+      </div>
+    </div>
+    <div class="about-for">
+      <div class="about-for__text row">
+      <div class="text-center about-for__text__image col-lg-6 col-md-12 animation-left">
+
+      </div>
+      <div class="text-center about-for__text__title col-lg-6 col-md-12 animation-right">
+        <h2>参加する</h2>
+        <p>説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。</p>
+      </div>
+      </div>
+    </div>
+    <div class="about-for">
+      <div class="about-for__text row">
+        <div class="text-center about-for__text__title col-lg-6 col-md-12 animation-left">
+          <h2>スケジュール管理</h2>
+          <p>説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。説明文です。</p>
+        </div>
+        <div class="text-center about-for__text__image col-lg-6 col-md-12 animation-right">
+        
+        </div>
+      </div>
+    </div>
+
+  </div>
+<script>
+  // 1つ目の左側
+  $('.animation-left').css('visibility','hidden');
+  $(window).scroll(function(){
+    var windowHeight = $(window).height(),
+        topWindow = $(window).scrollTop();
+    $('.animation-left').each(function(){
+      var targetPosition = $(this).offset().top;
+      if(topWindow > targetPosition - windowHeight + 270){
+      $(this).addClass("fadeInLeft");
+      }
+    });
+  });
+
+  // 1つ目の右側
+  $('.animation-right').css('visibility','hidden');
+  $(window).scroll(function(){
+    var windowHeight = $(window).height(),
+        topWindow = $(window).scrollTop();
+    $('.animation-right').each(function(){
+      var targetPosition = $(this).offset().top;
+      if(topWindow > targetPosition - windowHeight + 270){
+      $(this).addClass("fadeInRight");
+      }
+    });
+  });
+</script>

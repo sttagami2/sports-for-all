@@ -23,8 +23,8 @@ Type.create(
   name: "バスケットボール",
 )
 Type.create(
-  name: "ハンドボール",
+  name: "卓球",
 )
 Type.create(
-  name: "ゴルフ",
+  name: "バドミントン",
 )

@@ -10,14 +10,39 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require select2
+ *= require select2-bootstrap
+ *= require simple_calendar
  *= require_tree .
  *= require_self
  */
+
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
+body {
+	background-color: black;
+	color: white;
+}
 
+input textarea {
+	background-color: rgb(90, 90, 90);
+}
+
+.navbar {
+	margin: 0;
+}
 .container-fluid {
 	margin-top: 51px;
 	padding: 0;
+}
+
+@media screen and (max-width: 767px) {
+	.container-fluid {
+		margin-top: 253px;
+	}
+
+	
 }
