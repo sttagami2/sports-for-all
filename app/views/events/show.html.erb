@@ -22,9 +22,10 @@
         <div class="panel-body participation-index__body">
           <table>
             <% @participations.each do |participation| %>
-            <tr>
-              <td width="150" height="60"><%= link_to "#{User.find(participation.user_id).name}", user_path(participation.user_id) %></td>
-              <td width="150" height="60"><%= "#{User.find(participation.user_id).age}歳" %></td>
+            <tr class="text-center">
+              <td width="200" height="100"><%= image_tag(participation.user.image.to_s, size: "100x100") unless participation.user.image.file.nil? %></td>
+              <td width="150" height="60"><%= link_to "#{participation.user.name}", user_path(participation.user_id) %></td>
+              <td width="150" height="60"><%= "#{participation.user.age}歳" %></td>
             </tr>
             <% end %>
           </table>
