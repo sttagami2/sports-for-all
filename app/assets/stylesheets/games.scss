@@ -25,10 +25,34 @@
       height: 60vh;
       display: flex;
       margin: 80px auto;
+      position: relative;
       &__item {
         height: 60vh;
         width: 100%;
         margin-bottom: 20px;
+        .team-item-left {
+          width: 80%;
+          height: 60vh;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-content: space-around;
+          &__user {
+            margin: 0 10px;
+          }
+        }
+        .team-item-right {
+          width: 80%;
+          height: 60vh;
+          margin-left: 20%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-content: space-around;
+          &__user {
+            margin: 0 10px;
+          }
+        }
       }
       &__item:nth-child(1) {
         clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 125% 100%, 0% 100%);
@@ -41,6 +65,15 @@
         background-color: red;
         // clip-path: polygon(0% 50%, 25% 100%, 0% 100%);
         // background-color: blue;
+      }
+      .vs {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        size: 20%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
       }
     }
   }
@@ -110,12 +143,9 @@
       margin-top: 50px;
       padding-bottom: 80px;
     }
-    .game-new-table {
-      border-collapse: separate;
-      border-spacing: 0 20px;
-      margin-left: 5%;
+    .panel-body {
       color: black;
-      margin-bottom: 40px;
+
       .side-color {
         border-left: 5px solid rgb(199, 245, 73);
         font-size: 20px;
@@ -130,10 +160,49 @@
         }
       }
       .member_select {
-        width: 150px;
-        margin: 0 30px 0;
+        width: 48%;
       }
     }
   }
 }
 // <finish> game-new
+
+
+
+// <start> game-show
+.game-show {
+  &__panel {
+    width: 80%;
+    margin: 50px auto;
+    &__heading {
+      position: relative;
+      .game-edit {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translate(-5%, -50%);
+        -webkit-transform: translate(-5%, -50%);
+        -ms-transform: translate(-5%, -50%);
+        .icon-orange {
+          color: orange;
+          font-size: 2.5em;
+        }
+      }
+    }
+    &__body {
+      color: black;
+      .team {
+        margin: 10px auto;
+        .bottom-color {
+          border-bottom: 5px solid rgb(199, 245, 73);
+          font-size: 20px;
+          padding-left: 5px;
+          display: inline-block;
+          text-align: left;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+// <finish> game-show
