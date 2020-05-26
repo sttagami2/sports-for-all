@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
 	def after_sign_out_path_for(resource)
 		root_path
 	end
+
+	def authenticate_user
+		if @current_user == nil
+			redirect_to("/login")
+		end
+	end
 end

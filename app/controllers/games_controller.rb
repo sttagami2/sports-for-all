@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :authenticate_user!
   def index
     @games = Game.where(event_id: params[:event_id])
   end
