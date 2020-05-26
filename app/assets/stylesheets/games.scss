@@ -166,3 +166,43 @@
   }
 }
 // <finish> game-new
+
+
+
+// <start> game-show
+.game-show {
+  &__panel {
+    width: 80%;
+    margin: 50px auto;
+    &__heading {
+      position: relative;
+      .game-edit {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translate(-5%, -50%);
+        -webkit-transform: translate(-5%, -50%);
+        -ms-transform: translate(-5%, -50%);
+        .icon-orange {
+          color: orange;
+          font-size: 2.5em;
+        }
+      }
+    }
+    &__body {
+      color: black;
+      .team {
+        margin: 10px auto;
+        .bottom-color {
+          border-bottom: 5px solid rgb(199, 245, 73);
+          font-size: 20px;
+          padding-left: 5px;
+          display: inline-block;
+          text-align: left;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+// <finish> game-show
