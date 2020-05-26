@@ -4,20 +4,27 @@
     <%#<div class="line"></div>%>
     <div class="game-halfway-container__team row">
       <div class="game-halfway-container__team__item text-left col-xs-6">
-        <div>
+        <div class="team-item-left">
           <% @member1.each do |member1| %>
-            <%#<div><%= member1.user.image %><%#</div>%>
-            <div><%= member1.user.name %></div>
+            <div class="team-item-left__user">
+              <div><%= image_tag(User.find_by(id: member1).image.to_s, size: "80x80") unless User.find_by(id: member1).image.nil? %></div>
+              <div class="text-center"><%= member1.user.name %></div>
+            </div>
           <% end %>
         </div>
       </div>
-      <div class="game-halfway-container__team__item text-right col-xs-6">
-        <div class="text-right">
+      <div class="game-halfway-container__team__item col-xs-6">
+        <div class="team-item-right text-right">
           <% @member2.each do |member2| %>
-            <%#<div><%= member2.user.image%><%#</div>%>
-            <div><%= member2.user.name %></div>
+            <div class="team-item-right__user">
+              <div><%= image_tag(User.find_by(id: member2).image.to_s, size: "80x80") unless User.find_by(id: member2).image.nil? %></div>
+              <div class="text-center"><%= member2.user.name %></div>
+            </div>
           <% end %>
         </div>
+      </div>
+      <div class="vs">
+        <%= image_tag('vs.png', size: "100x100") %>
       </div>
     </div>
   </div>
@@ -32,8 +39,12 @@
     </div>
   </div>
   <div class="score">
-    <%= select_tag 'score1', options_for_select((1..300).to_a) %>
-    <%= select_tag 'score2', options_for_select((1..300).to_a) %>
+    <div class="score-width">
+      <%= select_tag 'score1', options_for_select((1..300).to_a), class: "form-control" %>
+    </div>
+    <div class="score-width">
+      <%= select_tag 'score2', options_for_select((1..300).to_a), class: "form-control" %>
+    </div>
     <%#= select(:score2, (1..300).to_a, {include_blank: "点数"}, {class: "form-control", style: "width: 60px;"}) %>
   </div>
 

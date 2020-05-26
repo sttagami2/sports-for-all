@@ -6,7 +6,15 @@ class Event < ApplicationRecord
   has_many :event_types, dependent: :destroy
   has_many :types, through: :event_types
 
-  attachment :image
+  mount_uploader :image, ImagesUploader
+
+  validates :type_id, presence: true
+  validates :event_name, presence: true
+  validates :introduction, presence: true
+  validates :start_date, presence: true
+  validates :finish_date, presence: true
+  validates :place_name, presence: true
+  validates :address, presence: true
 
   
   def start_time

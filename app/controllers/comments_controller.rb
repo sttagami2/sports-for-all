@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = @event.comments.find(params[:id])
     @comment.destroy
-    render :inde
+    render :index
   end
 
   private

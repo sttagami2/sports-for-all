@@ -7,7 +7,8 @@
     width: 70%;
     height: 60vh;
     margin: 0 auto;
-    background-color: limegreen;
+    // background-color: limegreen;
+    background: linear-gradient(90deg, red 0%, red 50%, blue 50%, blue 100%);
     position: relative;
 
     // .line {
@@ -23,17 +24,56 @@
     &__team {
       height: 60vh;
       display: flex;
+      margin: 80px auto;
+      position: relative;
       &__item {
         height: 60vh;
         width: 100%;
+        margin-bottom: 20px;
+        .team-item-left {
+          width: 80%;
+          height: 60vh;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-content: space-around;
+          &__user {
+            margin: 0 10px;
+          }
+        }
+        .team-item-right {
+          width: 80%;
+          height: 60vh;
+          margin-left: 20%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-around;
+          align-content: space-around;
+          &__user {
+            margin: 0 10px;
+          }
+        }
       }
       &__item:nth-child(1) {
-        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+        clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 125% 100%, 0% 100%);
         background-color: blue;
+        // clip-path: polygon(100% 50%, 100% 0%, 75% 0%);
+        // background-color: red;
       }
       &__item:nth-child(2) {
-        clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+        clip-path: polygon(-25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
         background-color: red;
+        // clip-path: polygon(0% 50%, 25% 100%, 0% 100%);
+        // background-color: blue;
+      }
+      .vs {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        size: 20%;
+        transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
       }
     }
   }
@@ -42,43 +82,49 @@
 .score {
   display: flex;
   justify-content: space-around;
+  margin-bottom: 20px;
+  &-width {
+    width: 80px;
+  }
 }
 
 // <start> game-index
 .game-index {
-  &__row {
-    &__right {
-      &__table {
-        tr {
-          height: 60px;
-          td {
-            text-align: center;
-            width: 80px;
-          }
-          .index {
-            width: 80px;
-          }
-          .win-lose-left {
-            margin-left: 30px;
-          }
-          .win-lose-right {
-            margin-right: 30px;
-          }
-          .team-name {
-            width: 200px;
-          }
-          .score {
-            width: 50px;
-            line-height: 60px;;
-          }
-          .winer {
-            background-color: red;
-            border-radius: 10px;
-            width: 60px;
-            height: 40px;
-            line-height: 40px;
-          }
-        }
+  width: 70%;
+  color: black;
+  margin: 60px auto 0;
+  .game-index__table {
+    margin: 0 auto;
+    tr {
+      height: 60px;
+      td {
+        text-align: center;
+        width: 80px;
+      }
+      .index {
+        width: 80px;
+      }
+      .win-lose-left {
+        margin-left: 30px;
+        color: white;
+      }
+      .win-lose-right {
+        margin-right: 30px;
+        color: white;
+      }
+      .team-name {
+        width: 200px;
+      }
+      .score {
+        width: 50px;
+        line-height: 60px;;
+      }
+      .winer {
+        background-color: red;
+        border-radius: 10px;
+        width: 60px;
+        height: 40px;
+        line-height: 40px;
       }
     }
   }
@@ -86,3 +132,77 @@
 }
 
 // <finish> game-index
+
+
+// <start> game-new
+.game-new {
+  &__container {
+    width: 60%;
+    margin: 0 auto;
+    &__panel {
+      margin-top: 50px;
+      padding-bottom: 80px;
+    }
+    .panel-body {
+      color: black;
+
+      .side-color {
+        border-left: 5px solid rgb(199, 245, 73);
+        font-size: 20px;
+        padding-left: 5px;
+      }
+      .team-flex {
+        display: flex;
+        .team-select {
+          width: 200px;
+          margin: 0 30px 0;
+          
+        }
+      }
+      .member_select {
+        width: 48%;
+      }
+    }
+  }
+}
+// <finish> game-new
+
+
+
+// <start> game-show
+.game-show {
+  &__panel {
+    width: 80%;
+    margin: 50px auto;
+    &__heading {
+      position: relative;
+      .game-edit {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        transform: translate(-5%, -50%);
+        -webkit-transform: translate(-5%, -50%);
+        -ms-transform: translate(-5%, -50%);
+        .icon-orange {
+          color: orange;
+          font-size: 2.5em;
+        }
+      }
+    }
+    &__body {
+      color: black;
+      .team {
+        margin: 10px auto;
+        .bottom-color {
+          border-bottom: 5px solid rgb(199, 245, 73);
+          font-size: 20px;
+          padding-left: 5px;
+          display: inline-block;
+          text-align: left;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
+// <finish> game-show
