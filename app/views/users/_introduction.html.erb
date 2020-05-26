@@ -1,9 +1,9 @@
 <div class="introduction">
   <div class="row introduction__header">
-    <div class="introduction__header__image text-center col-xs-4">
+    <div class="introduction__header__image text-center col-md-12 col-lg-4">
       <%= image_tag(@user.image.to_s, size: "250x250") unless @user.image.file.nil? %>
     </div>
-    <div class="introduction__header__text col-xs-8">
+    <div class="introduction__header__text text-center col-md-12 col-lg-8">
       <div class="introduction__header__text__top row">
         <div class="introduction__header__text__top__name text-center col-xs-4">
           <%= @user.name %>

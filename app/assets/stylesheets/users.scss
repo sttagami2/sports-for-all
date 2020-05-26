@@ -143,8 +143,15 @@
           border-radius: 50%;
         }
       }
+      // @media screen and (max-width: 1199px) {
+      //   &__image {
+      //     margin-bottom: 40px;
+      //   }
+      // }
 
       &__text {
+        margin: 50px auto 0;
+        &__flex { display: flex; }
         &__top {
           margin-bottom: 30px;
           &__name { font-size: 28px; }
@@ -152,11 +159,6 @@
         .game_resolute {
           margin-top: 30px;
         }
-      }
-
-      &__text {
-        margin: 0 auto;
-        &__flex { display: flex; }
       }
     }
   }
