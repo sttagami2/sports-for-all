@@ -14,29 +14,45 @@
           <div class="text-left">
             <div class="bottom-color"><%= @team_winer_name %>チーム</div>
           </div>
-          <%= @win_score %>
           <div>
             <% @member_winer.each do |member_winer| %>
-              <div><%= member_winer.name %></div>
+              <div>
+                <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.file.nil? %>
+                <%= member_winer.name %>
+              </div>
             <% end %>
+          </div>
+          <hr>
+          <div class="score">
+            <%= "獲得点数：#{@win_score}" %>
           </div>
         </div>
         <div class="col-sm-12 col-md-6 team text-center">
           <div class="text-left">
             <div class="bottom-color"><%= @team_loser_name %>チーム</div>
           </div>
-          <%= @lose_score %>
           <div>
             <% @member_loser.each do |member_loser| %>
-              <div><%= member_loser.name %></div>
+              <div>
+                <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.file.nil? %>
+                <%= member_loser.name %>
+              </div>
             <% end %>
+          </div>
+          <hr>
+          <div class="score">
+            <%= "獲得点数：#{@lose_score}" %>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="text-center">
-    <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
-    <%= link_to "試合結果を見る", event_games_path, class: "btn btn-success" %>
+    <% if @game.event.finish_date > Date.today %>
+      <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
+      <%= link_to "試合結果を一覧見る", event_games_path, class: "btn btn-success" %>
+    <% else %>
+      <%= link_to "試合結果を一覧見る", event_games_path, class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
