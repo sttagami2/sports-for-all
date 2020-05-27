@@ -4,6 +4,16 @@ require 'openssl'
 OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
 puts '"users"のデータを作成します'
 
+User.create!(
+  name: "田上翔斗",
+  name_k: "タガミショウト",
+  image: File.open('app/assets/images/sissors.png'),
+  phone_number: "09099991111",
+  age: 24,
+  email: "sttagami2@gmail.com",
+  password: "111111"
+)
+
 50.times do
   gimei = Gimei.new
   

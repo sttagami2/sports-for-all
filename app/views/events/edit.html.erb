@@ -1,28 +1,55 @@
 
-<h2>イベント編集ページ</h2>
-<%= form_for @event do |f| %>
-  <%= f.label :event_name, "イベント名" %><br>
-  <%= f.text_field :event_name, autofocus: true, autocomplete: "イベント名" %><br>
+<% if @event.errors.any? %>
 
-  <%= f.label :type_id, "イベント種目" %><br>
-  <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %><br>
+  <h2><%= @event.errors.count %>errors prohibited this  from being saved:</h2>
 
-  <%= f.label :start_date, "開催日" %><br>
-  <%= f.datetime_field :start_date, autofocus: true, autocomplete: "開催日" %><br>
-  
-  <%= f.label :finish_date, "開催日" %><br>
-  <%= f.datetime_field :finish_date, autofocus: true, autocomplete: "開催日" %><br>
-
-  <%= f.label :place_name, "開催場所名" %><br>
-  <%= f.text_field :place_name, autofocus: true, autocomplete: "開催場所名" %><br>
-
-  <%= f.label :address, "住所" %><br>
-  <%= f.text_field :address, autofocus: true, autocomplete: "住所" %><br>
-
-  <%= f.label :introduction, "イベント紹介文" %><br>
-  <%= f.text_area :introduction, autofocus: true, autocomplete: "イベント紹介文" %><br>
-
-  <%= f.label :image, "イベント写真" %><br>
-  <%= f.file_field :image %><br>
-
+  <ul>
+    <% @event.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
 <% end %>
+
+<div class="event-new">
+  <div class="bottom-color">新規イベント作成</div>
+  <div class="event-new__form">
+    <%= form_for @event do |f| %>
+      <div class="event-new__form__label">
+        <%= f.label :event_name, "イベント名" %>
+        <%= f.text_field :event_name, autofocus: true, autocomplete: "event_name", class: "form-control" %>
+      </div>
+
+      <div class="event-new__form__label">
+        <%= f.label :type_id, "イベント種目" %>
+        <%= f.select :type_id, Type.all.collect {|t| [t.name, t.id]}, {}, {class: "form-control"} %>
+      </div>
+
+      <div class="event-new__form__label">
+        <%= f.label :start_date, "開催日時" %>
+        <%= f.datetime_field :start_date, autofocus: true, autocomplete: "開催日時", class: "form-control" %>
+      </div>
+
+      <div class="event-new__form__label">
+        <%= f.label :finish_date, "終了日時" %>
+        <%= f.datetime_field :finish_date, autofocus: true, autocomplete: "終了日時", class: "form-control" %>
+      </div>
+
+      <div class="event-new__form__label">
+        <%= f.label :place_name, "開催場所名" %>
+        <%= f.text_field :place_name, autofocus: true, autocomplete: "開催場所名", class: "form-control" %>
+      </div>
+
+      <div class="event-new__form__label">
+        <%= f.label :address, "住所" %>
+        <%= f.text_field :address, autofocus: true, autocomplete: "住所", class: "form-control" %>
+      </div>
+
+      <div class="event-new__form__label">
+        <%= f.label :introduction, "イベント紹介文" %>
+        <%= f.text_area :introduction, autofocus: true, autocomplete: "イベント紹介文", class: "form-control" %>
+      </div>
+      
+      <%= f.submit "編集内容を保存する", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
