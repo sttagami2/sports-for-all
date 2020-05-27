@@ -192,9 +192,57 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @game = Game.find(params[:id])
+    # 勝ったチームと負けたチームを探す
+    @team_winer = Team.find_by(id: @game.win_id)
+    @team_loser = Team.find_by(id: @game.lose_id)
+    
+    # チーム名を取得する 
+    @team_winer_name = @team_winer.name
+    @team_loser_name = @team_loser.name
+    
+    # チームの参加者を探すためにチーム詳細を探す
+    winer_details = TeamDetail.where(team_id: @team_winer.id)
+    loser_details = TeamDetail.where(team_id: @team_loser.id)
+
+    # チーム詳細で参加者id(participation_id)のみを取得する
+    participation_winer_ids = []
+    winer_details.each do |winer_detail|
+      participation_winer_ids.push((winer_detail.participation_id).to_i)
+    end
+    participation_loser_ids = []
+    loser_details.each do |loser_detail|
+      participation_loser_ids.push((loser_detail.participation_id).to_i)
+    end
+
+    # 勝った参加者詳細、負けた参加者詳細を取得する
+    participation_winer = Participation.where(id: participation_winer_ids)
+    participation_loser = Participation.where(id: participation_loser_ids)
+    
+    # 参加者詳細から会員id(user_id)のみを取得する
+    winer_user_ids = []
+    participation_winer.each do |winer|
+      winer_user_ids.push((winer.user_id).to_i)
+    end
+    loser_user_ids = []
+    participation_loser.each do |loser|
+      loser_user_ids.push((loser.user_id).to_i)
+    end
+
+    # チームメンバーを取得する
+    @member_winer = User.where(id: winer_user_ids)
+    @member_loser = User.where(id: loser_user_ids)
+    @win_score = @game.win_score
+    @lose_score = @game.lose_score
   end
 
   def update
+    @game = Game.find(params[:id])
+    if @game.update(game_params)
+      redirect_to event_game_path(@game)
+    else
+      render :edit
+    end
   end
 
   def destroy
