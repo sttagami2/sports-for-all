@@ -2,6 +2,13 @@
     <div class="event-show-top__container">
       <div class="event-show-top__container__item">
         <div class="bottom-color"><%= @event.event_name %></div>
+        <% if @event.user_id == current_user.id %>
+          <div class="event-edit">
+            <%= link_to edit_event_path do %>
+              <i class="fas fa-cog icon-orange"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="map-area">
