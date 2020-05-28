@@ -141,54 +141,71 @@ class GamesController < ApplicationController
       @game.win_score = score2
       @game.lose_score = score1
     end
-    @game.save
+    if @game.save
 
-    GameDetail.create!(
-      game_id: @game.id,
-      team_id: @game.win_id,
-    )
-    GameDetail.create!(
-      game_id: @game.id,
-      team_id: @game.lose_id,
-    )
-
-    # チームの参加者を探すためにチーム詳細を探す
-    team_details = []
-    winer_team_details = TeamDetail.where(team_id: @game.win_id)
-    loser_team_details = TeamDetail.where(team_id: @game.lose_id)
-    team_details << winer_team_details
-    team_details << loser_team_details
-    team_details.flatten!
-    
-    # チーム詳細で参加者id(participation_id)のみを取得する
-    participation_ids = []
-    team_details.each do |team_detail|
-      participation_ids.push((team_detail.participation_id).to_i)
-    end
-
-    # 参加者詳細を取得する
-    participations = Participation.where(id: participation_ids)
-    
-    # 参加者詳細から会員id(user_id)のみを取得する
-    user_ids = []
-    participations.each do |participation|
-      user_ids.push(participation.user_id)
-    end
-
-    # 試合参加メンバーを取得する
-    @members = User.where(id: user_ids)
-
-
-    @members.each do |member|
-      Resolute.create!(
-        user_id: member.id,
+      GameDetail.create!(
         game_id: @game.id,
+        team_id: @game.win_id,
       )
+      GameDetail.create!(
+        game_id: @game.id,
+        team_id: @game.lose_id,
+      )
+
+      # チームの参加者を探すためにチーム詳細を探す
+      team_details = []
+      winer_team_details = TeamDetail.where(team_id: @game.win_id)
+      loser_team_details = TeamDetail.where(team_id: @game.lose_id)
+      team_details << winer_team_details
+      team_details << loser_team_details
+      team_details.flatten!
+      
+      # チーム詳細で参加者id(participation_id)のみを取得する
+      participation_ids = []
+      team_details.each do |team_detail|
+        participation_ids.push((team_detail.participation_id).to_i)
+      end
+
+      # 参加者詳細を取得する
+      participations = Participation.where(id: participation_ids)
+      
+      # 参加者詳細から会員id(user_id)のみを取得する
+      user_ids = []
+      participations.each do |participation|
+        user_ids.push(participation.user_id)
+      end
+
+      # 試合参加メンバーを取得する
+      @members = User.where(id: user_ids)
+
+      @members.each do |member|
+        Resolute.create!(
+          user_id: member.id,
+          game_id: @game.id,
+        )
+      end
+
+      redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
+    else
+      @team1 = Team.order("created_at DESC").second
+      @team2 = Team.order("created_at DESC").first
+      @team_detail1 = TeamDetail.where(team_id: @team1.id)
+      @team_detail2 = TeamDetail.where(team_id: @team2.id)
+      binding.pry
+      participation_ids1 = []
+      @team_detail1.each do |team_detail1|
+        participation_ids1.push(team_detail1.participation_id)
+      end
+      participation_ids2 = []
+      @team_detail2.each do |team_detail2|
+        participation_ids2.push(team_detail2.participation_id)
+      end
+
+      @member1 = Participation.where(id: participation_ids1)
+      @member2 = Participation.where(id: participation_ids2)
+      binding.pry
+      render :halfway
     end
-
-
-    
-    redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
   end
 
   def edit
