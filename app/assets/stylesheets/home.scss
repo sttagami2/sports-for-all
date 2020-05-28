@@ -36,7 +36,7 @@
     }
   }
 
-  &__event-participation{
+  &__event-participation {
     display: grid;
     grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
     grid-gap: 0;
@@ -140,6 +140,112 @@
         background-blend-mode: lighten;
       }
 
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    &__event-participation {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px auto;
+      padding: 0;
+      background-color: black;
+      &__item {
+        &-1 {
+          background-image: image-url("top-vollayball.jpg");
+          background-size: cover;
+          background-position: top;
+          width: 100%;
+          height: 400px;
+        }
+        &-1:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+        &-2 {
+          background-image: image-url("baseball.jpg");
+          background-size: cover;
+          background-position: bottom;
+          width: 100%;
+          height: 400px;
+        }
+        &-2:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+        &-3 {
+          background-image: image-url("soccer2.jpg");
+          background-size: cover;
+          background-position: bottom;
+          width: 100%;
+          height: 400px;
+        }
+        &-3:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+        &-4 {
+          background-image: image-url("top-bowling.jpg");
+          background-size: cover;
+          background-color: lightgoldenrodyellow;
+          width: 100%;
+          height: 400px;
+        }
+        &-4:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+        &-5 {
+          background-image: image-url("tennis2.jpg");
+          background-size: cover;
+          background-position: bottom;
+          width: 100%;
+          height: 400px;
+        }
+        &-5:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+        &-6 {
+          background-image: image-url("top-basketball.jpg");
+          background-size: cover;
+          background-color: skyblue;
+          width: 100%;
+          height: 400px;
+        }
+        &-6:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+        &-7 {
+          background-image: image-url("top-tabletennis.jpg");
+          background-size: cover;
+          background-color: lightgreen;
+          width: 100%;
+          height: 400px;
+        }
+        &-7:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+        &-8 {
+          background-image: image-url("bad-m.jpg");
+          background-size: cover;
+          background-position: bottom;
+          width: 100%;
+          height: 400px;
+        }
+        &-8:hover {
+          background-color: rgba(255, 255, 255, 0.6);
+          background-blend-mode: lighten;
+        }
+  
+      }
     }
   }
 

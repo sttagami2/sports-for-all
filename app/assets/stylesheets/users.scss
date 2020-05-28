@@ -158,6 +158,9 @@
         }
         .game_resolute {
           margin-top: 30px;
+          &__item {
+            margin: 10px auto;
+          }
         }
       }
     }
