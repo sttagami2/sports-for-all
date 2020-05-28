@@ -1,7 +1,7 @@
 # Sports-for-All
 
 ## サイトURL
-http://sports-for-all.work
+https://sports-for-all.work/
 
 ## サイト概要
 Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるアプリケーション。
