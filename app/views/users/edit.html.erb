@@ -8,35 +8,46 @@
     <% end %>
   </ul>
 <% end %>
+<div class="user-edit">
+  <div class="bottom-color">登録情報編集</div>
+  <div class="user-edit__container">
+    <%= form_for @user do |f| %>
 
-<div class="row">
-  <div class="">
-    <h2 class="color">登録情報編集</h2>
+      <div class="user-edit__container__label">
+        <%= f.label :name, "名前", class: "" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control" %>
+      </div>
+
+      <div class="user-edit__container__label">
+        <%= f.label :name_k, "ナマエ", class: "" %>
+        <%= f.text_field :name_k, autofocus: true, autocomplete: "name_k", class: "form-control" %>
+      </div>
+
+      <div class="user-edit__container__label">
+        <%= f.label :image, "プロフィール写真" %><br>
+        <%= f.file_field :image, class: "form-control" %><br>
+      </div>
+
+      <div class="user-edit__container__label">
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+    
+      <div class="user-edit__container__label">
+        <%= f.label :age, "年齢" %>
+        <%= f.number_field :age, autofocus: true, autocomplete: "age", class: "form-control" %>
+      </div>
+
+      <div class="user-edit__container__label">
+        <%= f.label :phone_number, "電話番号" %>
+        <em>(ハイフンなし)</em>
+        <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: "form-control" %>
+      </div>
+
+      <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
+
+    <% end %>
   </div>
 </div>
 
-<%= form_for @user do |f| %>
-
-  <%= f.label :name, "名前", class: "" %>
-  <%= f.text_field :name, autofocus: true, autocomplete: "name", class: " form-control" %>
-
-  <%= f.label :name_k, "ナマエ", class: "" %>
-  <%= f.text_field :name_k, autofocus: true, autocomplete: "name_k", class: " form-control" %>
-
-  <%= f.label :image, "画像" %><br>
-  <%= f.file_field :image, class: "form-control" %><br>
-
-  <%= f.label :email, "メールアドレス" %>
-  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: " form-control" %>
- 
-  <%= f.label :age, "メールアドレス" %>
-  <%= f.number_field :age, autofocus: true, autocomplete: "age", class: " form-control" %>
-
-  <%= f.label :phone_number, "電話番号" %>
-  <em>(ハイフンなし)</em>
-  <%= f.text_field :phone_number, autofocus: true, autocomplete: "phone_number", class: " form-control" %>
-
-  <%= f.submit "編集内容を保存する", class: "btn btn-primary" %>
-
-<% end %>
 

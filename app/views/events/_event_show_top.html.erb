@@ -1,15 +1,14 @@
   <div class="event-show-top">
     <div class="event-show-top__container">
       <div class="event-show-top__container__item">
-        <h2><%= @event.event_name %></h2>
-      </div>
-
-      <div class="event-show-top__container__item">
-        <p>種目：<span><%= Type.find_by(id: @event.type_id).name %></span></p>
-      </div>
-
-      <div class="event-show-top__container__item">
-        <p>開催日時：<span><%= @event.start_date %></span></p>
+        <div class="bottom-color"><%= @event.event_name %></div>
+        <% if @event.user_id == current_user.id %>
+          <div class="event-edit">
+            <%= link_to edit_event_path do %>
+              <i class="fas fa-cog icon-orange"></i>
+            <% end %>
+          </div>
+        <% end %>
       </div>
     </div>
     <div class="map-area">
@@ -17,6 +16,17 @@
       <div class="map-area__address text-center">
         <h3>住所</h3>
         <p><%= @event.address %></p>
+        <p><%= "施設名：#{@event.place_name}" %></p>
+      </div>
+    </div>
+    <div class="row event-show-top__details">
+      <div class="col-md-6 col-sm-12 event-show-top__details__type text-center">
+        <p>種目：<span><%= Type.find_by(id: @event.type_id).name %></span></p>
+      </div>
+
+      <div class="col-md-6 col-sm-12 event-show-top__details__date text-center">
+        <p>開催日時：<span><%= @event.start_date.strftime('%Y年%m月%d日 %H:%M') %></span></p>
+        <p>終了日時：<span><%= @event.finish_date.strftime('%Y年%m月%d日 %H:%M') %></span></p>
       </div>
     </div>
   </div>

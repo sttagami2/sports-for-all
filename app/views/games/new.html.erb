@@ -13,7 +13,7 @@
               <div class="side-color">試合日</div>
             </div>
             <div class="col-lg-9">
-              <%= @event.start_date %>
+              <%= @event.start_date.strftime('%Y年%m月%d日') %>
             </div>
           </div>
           <br>

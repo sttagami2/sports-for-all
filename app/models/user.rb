@@ -9,6 +9,7 @@ class User < ApplicationRecord
             # length: { maximum: 15, minimum: 1, message: "は1文字以上15文字以内です。"}
   validates :email, uniqueness: {case_sensitive: false}, presence: true
 
+  has_many :events, dependent: :destroy
   has_many :participations, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :resolutes, dependent: :destroy

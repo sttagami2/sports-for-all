@@ -1,4 +1,5 @@
 class RoomsController < ApplicationController
+  before_action :authenticate_user!
   def create
     @room = Room.create
     @user_room1 = UserRoom.create(room_id: @room.id, user_id: current_user.id)
