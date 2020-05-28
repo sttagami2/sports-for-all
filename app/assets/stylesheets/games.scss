@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .game-halfway {
+  margin-bottom: 50px;
   .game-halfway-container {
     width: 70%;
     height: 70vh;
@@ -94,7 +95,7 @@
 .game-index {
   width: 70%;
   color: black;
-  margin: 60px auto 0;
+  margin: 60px auto 50px;
   .game-index__table {
     margin: 0 auto;
     tr {
@@ -138,6 +139,7 @@
 
 // <start> game-new
 .game-new {
+  margin-bottom: 50px;
   &__container {
     width: 60%;
     margin: 0 auto;
@@ -173,6 +175,7 @@
 
 // <start> game-show
 .game-show {
+  margin-bottom: 50px;
   &__panel {
     width: 80%;
     margin: 50px auto;

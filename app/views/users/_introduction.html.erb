@@ -5,7 +5,7 @@
     </div>
     <div class="introduction__header__text text-center col-md-12 col-lg-8">
       <div class="introduction__header__text__top row">
-        <div class="introduction__header__text__top__name text-center col-xs-4">
+        <div class="introduction__header__text__top__name text-center col-xs-5">
           <%= @user.name %>
         </div>
         <% if @user.id == current_user.id %>
@@ -39,16 +39,16 @@
         <div class="col-xs-4">フォロワー<%= link_to @user.followers.count, followers_user_path(@user) %>人</div>
       </div>
       <div class="row game_resolute">
-        <div class="col-xs-3">
+        <div class="col-lg-3 col-md-6 col-xs-6 game_resolute__item">
           <% if @resolutes.count == 0 || @win_count == 0 %>
             勝率：0％
           <% else %>
             勝率：<%= "#{(((@win_count.to_f) / (@resolutes.count.to_f)) * 100).round(1)}％" %>
           <% end %>
         </div>
-        <div class="col-xs-3">試合数：<%= "#{@resolutes.count}回" %></div>
-        <div class="col-xs-3">勝ち数：<%= "#{@win_count}回" %></div>
-        <div class="col-xs-3">負け数：<%= "#{@resolutes.count-@win_count}回"  %></div>
+        <div class="col-lg-3 col-md-6 col-xs-6 game_resolute__item">試合数：<%= "#{@resolutes.count}回" %></div>
+        <div class="col-lg-3 col-md-6 col-xs-6 game_resolute__item">勝ち数：<%= "#{@win_count}回" %></div>
+        <div class="col-lg-3 col-md-6 col-xs-6 game_resolute__item">負け数：<%= "#{@resolutes.count-@win_count}回"  %></div>
       </div>
     </div>
   </div>
