@@ -48,9 +48,11 @@
       &-1 {
         grid-column: 1/2;
         grid-row: 1/2;
-        background-image: image-url("volleyball.jpg");
+        background-image: image-url("top-vollayball.jpg");
         background-size: cover;
         background-position: top;
+      }
+      &-1:hover {
         background-color: rgba(255, 255, 255, 0.6);
         background-blend-mode: lighten;
       }
@@ -60,48 +62,80 @@
         background-image: image-url("baseball.jpg");
         background-size: cover;
         background-position: bottom;
+      }
+      &-2:hover {
         background-color: rgba(255, 255, 255, 0.6);
         background-blend-mode: lighten;
       }
+
       &-3 {
         grid-column: 2/3;
         grid-row: 2/3;
         background-image: image-url("soccer2.jpg");
         background-size: cover;
         background-position: bottom;
+      }
+      &-3:hover {
         background-color: rgba(255, 255, 255, 0.6);
         background-blend-mode: lighten;
       }
+
       &-4 {
         grid-column: 1/2;
         grid-row: 3/4;
+        background-image: image-url("top-bowling.jpg");
+        background-size: cover;
         background-color: lightgoldenrodyellow;
       }
+      &-4:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+        background-blend-mode: lighten;
+      }
+
       &-5 {
         grid-column: 3/4;
         grid-row: 3/4;
         background-image: image-url("tennis2.jpg");
         background-size: cover;
         background-position: bottom;
+      }
+      &-5:hover {
         background-color: rgba(255, 255, 255, 0.6);
         background-blend-mode: lighten;
       }
+
       &-6 {
         grid-column: 2/3;
         grid-row: 4/5;
+        background-image: image-url("top-basketball.jpg");
+        background-size: cover;
         background-color: skyblue;
       }
+      &-6:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+        background-blend-mode: lighten;
+      }
+
       &-7 {
         grid-column: 1/2;
         grid-row: 5/6;
+        background-image: image-url("top-tabletennis.jpg");
+        background-size: cover;
         background-color: lightgreen;
       }
+      &-7:hover {
+        background-color: rgba(255, 255, 255, 0.6);
+        background-blend-mode: lighten;
+      }
+
       &-8 {
         grid-column: 3/4;
         grid-row: 5/6;
         background-image: image-url("bad-m.jpg");
         background-size: cover;
         background-position: bottom;
+      }
+      &-8:hover {
         background-color: rgba(255, 255, 255, 0.6);
         background-blend-mode: lighten;
       }
