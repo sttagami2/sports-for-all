@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :event do
+    user_id {1}
     type_id {1}
     event_name {"#{Takarabako.open}イベント"}
     introduction {Faker::Lorem.characters(number:30)}

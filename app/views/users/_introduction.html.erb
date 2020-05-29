@@ -1,7 +1,11 @@
 <div class="introduction">
   <div class="row introduction__header">
     <div class="introduction__header__image text-center col-md-12 col-lg-4">
-      <%= image_tag(@user.image.to_s, size: "250x250") unless @user.image.file.nil? %>
+      <% if @user.image? %>
+        <%= image_tag(@user.image.to_s, size: "250x250") unless @user.image.file.nil? %>
+      <% else %>
+        <%= image_tag("no_image.jpg", size: "250x250") %>
+      <% end %>
     </div>
     <div class="introduction__header__text text-center col-md-12 col-lg-8">
       <div class="introduction__header__text__top row">
