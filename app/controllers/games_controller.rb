@@ -191,7 +191,6 @@ class GamesController < ApplicationController
       @team2 = Team.order("created_at DESC").first
       @team_detail1 = TeamDetail.where(team_id: @team1.id)
       @team_detail2 = TeamDetail.where(team_id: @team2.id)
-      binding.pry
       participation_ids1 = []
       @team_detail1.each do |team_detail1|
         participation_ids1.push(team_detail1.participation_id)
@@ -203,7 +202,6 @@ class GamesController < ApplicationController
 
       @member1 = Participation.where(id: participation_ids1)
       @member2 = Participation.where(id: participation_ids2)
-      binding.pry
       render :halfway
     end
   end
