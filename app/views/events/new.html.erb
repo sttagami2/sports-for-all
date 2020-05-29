@@ -1,13 +1,4 @@
-<% if @event.errors.any? %>
 
-  <h2><%= @event.errors.count %>errors prohibited this  from being saved:</h2>
-
-  <ul>
-    <% @event.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
-<% end %>
 
 <div class="event-new">
   <div class="bottom-color">新規イベント作成</div>

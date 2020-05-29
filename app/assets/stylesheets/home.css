@@ -1,0 +1,639 @@
+.home-top {
+  background-color: black;
+  color: white;
+}
+
+.home-top .participation .jumbotron {
+  background-image: image-url("event.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.home-top .participation .jumbotron .container-participation {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  margin: 40px 0 0 0;
+  border-radius: 2em;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.home-top .participation .jumbotron .container-participation .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.home-top__event-participation {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+      grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+  grid-gap: 0;
+  grid-auto-rows: 400px 400px 400px 400px 400px;
+  margin: 20px auto;
+  padding: 0;
+  background-color: black;
+}
+
+.home-top__event-participation__item-1 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-image: image-url("top-vollayball.jpg");
+  background-size: cover;
+  background-position: top;
+}
+
+.home-top__event-participation__item-1:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-2 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  background-image: image-url("baseball.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.home-top__event-participation__item-2:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-3 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  grid-row: 2/3;
+  background-image: image-url("soccer2.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.home-top__event-participation__item-3:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-4 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  background-image: image-url("top-bowling.jpg");
+  background-size: cover;
+  background-color: lightgoldenrodyellow;
+}
+
+.home-top__event-participation__item-4:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-5 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3/4;
+  background-image: image-url("tennis2.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.home-top__event-participation__item-5:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-6 {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2/3;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  grid-row: 4/5;
+  background-image: image-url("top-basketball.jpg");
+  background-size: cover;
+  background-color: skyblue;
+}
+
+.home-top__event-participation__item-6:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-7 {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1/2;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  grid-row: 5/6;
+  background-image: image-url("top-tabletennis.jpg");
+  background-size: cover;
+  background-color: lightgreen;
+}
+
+.home-top__event-participation__item-7:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+.home-top__event-participation__item-8 {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3/4;
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 1;
+  grid-row: 5/6;
+  background-image: image-url("bad-m.jpg");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.home-top__event-participation__item-8:hover {
+  background-color: rgba(255, 255, 255, 0.6);
+  background-blend-mode: lighten;
+}
+
+@media screen and (max-width: 1000px) {
+  .home-top__event-participation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: 20px auto;
+    padding: 0;
+    background-color: black;
+  }
+  .home-top__event-participation__item-1 {
+    background-image: image-url("top-vollayball.jpg");
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-1:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-2 {
+    background-image: image-url("baseball.jpg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-2:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-3 {
+    background-image: image-url("soccer2.jpg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-3:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-4 {
+    background-image: image-url("top-bowling.jpg");
+    background-size: cover;
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-4:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-5 {
+    background-image: image-url("tennis2.jpg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-5:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-6 {
+    background-image: image-url("top-basketball.jpg");
+    background-size: cover;
+    background-color: skyblue;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-6:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-7 {
+    background-image: image-url("top-tabletennis.jpg");
+    background-size: cover;
+    background-color: lightgreen;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-7:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+  .home-top__event-participation__item-8 {
+    background-image: image-url("bad-m.jpg");
+    background-size: cover;
+    background-position: bottom;
+    width: 100%;
+    height: 400px;
+  }
+  .home-top__event-participation__item-8:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    background-blend-mode: lighten;
+  }
+}
+
+.home-top .host .jumbotron {
+  background-image: image-url("host1.jpg");
+  background-size: cover;
+  background-position: bottom;
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  width: 80%;
+  height: 100vh;
+  margin: 0 auto;
+  border-radius: 0;
+}
+
+.home-top .host .jumbotron .host_text {
+  color: black;
+  margin-top: 300px;
+}
+
+.home-about {
+  color: white;
+  background-color: black;
+}
+
+.home-about__header {
+  width: 100%;
+}
+
+.home-about__header__title h1 {
+  margin: 0;
+  padding: 30px 0;
+}
+
+.home-about__header__slide {
+  position: relative;
+  overflow: hidden;
+}
+
+.home-about__header__slide .slide-zoom {
+  width: 100%;
+  height: 90vh;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.home-about__header__slide .slide-zoom .slide-image {
+  width: 100%;
+  height: 90vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  color: transparent;
+  /* background-size: cover; */
+  background-position: 50% 50%;
+  background-repeat: none;
+  opacity: 0;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-animation: ImgAnime 20s linear infinite 0s;
+  animation: ImgAnime 20s linear infinite 0s;
+}
+
+.home-about__header__slide .slide-zoom .slide-image:nth-child(1) {
+  background-image: image-url("football-team.jpg");
+  background-position: 50% 40%;
+}
+
+.home-about__header__slide .slide-zoom .slide-image:nth-child(2) {
+  background-image: image-url("baseball-team.jpg");
+  -webkit-animation-delay: 5s;
+  animation-delay: 5s;
+  background-position: 50% 35%;
+}
+
+.home-about__header__slide .slide-zoom .slide-image:nth-child(3) {
+  background-image: image-url("basketball-team2.jpg");
+  -webkit-animation-delay: 10s;
+  animation-delay: 10s;
+  background-position: 50% 50%;
+}
+
+.home-about__header__slide .slide-zoom .slide-image:nth-child(4) {
+  background-image: image-url("teammate.jpg");
+  -webkit-animation-delay: 15s;
+  animation-delay: 15s;
+  background-position: 50% 30%;
+}
+
+@-webkit-keyframes ImgAnime {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  15% {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  20% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes ImgAnime {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(1.15);
+            transform: scale(1.15);
+    -webkit-animation-timing-function: ease-in;
+            animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+  }
+  15% {
+    opacity: 1;
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  }
+  20% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  25% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.home-about .bottom-color {
+  border-bottom: 5px solid #c7f549;
+  font-size: 32px;
+  padding: 0 5px;
+  display: inline-block;
+  text-align: left;
+  margin: 70px auto 30px;
+}
+
+.home-about .container-for-all {
+  width: 100%;
+  height: 400px;
+  background-color: white;
+  color: black;
+}
+
+.home-about .container-for-all__text {
+  width: 70%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.home-about .container-for-all__text p {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 569px) {
+  .home-about .container-for-all {
+    height: 400px;
+  }
+  .home-about .container-for-all .bottom-color {
+    font-size: 26px;
+  }
+}
+
+.home-about .about-for {
+  background-color: black;
+}
+
+.home-about .about-for__text {
+  padding: 0 50px;
+  margin: 50px auto 100px;
+}
+
+.home-about .about-for__text .bottom-color {
+  border-bottom: 5px solid #c7f549;
+  font-size: 32px;
+  padding-left: 5px;
+  display: inline-block;
+  text-align: left;
+  margin: 20px auto 150px;
+}
+
+.home-about .about-for__text h2 {
+  margin: 40px 0;
+}
+
+.home-about .about-for__text p {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1200px) {
+  .home-about .about-for__text__title {
+    margin: 50px auto;
+  }
+  .home-about .about-for__text__image {
+    margin: 50px auto;
+    text-align: center;
+  }
+  .home-about .about-for__text__image image {
+    text-align: center;
+  }
+}
+
+.home-about__suggestion {
+  background-color: white;
+  color: black;
+  height: 70vh;
+}
+
+.home-about__suggestion h2 {
+  margin: 0;
+  padding: 180px 0 80px 0;
+}
+
+.home-about__suggestion__sports {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+@media screen and (max-width: 767px) {
+  .home-about__suggestion h2 {
+    padding: 50px 0;
+  }
+  .home-about__suggestion__sports {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .home-about__suggestion__sports__type {
+    margin: 30px 20px;
+  }
+}
+
+.home-about__registration {
+  height: 300px;
+  line-height: 300px;
+}
+
+.animation-left {
+  margin: 50px 0;
+  font-size: 40px;
+}
+
+.fadeInLeft {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  visibility: visible !important;
+}
+
+@-webkit-keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, -100%, 0);
+    transform: translate3d(-100%, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(-100%, -100%, 0);
+    transform: translate3d(-100%, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animation-right {
+  margin: 50px 0;
+}
+
+.fadeInRight {
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-name: fadeInRight;
+  animation-name: fadeInRight;
+  visibility: visible !important;
+}
+
+@-webkit-keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, -100%, 0);
+    transform: translate3d(100%, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(100%, -100%, 0);
+    transform: translate3d(100%, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+/*# sourceMappingURL=home.css.map */

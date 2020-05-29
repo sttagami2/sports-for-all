@@ -60,23 +60,8 @@ RSpec.describe Game, type: :model do
       expect(@game).not_to be_valid
     end
   
-    it "win_scoreが存在していなければ無効" do
-      @game.win_score = ""
-      expect(@game).not_to be_valid
-    end
-  
-    it "lose_scoreが存在していなければ無効" do
-      @game.lose_score = ""
-      expect(@game).not_to be_valid
-    end
-
-    it "win_scoreとlose_scoreの値が同じ場合無効" do
-      @game.win_score = @game.lose_score
-      expect(@game).not_to be_valid
-    end
-
-    it "win_scoreがlose_scoreより小さい場合無効" do
-      @game.win_score < @game.lose_score
+    it "win_scoreとlose_scoreが同値の場合無効" do
+      @game.win_score = @game.lose_score 
       expect(@game).not_to be_valid
     end
   end
