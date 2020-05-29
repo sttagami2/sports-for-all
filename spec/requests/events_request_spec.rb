@@ -21,42 +21,42 @@ RSpec.describe "Events", type: :request do
   end
 
   context "GET /new" do
-    it "game#newにアクセスできること" do
+    it "event#newにアクセスできること" do
       get new_event_path
       expect(response).to have_http_status(:success)
     end
   end
 
   context "GET /index" do
-    it "game#indexにアクセスできること" do
+    it "event#indexにアクセスできること" do
       get events_path
       expect(response).to have_http_status(:success)
     end
   end
 
   context "GET /edit" do
-    it "game#editにアクセスできること" do
+    it "event#editにアクセスできること" do
       get edit_event_path(@event)
       expect(response).to have_http_status(:success)
     end
   end
 
   context "GET /show" do
-    it "game#showにアクセスできること" do
+    it "event#showにアクセスできること" do
       get event_path(@event)
       expect(response).to have_http_status(:success)
     end
   end
 
   context "POST /create" do
-    it "game#createにデータを保存できること" do
+    it "event#createにデータを保存できること" do
       post events_path
       expect(response).to have_http_status(:success)
     end
   end
 
   context "PATCH /update" do
-    it "game#updateにてデータを更新できること" do
+    it "event#updateにてデータを更新できること" do
       patch event_path(@event)
       expect(response).to have_http_status(:success)
     end

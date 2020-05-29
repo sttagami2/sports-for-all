@@ -41,8 +41,10 @@ RSpec.describe Event, type: :model do
 
   describe '機能面のテスト' do
     before do
+      @user = FactoryBot.create(:user)
       @type = FactoryBot.create(:type)
       @event = Event.new(
+        user_id: @user.id,
         type_id: @type.id,
         event_name: "#{Takarabako.open}イベント",
         introduction: Faker::Lorem.characters(number:30),

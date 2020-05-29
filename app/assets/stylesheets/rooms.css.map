@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,KAAK,EAAE,QAAQ,EAAE,MAAM,CAAC;EACvB,gBAAgB,EAAE,OAAe;CACjC",
+    "sources": [
+        "rooms.scss"
+    ],
+    "names": [],
+    "file": "rooms.css"
+}
