@@ -1,0 +1,25 @@
+<div class="index">
+  <div class="row">
+    <div class="index-event col-lg-6 col-md-12">
+      <div class="index-event__panel panel panel-success">
+        <div class="index-event__panel__heading panel-heading">
+          <h3>過去イベント一覧</h3>
+        </div>
+        <div class="index-event__panel__body panel-body">
+          <h4>過去に参加イベントです。</h4>
+            <ul>
+              <% @events.each do |event| %>
+                <% if event.finish_date < Date.today %>
+                  <li><%=link_to "#{event.event_name}", event_path(event), class: "index-item__event__panel__body__link" %></li>
+                <% end %>
+              <% end %>
+            </ul>
+        </div>
+      </div>
+
+    </div>
+    <div class="index-game col-lg-6 col-md-12">
+
+    </div>
+  </div>
+</div>

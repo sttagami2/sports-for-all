@@ -6,7 +6,9 @@
           <h4>参加しているイベントです。</h4>
             <ul>
               <% @events.each do |event| %>
-                <li><%=link_to "#{event.event_name}", event_path(event), class: "index-item__event__panel__body__link" %></li>
+                <% if event.finish_date > Date.today %>
+                  <li><%=link_to "#{event.event_name}", event_path(event), class: "index-item__event__panel__body__link" %></li>
+                <% end %>
               <% end %>
             </ul>
         </div>

@@ -7,6 +7,7 @@ RSpec.describe "Events", type: :request do
     @event = FactoryBot.create(:event)
     @type = FactoryBot.create(:type)
     @eventnew = Event.new(
+      user_id: @user.id,
       type_id: @type.id,
       event_name: "#{Takarabako.name}イベント",
       introduction: Faker::Lorem.characters(number:30),

@@ -6,14 +6,15 @@ class EventsController < ApplicationController
 
   def index
     if params[:type_id].present?
-      @events = Event.where(type_id: params[:type_id])
+      @events = Event.where(type_id: params[:type_id]).order(start_date: "ASC")
     else
-      @events = Event.all
+      @events = Event.all.order(start_date: "ASC")
     end
   end
 
   def create
     @event = Event.new(event_params)
+    @event.user_id = current_user.id
     @event.save
     Participation.create!(
       event_id: @event.id,

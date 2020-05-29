@@ -23,7 +23,11 @@
           <table>
             <% @participations.each do |participation| %>
             <tr class="text-center">
-              <td width="200" height="100"><%= image_tag(participation.user.image.to_s, size: "100x100") unless participation.user.image.file.nil? %></td>
+              <% if participation.user.image? %>
+                <td width="200" height="100"><%= image_tag(User.find_by(id: participation.user).image.to_s, size: "100x100") unless User.find_by(id: participation.user).image.nil? %></td>
+              <% else %>
+                <td width="200" height="100"><%= image_tag("no_image.jpg", size: "100x100") %></td>
+              <% end %>
               <td width="150" height="60"><%= link_to "#{participation.user.name}", user_path(participation.user_id) %></td>
               <td width="150" height="60"><%= "#{participation.user.age}歳" %></td>
             </tr>

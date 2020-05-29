@@ -7,7 +7,11 @@
         <div class="team-item-left">
           <% @member1.each do |member1| %>
             <div class="team-item-left__user">
-              <div><%= image_tag(User.find_by(id: member1).image.to_s, size: "80x80") unless User.find_by(id: member1).image.nil? %></div>
+              <% if member1.user.image? %>
+                <%= image_tag(User.find_by(id: member1.user_id).image.to_s, size: "80x80") unless User.find_by(id: member1.user_id).image.nil? %>
+              <% else %>
+                <%= image_tag("no_image.jpg", size: "80x80") %>
+              <% end %>
               <div class="text-center"><%= member1.user.name %></div>
             </div>
           <% end %>
@@ -17,7 +21,11 @@
         <div class="team-item-right text-right">
           <% @member2.each do |member2| %>
             <div class="team-item-right__user">
-              <div><%= image_tag(User.find_by(id: member2).image.to_s, size: "80x80") unless User.find_by(id: member2).image.nil? %></div>
+              <% if member2.user.image? %>
+                <%= image_tag(User.find_by(id: member2.user_id).image.to_s, size: "80x80") unless User.find_by(id: member2.user_id).image.nil? %>
+              <% else %>
+                <%= image_tag("no_image.jpg", size: "80x80") %>
+              <% end %>
               <div class="text-center"><%= member2.user.name %></div>
             </div>
           <% end %>

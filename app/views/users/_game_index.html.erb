@@ -3,28 +3,54 @@
           <h3>過去の試合一覧</h3>
         </div>
         <div class="index-game__panel__body panel-body">
-          <h4>直近10試合の結果です。</h4>
+          <% if @games.count < 10 %>
+            <h4>直近<%= @games.count %>試合の結果です。</h4>
+          <% else %>
+            <h4>直近10試合の結果です。</h4>
+          <% end %>
           <table class="table table-borderless">
-            <% @games.each.with_index(1) do |game, i| %>
-              <tr>
-                <th class="index"><%= "#{i}試合目" %></th>
-                <% if (game.win_id) < (game.lose_id) %>
-                  <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
-                  <td class="score"><%= game.win_score %></td>
-                  <td class="text-center">ー</td>
-                  <td class="score"><%= game.lose_score %></td>
-                  <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
-                <% else %>
-                  <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
-                  <td class="score"><%= game.lose_score %></td>
-                  <td class="text-center">ー</td>
-                  <td class="score"><%= game.win_score %></td>
-                  <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
-                <% end %>
-                <td>
-                  <%= link_to "詳細を見る", event_game_path(event_id: game.event_id, id: game.id) %>
-                </td>
-              </tr>
+            <% @games.order(id: "DESC").each.with_index(1) do |game, i| %>
+              <% if @games.count < 10 %>
+                <tr>
+                  <th class="index"><%= "#{@games.count+1-i}試合目" %></th>
+                  <% if (game.win_id) < (game.lose_id) %>
+                    <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
+                    <td class="score"><%= game.win_score %></td>
+                    <td class="text-center">ー</td>
+                    <td class="score"><%= game.lose_score %></td>
+                    <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
+                  <% else %>
+                    <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
+                    <td class="score"><%= game.lose_score %></td>
+                    <td class="text-center">ー</td>
+                    <td class="score"><%= game.win_score %></td>
+                    <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
+                  <% end %>
+                  <td>
+                    <%= link_to "詳細を見る", event_game_path(event_id: game.event_id, id: game.id) %>
+                  </td>
+                </tr>
+              <% else %>
+                <tr>
+                  <th class="index"><%= "#{11-i}試合目" %></th>
+                  <% if (game.win_id) < (game.lose_id) %>
+                    <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
+                    <td class="score"><%= game.win_score %></td>
+                    <td class="text-center">ー</td>
+                    <td class="score"><%= game.lose_score %></td>
+                    <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
+                  <% else %>
+                    <td class="team-name"><%= Team.find_by(id: game.lose_id).name %></td>
+                    <td class="score"><%= game.lose_score %></td>
+                    <td class="text-center">ー</td>
+                    <td class="score"><%= game.win_score %></td>
+                    <td class="team-name"><%= Team.find_by(id: game.win_id).name %></td>
+                  <% end %>
+                  <td>
+                    <%= link_to "詳細を見る", event_game_path(event_id: game.event_id, id: game.id) %>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
           </table>
         </div>

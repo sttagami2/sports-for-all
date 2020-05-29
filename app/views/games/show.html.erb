@@ -17,7 +17,11 @@
           <div>
             <% @member_winer.each do |member_winer| %>
               <div>
-                <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.file.nil? %>
+                <% if member_winer.image? %>
+                  <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.nil? %>
+                <% else %>
+                  <%= image_tag("no_image.jpg", size: "80x80") %>
+                <% end %>
                 <%= member_winer.name %>
               </div>
             <% end %>
@@ -34,7 +38,11 @@
           <div>
             <% @member_loser.each do |member_loser| %>
               <div>
-                <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.file.nil? %>
+                <% if member_loser.image? %>
+                  <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.nil? %>
+                <% else %>
+                  <%= image_tag("no_image.jpg", size: "80x80") %>
+                <% end %>
                 <%= member_loser.name %>
               </div>
             <% end %>
