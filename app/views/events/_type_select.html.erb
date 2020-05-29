@@ -3,18 +3,18 @@
     <div class="event-top__text">
       <h2>イベント一覧</h2>
     </div>
-    <div class="event-top__button">
+    <%# <div class="event-top__button">
       <button class="event-button btn btn-success">地域別に検索</button>
     </div>
   </div>
 <div>
   <div class="map-area" id="map-area">
     <%= render "map" %>
-    <button class="btn btn-danger" id="close">閉じる</button>
+    <%# <button class="btn btn-danger" id="close">閉じる</button>
   </div>
-</div>
+</div>  %>
 
-<script>
+<%# <script>
   $(function(){
     $(".event-button").click(function() {
       $(".map-area").fadeIn(1000);
@@ -24,7 +24,7 @@
       $(".map-area").fadeOut(1000);
     });
   });
-</script>
+</script> %>
 
   <%#= form_tag events_path, method: :get, class: 'boards__searchForm' do %>
     <%#= select_tag :type_id, options_from_collection_for_select(Type.all, :id, :name, params[:type_id]),{prompt: 'タグで絞り込み検索', onchange: 'submit(this.form);'} %>
