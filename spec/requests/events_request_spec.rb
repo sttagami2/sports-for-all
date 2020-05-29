@@ -50,7 +50,7 @@ RSpec.describe "Events", type: :request do
 
   context "POST /create" do
     it "event#createにデータを保存できること" do
-      post events_path
+      post events_path, params: @eventnew
       expect(response).to have_http_status(:success)
     end
   end

@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
   def create
     @event = Event.find(params[:event_id])
     @comment = current_user.comments.new(comment_params)
@@ -13,7 +12,7 @@ class CommentsController < ApplicationController
     @event = Event.find(params[:event_id])
     @comment = @event.comments.find(params[:id])
     @comment.destroy
-    render :index
+    render :inde
   end
 
   private
