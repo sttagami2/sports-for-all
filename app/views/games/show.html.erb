@@ -16,13 +16,17 @@
           </div>
           <div>
             <% @member_winer.each do |member_winer| %>
-              <div>
-                <% if member_winer.image? %>
-                  <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.nil? %>
-                <% else %>
-                  <%= image_tag("no_image.jpg", size: "80x80") %>
-                <% end %>
-                <%= member_winer.name %>
+              <div class="text-center">
+                <div width="100" class="text-center">
+                  <% if member_winer.image? %>
+                    <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.nil? %>
+                  <% else %>
+                    <%= image_tag("no_image.jpg", size: "80x80") %>
+                  <% end %>
+                </div>
+                <div>
+                  <%= member_winer.name %>
+                </div>
               </div>
             <% end %>
           </div>
@@ -38,12 +42,16 @@
           <div>
             <% @member_loser.each do |member_loser| %>
               <div>
-                <% if member_loser.image? %>
-                  <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.nil? %>
-                <% else %>
-                  <%= image_tag("no_image.jpg", size: "80x80") %>
-                <% end %>
-                <%= member_loser.name %>
+                <div class="text-center" width="100">
+                  <% if member_loser.image? %>
+                    <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.nil? %>
+                  <% else %>
+                    <%= image_tag("no_image.jpg", size: "80x80") %>
+                  <% end %>
+                </div>
+                <div>
+                  <%= member_loser.name %>
+                </div>
               </div>
             <% end %>
           </div>
