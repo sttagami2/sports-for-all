@@ -6,7 +6,7 @@
           <h4>参加しているイベントです。</h4>
             <ul>
               <% @events.each do |event| %>
-                <% if event.finish_date > Date.today %>
+                <% if event.finish_date > Time.zone.now %>
                   <li><%=link_to "#{event.event_name}", event_path(event), class: "index-item__event__panel__body__link" %></li>
                 <% end %>
               <% end %>
