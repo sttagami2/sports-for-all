@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
     participations = Participation.where('user_id=?', current_user.id)
-    @events = Event.where(id: participations.map{|t| t.event_id})
+    @events = Event.where(id: participations.map{|t| t.event_id}).order(start_date: "ASC")
     @user = User.find(params[:id])
     @user_relation = current_user
 
