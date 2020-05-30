@@ -2,7 +2,7 @@
     <% if @participation == nil %>
       <%= link_to "このイベントに参加する", event_participations_path(event_id: params[:id]), method: :post, status: "参加", class: "btn btn-lg btn-success" %>
     <% else %>
-      <% if @event.finish_date > Date.today %>
+      <% if @event.finish_date > Time.zone.now %>
         <%= link_to "試合を始める", new_event_game_path(event_id: params[:id]), class: "btn btn-lg btn-success" %>
         <%= link_to "参加を取りやめる", participation_path(event_id: params[:id], user_id: current_user.id), method: :delete, class: "btn btn-lg btn-danger" %>
       <% else %>
