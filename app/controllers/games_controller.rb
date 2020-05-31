@@ -4,8 +4,9 @@ class GamesController < ApplicationController
   end
 
   def new
+    @event = Event.find(params[:event_id])
     @participation = Participation.new
-    participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
+    participations = Participation.where('event_id=? and status=?', @event.id, "参加")
     @users = User.where(id: participations.map{|t| t.user_id})
   end
 
@@ -112,7 +113,6 @@ class GamesController < ApplicationController
           )
         end
 
-        # 今後チームが重複しないように、eventにネストする必要あり
         @team1 = Team.order("created_at DESC").second
         @team2 = Team.order("created_at DESC").first
         @event = Event.find(params[:event_id])
