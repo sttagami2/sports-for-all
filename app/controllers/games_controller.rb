@@ -1,5 +1,4 @@
 class GamesController < ApplicationController
-  before_action :authenticate_user!
   def index
     @games = Game.where(event_id: params[:event_id])
   end
@@ -8,7 +7,6 @@ class GamesController < ApplicationController
     @participation = Participation.new
     participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
     @users = User.where(id: participations.map{|t| t.user_id})
-    @event = Event.find(params[:event_id])
   end
 
   def halfway
@@ -114,6 +112,7 @@ class GamesController < ApplicationController
           )
         end
 
+        # 今後チームが重複しないように、eventにネストする必要あり
         @team1 = Team.order("created_at DESC").second
         @team2 = Team.order("created_at DESC").first
         @event = Event.find(params[:event_id])
@@ -141,123 +140,60 @@ class GamesController < ApplicationController
       @game.win_score = score2
       @game.lose_score = score1
     end
-    if @game.save
+    @game.save
 
-      GameDetail.create!(
-        game_id: @game.id,
-        team_id: @game.win_id,
-      )
-      GameDetail.create!(
-        game_id: @game.id,
-        team_id: @game.lose_id,
-      )
+    GameDetail.create!(
+      game_id: @game.id,
+      team_id: @game.win_id,
+    )
+    GameDetail.create!(
+      game_id: @game.id,
+      team_id: @game.lose_id,
+    )
 
-      # チームの参加者を探すためにチーム詳細を探す
-      team_details = []
-      winer_team_details = TeamDetail.where(team_id: @game.win_id)
-      loser_team_details = TeamDetail.where(team_id: @game.lose_id)
-      team_details << winer_team_details
-      team_details << loser_team_details
-      team_details.flatten!
-      
-      # チーム詳細で参加者id(participation_id)のみを取得する
-      participation_ids = []
-      team_details.each do |team_detail|
-        participation_ids.push((team_detail.participation_id).to_i)
-      end
-
-      # 参加者詳細を取得する
-      participations = Participation.where(id: participation_ids)
-      
-      # 参加者詳細から会員id(user_id)のみを取得する
-      user_ids = []
-      participations.each do |participation|
-        user_ids.push(participation.user_id)
-      end
-
-      # 試合参加メンバーを取得する
-      @members = User.where(id: user_ids)
-
-      @members.each do |member|
-        Resolute.create!(
-          user_id: member.id,
-          game_id: @game.id,
-        )
-      end
-
-      redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
-    else
-      @team1 = Team.order("created_at DESC").second
-      @team2 = Team.order("created_at DESC").first
-      @team_detail1 = TeamDetail.where(team_id: @team1.id)
-      @team_detail2 = TeamDetail.where(team_id: @team2.id)
-      participation_ids1 = []
-      @team_detail1.each do |team_detail1|
-        participation_ids1.push(team_detail1.participation_id)
-      end
-      participation_ids2 = []
-      @team_detail2.each do |team_detail2|
-        participation_ids2.push(team_detail2.participation_id)
-      end
-
-      @member1 = Participation.where(id: participation_ids1)
-      @member2 = Participation.where(id: participation_ids2)
-      render :halfway
+    # チームの参加者を探すためにチーム詳細を探す
+    team_details = []
+    winer_team_details = TeamDetail.where(team_id: @game.win_id)
+    loser_team_details = TeamDetail.where(team_id: @game.lose_id)
+    team_details << winer_team_details
+    team_details << loser_team_details
+    team_details.flatten!
+    
+    # チーム詳細で参加者id(participation_id)のみを取得する
+    participation_ids = []
+    team_details.each do |team_detail|
+      participation_ids.push((team_detail.participation_id).to_i)
     end
+
+    # 参加者詳細を取得する
+    participations = Participation.where(id: participation_ids)
+    
+    # 参加者詳細から会員id(user_id)のみを取得する
+    user_ids = []
+    participations.each do |participation|
+      user_ids.push(participation.user_id)
+    end
+
+    # 試合参加メンバーを取得する
+    @members = User.where(id: user_ids)
+
+
+    @members.each do |member|
+      Resolute.create!(
+        user_id: member.id,
+        game_id: @game.id,
+      )
+    end
+
+
+    
+    redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
   end
 
   def edit
-    @game = Game.find(params[:id])
-    # 勝ったチームと負けたチームを探す
-    @team_winer = Team.find_by(id: @game.win_id)
-    @team_loser = Team.find_by(id: @game.lose_id)
-    
-    # チーム名を取得する 
-    @team_winer_name = @team_winer.name
-    @team_loser_name = @team_loser.name
-    
-    # チームの参加者を探すためにチーム詳細を探す
-    winer_details = TeamDetail.where(team_id: @team_winer.id)
-    loser_details = TeamDetail.where(team_id: @team_loser.id)
-
-    # チーム詳細で参加者id(participation_id)のみを取得する
-    participation_winer_ids = []
-    winer_details.each do |winer_detail|
-      participation_winer_ids.push((winer_detail.participation_id).to_i)
-    end
-    participation_loser_ids = []
-    loser_details.each do |loser_detail|
-      participation_loser_ids.push((loser_detail.participation_id).to_i)
-    end
-
-    # 勝った参加者詳細、負けた参加者詳細を取得する
-    participation_winer = Participation.where(id: participation_winer_ids)
-    participation_loser = Participation.where(id: participation_loser_ids)
-    
-    # 参加者詳細から会員id(user_id)のみを取得する
-    winer_user_ids = []
-    participation_winer.each do |winer|
-      winer_user_ids.push((winer.user_id).to_i)
-    end
-    loser_user_ids = []
-    participation_loser.each do |loser|
-      loser_user_ids.push((loser.user_id).to_i)
-    end
-
-    # チームメンバーを取得する
-    @member_winer = User.where(id: winer_user_ids)
-    @member_loser = User.where(id: loser_user_ids)
-    @win_score = @game.win_score
-    @lose_score = @game.lose_score
   end
 
   def update
-    @game = Game.find(params[:id])
-    if @game.update(game_params)
-      redirect_to event_game_path(@game)
-    else
-      render :edit
-    end
   end
 
   def destroy
