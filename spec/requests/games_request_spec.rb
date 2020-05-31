@@ -2,7 +2,30 @@ require 'rails_helper'
 
 RSpec.describe "Games", type: :request do
   before do
-    @event = FactoryBot.create(:event)
+    @user = FactoryBot.create(:user)
+    @type = FactoryBot.create(:type)
+    @event = Event.create(
+      user_id: @user.id,
+      type_id: @type.id,
+      event_name: "#{Takarabako.name}イベント",
+      introduction: Faker::Lorem.characters(number:30),
+      start_date: Time.zone.now,
+      finish_date: Time.zone.tomorrow,
+      place_name: Gimei.town.kanji,
+      address: Gimei.address.kanji,
+      image: File.open('app/assets/images/sissors.png')
+    )
+    @eventnew = Event.new(
+      user_id: @user.id,
+      type_id: @type.id,
+      event_name: "#{Takarabako.name}イベント",
+      introduction: Faker::Lorem.characters(number:30),
+      start_date: Time.zone.now,
+      finish_date: Time.zone.tomorrow,
+      place_name: Gimei.town.kanji,
+      address: Gimei.address.kanji,
+      image: File.open('app/assets/images/sissors.png')
+    )
     @team1 = Team.create(
       event_id: @event.id,
       name: "#{Takarabako.open}"
@@ -17,6 +40,16 @@ RSpec.describe "Games", type: :request do
       lose_id: @team2.id,
       win_score: 25,
       lose_score: 23,
+    )
+    @member1 = Participation.create(
+      user_id: FactoryBot.create(:user).id,
+      event_id: @event.id,
+      status: "参加"
+    )
+    @member2 = Participation.create(
+      user_id: FactoryBot.create(:user).id,
+      event_id: @event.id,
+      status: "参加"
     )
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
   end
