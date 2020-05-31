@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    participations = Participation.where('user_id=?', current_user.id)
-    @events = Event.where(id: participations.map{|t| t.event_id}).order(start_date: "ASC")
     @user = User.find(params[:id])
+    participations = Participation.where('user_id=?', @user.id)
+    @events = Event.where(id: participations.map{|t| t.event_id}).order(start_date: "ASC")
     @user_relation = current_user
 
 
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
     count = 0
     participation_ids.each do |participation_id|
-      if Participation.find_by("id=? and user_id=?", participation_id, current_user.id) != nil
+      if Participation.find_by("id=? and user_id=?", participation_id, @user.id) != nil
         count += 1
       end
     end
