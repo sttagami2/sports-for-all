@@ -1,43 +1,61 @@
 <div class="game-show">
-  <%= form_for @game, url: event_game_path(event_id: @game.event_id.to_i, id: @game.id.to_i) do |f| %>
+  <%= form_for @game, url: event_game_path(event_id: @game.event_id, id: @game.id.to_i) do |f| %>
     <div class="panel panel-success game-show__panel">
       <div class="panel-heading game-show__panel__heading">
         <h2><%= "#{@game.id}試合目 結果編集" %></h2>
       </div>
       <div class="panel-body game-show__panel__body">
         <div class="row">
-          <div class="col-sm-12 col-md-6 team text-center">
+          <div class="col-xs-12 col-sm-12 col-md-6 team text-center">
             <div class="text-left">
               <div class="bottom-color"><%= @team_winer_name %>チーム</div>
             </div>
             <div>
               <% @member_winer.each do |member_winer| %>
+              <div class="text-center">
+                <div width="100" class="text-center">
+                  <% if member_winer.image? %>
+                    <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.nil? %>
+                  <% else %>
+                    <%= image_tag("no_image.jpg", size: "80x80") %>
+                  <% end %>
+                </div>
                 <div>
-                  <%= image_tag(member_winer.image.to_s, size: "80x80") unless member_winer.image.file.nil? %>
                   <%= member_winer.name %>
                 </div>
+              </div>
               <% end %>
             </div>
             <hr>
-            <div class="score">
-              獲得点数：<%= f.number_field :win_score, autofocus: true, autocomplete: "win_score", class: "form-control" %>
+            <div class="score text-center">
+              <%= f.label :win_score, "点数" %>
+              <%= f.number_field :win_score, autofocus: true, autocomplete: "win_score", class: "form-control" %>
             </div>
           </div>
-          <div class="col-sm-12 col-md-6 team text-center">
+          <div class="col-xs-12 col-sm-12 col-md-6 team text-center">
             <div class="text-left">
               <div class="bottom-color"><%= @team_loser_name %>チーム</div>
             </div>
             <div>
               <% @member_loser.each do |member_loser| %>
+              <div>
+                <div class="text-center">
+                  <% if member_loser.image? %>
+                    <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.nil? %>
+                  <% else %>
+                    <%= image_tag("no_image.jpg", size: "80x80") %>
+                  <% end %>
+                </div>
                 <div>
-                  <%= image_tag(member_loser.image.to_s, size: "80x80") unless member_loser.image.file.nil? %>
                   <%= member_loser.name %>
                 </div>
+              </div>
               <% end %>
             </div>
             <hr>
-            <div class="score">
-              獲得点数：<%= f.number_field :lose_score, autofocus: true, autocomplete: "lose_score", class: "form-control" %>
+            <div class="score text-center">
+              <%= f.label :lose_score, "点数" %>
+              <%= f.number_field :lose_score, autofocus: true, autocomplete: "lose_score", class: "form-control" %>
             </div>
           </div>
         </div>
