@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :type do
-    name {"バレーボール"}
+    name { "バレーボール" }
   end
 end

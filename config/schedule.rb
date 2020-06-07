@@ -18,11 +18,10 @@ set :environment, :development # 環境を設定
 # end
 #
 every 1.days, at: '19:00 pm' do
-  
   runner "NotificationMailer.send_confirm_to_user"
 end
 # every 1.minutes do
-  
+
 #   runner "NotificationMailer.send_confirm_to_user"
 # end
 

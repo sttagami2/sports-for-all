@@ -28,7 +28,8 @@ class TeamsController < ApplicationController
   end
 
   private
-    def team_params
-      parms.require(:team).permit(:participation_id, :name)
-    end
+
+  def team_params
+    parms.require(:team).permit(:participation_id, :name)
+  end
 end

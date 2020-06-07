@@ -7,7 +7,7 @@ RSpec.describe Chat, type: :model do
         expect(Chat.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Roomモデルとの関係' do
       it 'N:1となっている' do
         expect(Chat.reflect_on_association(:room).macro).to eq :belongs_to
@@ -19,16 +19,16 @@ RSpec.describe Chat, type: :model do
     before do
       @chat = FactoryBot.create(:chat)
     end
-  
+
     it "必要項目が存在すれば有効" do
       expect(@chat).to be_valid
     end
-    
+
     it "user_idが存在しなかったら無効" do
       @chat.user_id = ""
       expect(@chat).not_to be_valid
     end
-    
+
     it "room_idが存在しなかったら無効" do
       @chat.room_id = ""
       expect(@chat).not_to be_valid

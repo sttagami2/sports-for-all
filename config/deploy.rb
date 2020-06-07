@@ -5,9 +5,9 @@ set :application, "sports-for-all"
 set :repo_url, "https://github.com/sttagami2/sports-for-all.git"
 set :deploy_to, "/home/ec2-user/sports-for-all"
 set :rbenv_ruby, '2.5.7'
-set :linked_files, %w{config/master.key .env}
+set :linked_files, %w(config/master.key .env)
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
-server '54.95.230.212', user: 'ec2-user', roles: %w{app web db}
+server '54.95.230.212', user: 'ec2-user', roles: %w(app web db)
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

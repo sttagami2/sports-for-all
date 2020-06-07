@@ -7,7 +7,7 @@ RSpec.describe Team, type: :model do
         expect(Team.reflect_on_association(:event).macro).to eq :belongs_to
       end
     end
-  
+
     context 'GameDetailモデルとの関係' do
       it '1:Nとなっている' do
         expect(Team.reflect_on_association(:game_details).macro).to eq :has_many
@@ -21,7 +21,6 @@ RSpec.describe Team, type: :model do
     end
   end
 
-
   describe '機能面のテスト' do
     before do
       @event = FactoryBot.create(:event)
@@ -29,7 +28,6 @@ RSpec.describe Team, type: :model do
         event_id: @event.id,
         name: Takarabako.open
       )
-
     end
 
     it '必要項目が存在していれば有効' do

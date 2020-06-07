@@ -7,13 +7,13 @@ RSpec.describe Game, type: :model do
         expect(Game.reflect_on_association(:event).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Eventモデルとの関係' do
       it 'N:1となっている' do
         expect(Game.reflect_on_association(:event).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Resoluteモデルとの関係' do
       it '1:Nとなっている' do
         expect(Game.reflect_on_association(:resolutes).macro).to eq :has_many
@@ -40,28 +40,28 @@ RSpec.describe Game, type: :model do
         lose_score: 23,
       )
     end
-  
+
     it "必要項目が存在していれば有効" do
       expect(@game).to be_valid
     end
-  
+
     it "event_idが存在していなければ無効" do
       @game.event_id = ""
       expect(@game).not_to be_valid
     end
-  
+
     it "win_idが存在していなければ無効" do
       @game.win_id = ""
       expect(@game).not_to be_valid
     end
-  
+
     it "lose_idが存在していなければ無効" do
       @game.lose_id = ""
       expect(@game).not_to be_valid
     end
-  
+
     it "win_scoreとlose_scoreが同値の場合無効" do
-      @game.win_score = @game.lose_score 
+      @game.win_score = @game.lose_score
       expect(@game).not_to be_valid
     end
   end

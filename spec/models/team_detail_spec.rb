@@ -7,7 +7,7 @@ RSpec.describe TeamDetail, type: :model do
         expect(TeamDetail.reflect_on_association(:team).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Roomモデルとの関係' do
       it 'N:1となっている' do
         expect(TeamDetail.reflect_on_association(:participation).macro).to eq :belongs_to
@@ -32,7 +32,6 @@ RSpec.describe TeamDetail, type: :model do
         team_id: @team.id,
         participation_id: @participation.id
       )
-
     end
 
     it '必要項目が存在していれば有効' do
@@ -49,5 +48,4 @@ RSpec.describe TeamDetail, type: :model do
       expect(@team_detail).not_to be_valid
     end
   end
-
 end

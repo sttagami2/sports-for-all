@@ -7,7 +7,7 @@ RSpec.describe GameDetail, type: :model do
         expect(GameDetail.reflect_on_association(:team).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Gameモデルとの関係' do
       it 'N:1となっている' do
         expect(GameDetail.reflect_on_association(:game).macro).to eq :belongs_to
@@ -31,16 +31,16 @@ RSpec.describe GameDetail, type: :model do
         team_id: @team.id,
       )
     end
-  
+
     it "必要項目が存在していれば有効" do
       expect(@game_detail).to be_valid
     end
-  
+
     it "game_idが存在していなければ無効" do
       @game_detail.game_id = ""
       expect(@game_detail).not_to be_valid
     end
-  
+
     it "team_idが存在していなければ無効" do
       @game_detail.team_id = ""
       expect(@game_detail).not_to be_valid

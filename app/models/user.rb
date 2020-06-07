@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-            # presence: { message: "が入力されていません。"},
-            # length: { maximum: 15, minimum: 1, message: "は1文字以上15文字以内です。"}
-  validates :email, uniqueness: {case_sensitive: false}, presence: true
+  # presence: { message: "が入力されていません。"},
+  # length: { maximum: 15, minimum: 1, message: "は1文字以上15文字以内です。"}
+  validates :email, uniqueness: { case_sensitive: false }, presence: true
 
   has_many :events, dependent: :destroy
   has_many :participations, dependent: :destroy
@@ -36,5 +36,4 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     following_relationships.find_by(following_id: other_user.id).destroy
   end
-
 end

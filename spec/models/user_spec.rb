@@ -25,40 +25,37 @@ RSpec.describe User, type: :model do
     expect(user.errors[:email]).to include("has already been taken")
   end
 
-
-
-
   describe 'アソシエーションのテスト' do
     context 'Participationモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:participations).macro).to eq :has_many
       end
     end
-  
+
     context 'Commentモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:comments).macro).to eq :has_many
       end
     end
-  
+
     context 'Resoluteモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:resolutes).macro).to eq :has_many
       end
     end
-  
+
     context 'Locationモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:locations).macro).to eq :has_many
       end
     end
-  
+
     context 'Followingモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:followings).macro).to eq :has_many
       end
     end
-  
+
     context 'Followerモデルとの関係' do
       it '1:Nとなっている' do
         expect(User.reflect_on_association(:followers).macro).to eq :has_many

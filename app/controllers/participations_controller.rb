@@ -14,13 +14,12 @@ class ParticipationsController < ApplicationController
 
   def new
     @participation = Participation.new
-
   end
 
   def create
     @participation = Participation.new(participation_params)
     @participation.user_id = current_user.id
-    @participation.status = "参加";
+    @participation.status = "参加"
     if @participation.save
       redirect_back(fallback_location: root_path)
     end
@@ -36,8 +35,8 @@ class ParticipationsController < ApplicationController
   end
 
   private
-    
-    def participation_params
-      params.permit(:event_id, :status, :user_id)
-    end
+
+  def participation_params
+    params.permit(:event_id, :status, :user_id)
+  end
 end
