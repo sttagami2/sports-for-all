@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Events", type: :request do
-
   before do
     @user = FactoryBot.create(:user)
     @event = FactoryBot.create(:event)
@@ -10,9 +9,9 @@ RSpec.describe "Events", type: :request do
       user_id: @user.id,
       type_id: @type.id,
       event_name: "#{Takarabako.name}イベント",
-      introduction: Faker::Lorem.characters(number:30),
+      introduction: Faker::Lorem.characters(number: 30),
       start_date: Date.tomorrow,
-      finish_date: Date.tomorrow+1,
+      finish_date: Date.tomorrow + 1,
       place_name: Gimei.town.kanji,
       address: Gimei.address.kanji,
       image: File.open('app/assets/images/sissors.png')

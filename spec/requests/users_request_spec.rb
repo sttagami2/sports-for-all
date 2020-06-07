@@ -11,6 +11,7 @@ RSpec.describe "Users", type: :request do
     )
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
   end
+
   describe "GET /show" do
     it "returns http success" do
       get user_path(@user.id)
@@ -31,5 +32,4 @@ RSpec.describe "Users", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
 end

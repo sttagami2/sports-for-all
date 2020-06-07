@@ -1,6 +1,6 @@
 class Event < ApplicationRecord
   belongs_to :user
-  
+
   has_many :participations, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :teams, dependent: :destroy
@@ -18,9 +18,7 @@ class Event < ApplicationRecord
   validates :place_name, presence: true
   validates :address, presence: true
 
-  
   def start_time
-    self.start_date
+    start_date
   end
-
 end

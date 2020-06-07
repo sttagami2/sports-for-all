@@ -20,6 +20,7 @@ RSpec.describe "Games", type: :request do
     )
     allow_any_instance_of(ApplicationController).to receive(:current_user) { @user }
   end
+
   describe "GET /index" do
     it "game#indexにアクセスできること" do
       get event_games_path(event_id: @game.event_id)
@@ -68,5 +69,4 @@ RSpec.describe "Games", type: :request do
       expect(response).to have_http_status(:success)
     end
   end
-
 end

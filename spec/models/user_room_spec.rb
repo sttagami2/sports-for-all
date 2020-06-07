@@ -7,7 +7,7 @@ RSpec.describe UserRoom, type: :model do
         expect(UserRoom.reflect_on_association(:user).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Roomモデルとの関係' do
       it 'N:1となっている' do
         expect(UserRoom.reflect_on_association(:room).macro).to eq :belongs_to
@@ -23,7 +23,6 @@ RSpec.describe UserRoom, type: :model do
         user_id: @user.id,
         room_id: @room.id
       )
-
     end
 
     it '必要項目が存在していれば有効' do

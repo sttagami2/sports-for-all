@@ -7,7 +7,7 @@ RSpec.describe Relationship, type: :model do
         expect(Relationship.reflect_on_association(:follower).macro).to eq :belongs_to
       end
     end
-  
+
     context 'Followingモデルとの関係' do
       it 'N:1となっている' do
         expect(Relationship.reflect_on_association(:following).macro).to eq :belongs_to
@@ -35,6 +35,5 @@ RSpec.describe Relationship, type: :model do
       @relationship.following_id = ""
       expect(@relationship).not_to be_valid
     end
-
   end
 end

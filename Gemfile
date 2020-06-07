@@ -55,6 +55,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'spring-commands-rspec'
+  gem 'rubocop-airbnb'
 end
 
 group :test do
@@ -70,12 +71,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem 'refile-mini_magick'
-gem 'bootstrap-sass' , '~> 3.4.1'
+gem 'bootstrap-sass', '~> 3.4.1'
 gem 'jquery-rails'
 gem 'pry-rails'
 gem 'geocoder'
 gem 'ransack'
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari', '~> 1.1.1'
 gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'rails-i18n'
 gem 'gimei'
