@@ -1,8 +1,8 @@
 class ParticipationsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @participations_join = Participation.where('event_id=? and status=?', params[:event_id], "参加")
-    @participations_join_num = Participation.where('event_id=? and status=?', params[:event_id], "参加").count
+    @participations_join = Participation.participation_index(params[:event_id])
+    @participations_join_num = Participation.participation_index(params[:event_id]).count
   end
 
   def edit

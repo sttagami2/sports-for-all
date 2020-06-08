@@ -1,12 +1,12 @@
 class GamesController < ApplicationController
   def index
-    @games = Game.where(event_id: params[:event_id])
+    @games = Game.game_index(params[:event_id])
   end
 
   def new
     @event = Event.find(params[:event_id])
     @participation = Participation.new
-    participations = Participation.where('event_id=? and status=?', @event.id, "参加")
+    participations = Participation.participation_index(params[:event_id])
     @users = User.where(id: participations.map { |t| t.user_id })
   end
 
@@ -24,7 +24,7 @@ class GamesController < ApplicationController
 
     case params[:member_select]
     when  "all"
-      participations = Participation.where('event_id=? and status=?', params[:event_id], "参加")
+      participations = Participation.participation_index(params[:event_id])
       random_team = participations.shuffle
       team = random_team.to_a.in_groups(2, false) # チームを2つに分ける
       @member1 = team[0]                                              # team配列1つ目を1チーム目とする
@@ -33,20 +33,20 @@ class GamesController < ApplicationController
       # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
       @member1.each do |member1| # 1つ目のチーム詳細作成
         TeamDetail.create!(
-          team_id: Team.order("created_at DESC").second.id,
+          team_id: Team.team_detail(params[:event_id]).second.id,
           participation_id: member1.id,
         )
       end
 
       @member2.each do |member2| # 2つ目のチーム詳細作成
         TeamDetail.create!(
-          team_id: Team.order("created_at DESC").first.id,
+          team_id: Team.team_detail(params[:event_id]).first.id,
           participation_id: member2.id,
         )
       end
 
-      @team1 = Team.order("created_at DESC").second
-      @team2 = Team.order("created_at DESC").first
+      @team1 = Team.team_detail(params[:event_id]).second
+      @team2 = Team.team_detail(params[:event_id]).first
       @event = Event.find(params[:event_id])
 
     when  "select"
@@ -66,20 +66,20 @@ class GamesController < ApplicationController
       # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
       @member1.each do |member1|                        # 1つ目のチーム詳細作成
         TeamDetail.create(
-          team_id: Team.order("created_at DESC").second.id,
+          team_id: Team.team_detail(params[:event_id]).second.id,
           participation_id: member1.id,
         )
       end
 
       @member2.each do |member2|                        # 2つ目のチーム詳細作成
         TeamDetail.create(
-          team_id: Team.order("created_at DESC").first.id,
+          team_id: Team.team_detail(params[:event_id]).first.id,
           participation_id: member2.id,
         )
       end
 
-      @team1 = Team.order("created_at DESC").second
-      @team2 = Team.order("created_at DESC").first
+      @team1 = Team.team_detail(params[:event_id]).second
+      @team2 = Team.team_detail(params[:event_id]).first
       @event = Event.find(params[:event_id])
 
     when  "select_team"
@@ -99,20 +99,20 @@ class GamesController < ApplicationController
       # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
       @member1.each do |member1|                        # 1つ目のチーム詳細作成
         TeamDetail.create(
-          team_id: Team.order("created_at DESC").second.id,
+          team_id: Team.team_detail(params[:event_id]).second.id,
           participation_id: member1.id,
         )
       end
 
       @member2.each do |member2|                        # 2つ目のチーム詳細作成
         TeamDetail.create(
-          team_id: Team.order("created_at DESC").first.id,
+          team_id: Team.team_detail(params[:event_id]).first.id,
           participation_id: member2.id,
         )
       end
 
-      @team1 = Team.order("created_at DESC").second
-      @team2 = Team.order("created_at DESC").first
+      @team1 = Team.team_detail(params[:event_id]).second
+      @team2 = Team.team_detail(params[:event_id]).first
       @event = Event.find(params[:event_id])
 
     end
@@ -121,8 +121,8 @@ class GamesController < ApplicationController
   def create
     @game = Game.new
     @game.event_id = params[:event_id]
-    team1 = Team.order("created_at DESC").second
-    team2 = Team.order("created_at DESC").first
+    team1 = Team.team_detail(params[:event_id]).second
+    team2 = Team.team_detail(params[:event_id]).first
     score1 = params[:score1].to_i
     score2 = params[:score2].to_i
 

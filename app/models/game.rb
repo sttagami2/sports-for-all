@@ -11,4 +11,9 @@ class Game < ApplicationRecord
   def score_custom_validation
     errors.add(:win_score, "他チームと異なる値を入力して下さい") if win_score == lose_score
   end
+
+  def self.game_index(event_id)
+    self.where(event_id: event_id)
+  end
+  
 end
