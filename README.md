@@ -32,6 +32,8 @@ Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるア
 
 
 イベント開催当日の場合試合を行えるようになります。
+<img width="1342" alt="スクリーンショット 2020-06-09 22 59 29" src="https://user-images.githubusercontent.com/44938164/84156865-fcbfad00-aaa4-11ea-8637-a26f3adaf37e.png">
+
 
 ## 設計書
 ◆案件定義書 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
