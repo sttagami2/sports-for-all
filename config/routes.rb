@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/users/:id/followers', to: 'users#followers'
   get '/search', to: 'search#search'
 
+  resources :notifications, only: [:index]
   resources :relationships, only: [:create, :destroy]
   resources :users, only: [:edit, :update, :show] do
     member do
