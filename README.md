@@ -28,7 +28,8 @@ Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるア
 
 ## 使用方法
 マイページのカレンダーに参加しているイベントが表記されております。
-(https://user-images.githubusercontent.com/44938164/84156222-35ab5200-aaa4-11ea-9652-45ac4636e849.png)
+![スクリーンショット 2020-06-09 22 49 31](https://user-images.githubusercontent.com/44938164/84156222-35ab5200-aaa4-11ea-9652-45ac4636e849.png)
+
 
 イベント開催当日の場合試合を行えるようになります。
 
