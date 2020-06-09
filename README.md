@@ -26,6 +26,12 @@ Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるア
 ・各個人の戦歴等を管理する時
 　→ 相性計算してくれる機能実装
 
+## 使用方法
+マイページのカレンダーに参加しているイベントが表記されております。
+(https://user-images.githubusercontent.com/44938164/84156222-35ab5200-aaa4-11ea-9652-45ac4636e849.png)
+
+イベント開催当日の場合試合を行えるようになります。
+
 ## 設計書
 ◆案件定義書 　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
 https://docs.google.com/document/d/1yaGCCa-KULAVmKbzjPgDIzlaM_vmJLdCGnZcxV92JOM/edit
