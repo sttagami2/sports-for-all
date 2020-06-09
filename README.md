@@ -38,6 +38,7 @@ Sports-for-Allは、スポーツを誰でも簡単に主催、参加できるア
 <img width="1342" alt="スクリーンショット 2020-06-09 22 46 46" src="https://user-images.githubusercontent.com/44938164/84157103-46a89300-aaa5-11ea-94e0-4628ffe964b4.png">
 
 ④自動チーム振り分け後の画面です。
+<img width="1342" alt="スクリーンショット 2020-06-09 22 47 18" src="https://user-images.githubusercontent.com/44938164/84157324-94250000-aaa5-11ea-8200-0f36d6e4bdfc.png">
 
 
 ## 設計書
