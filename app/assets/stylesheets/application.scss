@@ -23,9 +23,22 @@
  @import "font-awesome";
 
 header {
+	position: relative;
+	.notification {
+		position: absolute;
+		top: 40px;
+		left: 50%;
+		.n-circle {
+			position: absolute;
+			padding-left: 2rem;
+			padding-top: 0rem;
+			color: #efa04c;
+		}
+	}
 	.header-top {
 		display: flex;
 		justify-content: space-between;
+		// position: relative;
 	}
 	nav {
 		.link {
