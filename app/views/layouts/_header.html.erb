@@ -1,4 +1,18 @@
 <header>
+  <% if user_signed_in? %>
+    <div class="notification">
+      <%= link_to(notifications_path) do %>
+        <% if unchecked_notifications.any? %>
+          <span class="fa-stack">
+            <i class="far fa-bell fa-lg fa-stack-2x" style="font-size: 1.5em;"></i>
+            <i class="fas fa-circle n-circle fa-stack-1x"></i>
+          </span>
+        <% else %>
+          <i class="far fa-bell fa-lg" style="font-size: 1.5em;"></i>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
   <div class="header-top bg-dark">
     <div>
       <%= image_tag("logo-transparent.png", size: "168x100", style: "margin-left: 20px;") %>
