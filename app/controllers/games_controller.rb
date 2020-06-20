@@ -13,108 +13,227 @@ class GamesController < ApplicationController
   def halfway
     @event = Event.find(params[:event_id])
     @game = Game.new
+    number_of_teams = params[:number_of_teams].to_i
 
-    # 2チーム自動で作成
-    2.times do
+    # チームを自動で作成
+    number_of_teams.times do
       Team.create(
         event_id: params[:event_id],
         name: Takarabako.open,
       )
     end
 
-    case params[:member_select]
-    when  "all"
-      participations = Participation.participation_index(params[:event_id])
-      random_team = participations.shuffle
-      team = random_team.to_a.in_groups(2, false) # チームを2つに分ける
-      @member1 = team[0]                                              # team配列1つ目を1チーム目とする
-      @member2 = team[1]                                              # team配列2つ目を2チーム目とする
+    case number_of_teams
+    when 2
+      case params[:member_select]
+      when  "all"
+        participations = Participation.participation_index(params[:event_id])
+        random_team = participations.shuffle
+        team = random_team.to_a.in_groups(2, false) # チームを2つに分ける
+        @member1 = team[0]                                              # team配列1つ目を1チーム目とする
+        @member2 = team[1]                                              # team配列2つ目を2チーム目とする
 
-      # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
-      @member1.each do |member1| # 1つ目のチーム詳細作成
-        TeamDetail.create!(
-          team_id: Team.team_detail(params[:event_id]).second.id,
-          participation_id: member1.id,
-        )
+        # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
+        @member1.each do |member1| # 1つ目のチーム詳細作成
+          TeamDetail.create!(
+            team_id: Team.team_detail(params[:event_id]).second.id,
+            participation_id: member1.id,
+          )
+        end
+
+        @member2.each do |member2| # 2つ目のチーム詳細作成
+          TeamDetail.create!(
+            team_id: Team.team_detail(params[:event_id]).first.id,
+            participation_id: member2.id,
+          )
+        end
+
+        @team1 = Team.team_detail(params[:event_id]).second
+        @team2 = Team.team_detail(params[:event_id]).first
+        @event = Event.find(params[:event_id])
+
+      when  "select"
+        # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
+        user_ids = []
+        params[:participation_select][:user_id].each do |id|
+          user_ids.push(id.to_i)
+        end
+
+        # newページで取得した参加者のidからチーム分けを行う
+        participations = Participation.where(event_id: params[:event_id]).where(user_id: user_ids)
+        random_team = participations.shuffle
+        team = random_team.to_a.in_groups(2, false) # チームを2つに分ける
+        @member1 = team[0]
+        @member2 = team[1]
+
+        # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
+        @member1.each do |member1|                        # 1つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).second.id,
+            participation_id: member1.id,
+          )
+        end
+
+        @member2.each do |member2|                        # 2つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).first.id,
+            participation_id: member2.id,
+          )
+        end
+
+        @team1 = Team.team_detail(params[:event_id]).second
+        @team2 = Team.team_detail(params[:event_id]).first
+        @event = Event.find(params[:event_id])
+
+      when  "select_team"
+        # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
+        user_ids1 = []
+        params[:select_team1][:user_id].each do |id|
+          user_ids1.push(id.to_i)
+        end
+        user_ids2 = []
+        params[:select_team2][:user_id].each do |id|
+          user_ids2.push(id.to_i)
+        end
+
+        @member1 = Participation.where(event_id: params[:event_id]).where(user_id: user_ids1)
+        @member2 = Participation.where(event_id: params[:event_id]).where(user_id: user_ids2)
+
+        # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
+        @member1.each do |member1|                        # 1つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).second.id,
+            participation_id: member1.id,
+          )
+        end
+
+        @member2.each do |member2|                        # 2つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).first.id,
+            participation_id: member2.id,
+          )
+        end
+
+        @team1 = Team.team_detail(params[:event_id]).second
+        @team2 = Team.team_detail(params[:event_id]).first
+        @event = Event.find(params[:event_id])
+
       end
 
-      @member2.each do |member2| # 2つ目のチーム詳細作成
-        TeamDetail.create!(
-          team_id: Team.team_detail(params[:event_id]).first.id,
-          participation_id: member2.id,
-        )
+
+    when 3
+      case params[:member_select]
+      when  "all"
+        participations = Participation.participation_index(params[:event_id])
+        random_team = participations.shuffle
+        team = random_team.to_a.in_groups(3, false) # チームを3つに分ける
+        @member1 = team[0]                                              # team配列1つ目を1チーム目とする
+        @member2 = team[1]                                              # team配列2つ目を2チーム目とする
+        @member3 = team[2]                                              # team配列3つ目を3チーム目とする
+
+        # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
+        @member1.each do |member1| # 1つ目のチーム詳細作成
+          TeamDetail.create!(
+            team_id: Team.team_detail(params[:event_id]).third.id,
+            participation_id: member1.id,
+          )
+        end
+
+        @member2.each do |member2| # 2つ目のチーム詳細作成
+          TeamDetail.create!(
+            team_id: Team.team_detail(params[:event_id]).second.id,
+            participation_id: member2.id,
+          )
+        end
+
+        @member3.each do |member3| # 3つ目のチーム詳細作成
+          TeamDetail.create!(
+            team_id: Team.team_detail(params[:event_id]).first.id,
+            participation_id: member3.id,
+          )
+        end
+
+        @team1 = Team.team_detail(params[:event_id]).third
+        @team2 = Team.team_detail(params[:event_id]).second
+        @team3 = Team.team_detail(params[:event_id]).first
+        @event = Event.find(params[:event_id])
+        binding.pry
+      when  "select"
+        # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
+        user_ids = []
+        params[:participation_select][:user_id].each do |id|
+          user_ids.push(id.to_i)
+        end
+
+        # newページで取得した参加者のidからチーム分けを行う
+        participations = Participation.where(event_id: params[:event_id]).where(user_id: user_ids)
+        random_team = participations.shuffle
+        team = random_team.to_a.in_groups(3, false) # チームを2つに分ける
+        @member1 = team[0]
+        @member2 = team[1]
+        @member3 = team[2]
+
+        # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
+        @member1.each do |member1|                        # 1つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).third.id,
+            participation_id: member1.id,
+          )
+        end
+
+        @member2.each do |member2|                        # 2つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).second.id,
+            participation_id: member2.id,
+          )
+        end
+
+        @member3.each do |member3|                        # 2つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).first.id,
+            participation_id: member3.id,
+          )
+        end
+
+        @team1 = Team.team_detail(params[:event_id]).third
+        @team2 = Team.team_detail(params[:event_id]).second
+        @team3 = Team.team_detail(params[:event_id]).first
+        @event = Event.find(params[:event_id])
+
+      when  "select_team"
+        # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
+        user_ids1 = []
+        params[:select_team1][:user_id].each do |id|
+          user_ids1.push(id.to_i)
+        end
+        user_ids2 = []
+        params[:select_team2][:user_id].each do |id|
+          user_ids2.push(id.to_i)
+        end
+
+        @member1 = Participation.where(event_id: params[:event_id]).where(user_id: user_ids1)
+        @member2 = Participation.where(event_id: params[:event_id]).where(user_id: user_ids2)
+
+        # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
+        @member1.each do |member1|                        # 1つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).second.id,
+            participation_id: member1.id,
+          )
+        end
+
+        @member2.each do |member2|                        # 2つ目のチーム詳細作成
+          TeamDetail.create(
+            team_id: Team.team_detail(params[:event_id]).first.id,
+            participation_id: member2.id,
+          )
+        end
+
+        @team1 = Team.team_detail(params[:event_id]).second
+        @team2 = Team.team_detail(params[:event_id]).first
+        @event = Event.find(params[:event_id])
+
       end
-
-      @team1 = Team.team_detail(params[:event_id]).second
-      @team2 = Team.team_detail(params[:event_id]).first
-      @event = Event.find(params[:event_id])
-
-    when  "select"
-      # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
-      user_ids = []
-      params[:participation_select][:user_id].each do |id|
-        user_ids.push(id.to_i)
-      end
-
-      # newページで取得した参加者のidからチーム分けを行う
-      participations = Participation.where(event_id: params[:event_id]).where(user_id: user_ids)
-      random_team = participations.shuffle
-      team = random_team.to_a.in_groups(2, false) # チームを2つに分ける
-      @member1 = team[0]
-      @member2 = team[1]
-
-      # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
-      @member1.each do |member1|                        # 1つ目のチーム詳細作成
-        TeamDetail.create(
-          team_id: Team.team_detail(params[:event_id]).second.id,
-          participation_id: member1.id,
-        )
-      end
-
-      @member2.each do |member2|                        # 2つ目のチーム詳細作成
-        TeamDetail.create(
-          team_id: Team.team_detail(params[:event_id]).first.id,
-          participation_id: member2.id,
-        )
-      end
-
-      @team1 = Team.team_detail(params[:event_id]).second
-      @team2 = Team.team_detail(params[:event_id]).first
-      @event = Event.find(params[:event_id])
-
-    when  "select_team"
-      # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
-      user_ids1 = []
-      params[:select_team1][:user_id].each do |id|
-        user_ids1.push(id.to_i)
-      end
-      user_ids2 = []
-      params[:select_team2][:user_id].each do |id|
-        user_ids2.push(id.to_i)
-      end
-
-      @member1 = Participation.where(event_id: params[:event_id]).where(user_id: user_ids1)
-      @member2 = Participation.where(event_id: params[:event_id]).where(user_id: user_ids2)
-
-      # チーム詳細を2チーム分作成する（どの会員がどのチームに属しているか分かるようにする）
-      @member1.each do |member1|                        # 1つ目のチーム詳細作成
-        TeamDetail.create(
-          team_id: Team.team_detail(params[:event_id]).second.id,
-          participation_id: member1.id,
-        )
-      end
-
-      @member2.each do |member2|                        # 2つ目のチーム詳細作成
-        TeamDetail.create(
-          team_id: Team.team_detail(params[:event_id]).first.id,
-          participation_id: member2.id,
-        )
-      end
-
-      @team1 = Team.team_detail(params[:event_id]).second
-      @team2 = Team.team_detail(params[:event_id]).first
-      @event = Event.find(params[:event_id])
-
     end
   end
 

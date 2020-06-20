@@ -19,6 +19,18 @@
           <br>
           <div class="row">
             <div class="col-lg-3">
+              <div class="side-color">チーム数</div>
+            </div>
+            <div class="col-lg-9">
+              <div class="member_select">
+                <%= label_tag :number_of_teams, "何チームに分けますか" %>
+                <%= select_tag("number_of_teams", options_for_select(2..3), class: "form-control")%>
+              </div>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col-lg-3">
               <div class="side-color">参加メンバー</div>
             </div>
             <div class="col-lg-9">
