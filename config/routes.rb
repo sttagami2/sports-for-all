@@ -24,6 +24,8 @@ Rails.application.routes.draw do
       collection do
         get 'halfway'
         post 'halfway'
+        get 'battles'
+        post 'battles'
       end
     end
   end

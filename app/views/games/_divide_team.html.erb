@@ -38,12 +38,22 @@
   </div>
   <div class="row">
     <div class="col-xs-6 text-center">
-      <p>チーム1：<span><%= @team1.name %></span></p>
-      <%= hidden_field_tag :team1, @team1.name %>
+      <% if @game_index == 3 %>
+        <p>チーム1：<span><%= @teams[1].name %></span></p>
+        <%= hidden_field_tag :team1, @teams[1].name %>
+      <% else %>
+        <p>チーム1：<span><%= @teams[0].name %></span></p>
+        <%= hidden_field_tag :team1, @teams[0].name %>
+      <% end %>
     </div>
     <div class="col-xs-6 text-center">
-      <p>チーム2：<span><%= @team2.name %></span></p>
-      <%= hidden_field_tag :team2, @team2.name %>
+      <% if @game_index == 2 || @game_index == 3 %>
+        <p>チーム2：<span><%= @teams[2].name %></span></p>
+        <%= hidden_field_tag :team2, @teams[2].name %>
+      <% else @game_index == 1 %>
+        <p>チーム2：<span><%= @teams[1].name %></span></p>
+        <%= hidden_field_tag :team2, @teams[1].name %>
+      <% end %>
     </div>
   </div>
   <div class="score">
