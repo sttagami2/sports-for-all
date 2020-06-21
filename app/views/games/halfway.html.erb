@@ -1,13 +1,15 @@
-<% if @game.errors.any? %>
-
-  <h2><%= @game.errors.count %>errors prohibited this  from being saved:</h2>
-
-  <ul>
-    <% @game.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-  </ul>
+<% @teams.each do |team| %>
+  <%= team.name %><br>
 <% end %>
-<div class="game-halfway">
-  <%= render "divide_team" %>
-</div>
+
+<% if @number_of_teams == 3 %>
+  <%= "#{@teams[0].name} VS #{@teams[1].name}" %>
+  <%= link_to "試合をする", battles_event_games_path(event_id: params[:event_id], game_index: 1, number_of_teams: @number_of_teams) %><br>
+  <%= "#{@teams[0].name} VS #{@teams[2].name}" %>
+  <%= link_to "試合をする", battles_event_games_path(event_id: params[:event_id], game_index: 2, number_of_teams: @number_of_teams) %><br>
+  <%= "#{@teams[1].name} VS #{@teams[2].name}" %>
+  <%= link_to "試合をする", battles_event_games_path(event_id: params[:event_id], game_index: 3, number_of_teams: @number_of_teams) %><br>
+<% elsif @number_of_teams == 2 %>
+  <%= "#{@teams[0].name} VS #{@teams[1].name}" %>
+  <%= link_to "試合をする", battles_event_games_path(event_id: params[:event_id], game_index: 1, number_of_teams: @number_of_teams) %><br>
+<% end %>

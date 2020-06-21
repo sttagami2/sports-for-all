@@ -10,20 +10,113 @@ class GamesController < ApplicationController
     @users = User.where(id: participations.map { |t| t.user_id })
   end
 
+  def battles
+    @event = Event.find(params[:event_id])
+    @game = Game.new
+    @number_of_teams = params[:number_of_teams].to_i
+    @game_index = params[:game_index].to_i
+
+    case @number_of_teams
+    when 2
+      @teams = []
+      @teams.push(Team.team_detail(params[:event_id]).second)
+      @teams.push(Team.team_detail(params[:event_id]).first)
+
+      # 1チーム目のメンバーを取得
+      team_detail1 = TeamDetail.where(team_id: @teams.first.id)
+      participation_ids1 = []
+      team_detail1.each do |team_detail1|
+        participation_ids1.push(team_detail1.participation_id.to_i)
+      end
+      @member1 = Participation.where(id: participation_ids1)
+      
+      # 2チーム目のメンバーを取得
+      team_detail2 = TeamDetail.where(team_id: @teams.second.id)
+      participation_ids2 = []
+      team_detail2.each do |team_detail2|
+        participation_ids2.push(team_detail2.participation_id.to_i)
+      end
+      @member2 = Participation.where(id: participation_ids2)
+      
+      binding.pry
+
+
+    when 3
+      @teams = []
+      @teams.push(Team.team_detail(params[:event_id]).third)
+      @teams.push(Team.team_detail(params[:event_id]).second)
+      @teams.push(Team.team_detail(params[:event_id]).first)
+
+      case @game_index
+      when 1
+      # 1チーム目のメンバーを取得
+      team_detail1 = TeamDetail.where(team_id: @teams.first.id)
+      participation_ids1 = []
+      team_detail1.each do |team_detail1|
+        participation_ids1.push(team_detail1.participation_id.to_i)
+      end
+      @member1 = Participation.where(id: participation_ids1)
+      
+      # 2チーム目のメンバーを取得
+      team_detail2 = TeamDetail.where(team_id: @teams.second.id)
+      participation_ids2 = []
+      team_detail2.each do |team_detail2|
+        participation_ids2.push(team_detail2.participation_id.to_i)
+      end
+      @member2 = Participation.where(id: participation_ids2)
+
+      when 2
+      # 1チーム目のメンバーを取得
+      team_detail1 = TeamDetail.where(team_id: @teams.first.id)
+      participation_ids1 = []
+      team_detail1.each do |team_detail1|
+        participation_ids1.push(team_detail1.participation_id.to_i)
+      end
+      @member1 = Participation.where(id: participation_ids1)
+      
+      # 2チーム目のメンバーを取得
+      team_detail2 = TeamDetail.where(team_id: @teams.third.id)
+      participation_ids2 = []
+      team_detail2.each do |team_detail2|
+        participation_ids2.push(team_detail2.participation_id.to_i)
+      end
+      @member2 = Participation.where(id: participation_ids2)
+      
+      when 3
+      # 1チーム目のメンバーを取得
+      team_detail1 = TeamDetail.where(team_id: @teams.second.id)
+      participation_ids1 = []
+      team_detail1.each do |team_detail1|
+        participation_ids1.push(team_detail1.participation_id.to_i)
+      end
+      @member1 = Participation.where(id: participation_ids1)
+      
+      # 2チーム目のメンバーを取得
+      team_detail2 = TeamDetail.where(team_id: @teams.third.id)
+      participation_ids2 = []
+      team_detail2.each do |team_detail2|
+        participation_ids2.push(team_detail2.participation_id.to_i)
+      end
+      @member2 = Participation.where(id: participation_ids2)
+      end
+      
+    end
+  end
+
   def halfway
     @event = Event.find(params[:event_id])
     @game = Game.new
-    number_of_teams = params[:number_of_teams].to_i
+    @number_of_teams = params[:number_of_teams].to_i
 
     # チームを自動で作成
-    number_of_teams.times do
+    @number_of_teams.times do
       Team.create(
         event_id: params[:event_id],
         name: Takarabako.open,
       )
     end
 
-    case number_of_teams
+    case @number_of_teams
     when 2
       case params[:member_select]
       when  "all"
@@ -51,7 +144,9 @@ class GamesController < ApplicationController
         @team1 = Team.team_detail(params[:event_id]).second
         @team2 = Team.team_detail(params[:event_id]).first
         @event = Event.find(params[:event_id])
-
+        @teams = []
+        @teams.push(@team1)
+        @teams.push(@team2)
       when  "select"
         # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
         user_ids = []
@@ -84,6 +179,9 @@ class GamesController < ApplicationController
         @team1 = Team.team_detail(params[:event_id]).second
         @team2 = Team.team_detail(params[:event_id]).first
         @event = Event.find(params[:event_id])
+        @teams = []
+        @teams.push(@team1)
+        @teams.push(@team2)
 
       when  "select_team"
         # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
@@ -117,6 +215,9 @@ class GamesController < ApplicationController
         @team1 = Team.team_detail(params[:event_id]).second
         @team2 = Team.team_detail(params[:event_id]).first
         @event = Event.find(params[:event_id])
+        @teams = []
+        @teams.push(@team1)
+        @teams.push(@team2)
 
       end
 
@@ -157,7 +258,11 @@ class GamesController < ApplicationController
         @team2 = Team.team_detail(params[:event_id]).second
         @team3 = Team.team_detail(params[:event_id]).first
         @event = Event.find(params[:event_id])
-        binding.pry
+        @teams = []
+        @teams.push(@team1)
+        @teams.push(@team2)
+        @teams.push(@team3)
+
       when  "select"
         # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
         user_ids = []
@@ -199,6 +304,10 @@ class GamesController < ApplicationController
         @team2 = Team.team_detail(params[:event_id]).second
         @team3 = Team.team_detail(params[:event_id]).first
         @event = Event.find(params[:event_id])
+        @teams = []
+        @teams.push(@team1)
+        @teams.push(@team2)
+        @teams.push(@team3)
 
       when  "select_team"
         # newページで取得した参加者の情報をParticipationのレコード上のidと合致させるための処理
