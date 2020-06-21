@@ -410,7 +410,8 @@ class GamesController < ApplicationController
       )
     end
 
-    redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
+    # redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
+    redirect_back(fallback_location: root_path)
   end
 
   def edit
