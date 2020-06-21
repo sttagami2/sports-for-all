@@ -348,6 +348,7 @@ class GamesController < ApplicationController
 
   def create
     # game_index毎に保存方法を定義する必要あり！
+    # team1とteam2がgame_index毎に値が変わる
     @game = Game.new
     @game.event_id = params[:event_id]
     team1 = Team.team_detail(params[:event_id]).second
