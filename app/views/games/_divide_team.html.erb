@@ -66,6 +66,8 @@
     <%#= select(:score2, (1..300).to_a, {include_blank: "点数"}, {class: "form-control", style: "width: 60px;"}) %>
   </div>
 
+  <%= hidden_field_tag :number_of_teams, @number_of_teams %>
+
   <div class="text-center">
     <%= button_tag type: "submit", class: "btn btn-success btn-lg" do %>
       結果を記録する

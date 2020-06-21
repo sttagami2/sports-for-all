@@ -38,7 +38,7 @@ class GamesController < ApplicationController
       end
       @member2 = Participation.where(id: participation_ids2)
       
-      binding.pry
+
 
 
     when 3
@@ -347,12 +347,14 @@ class GamesController < ApplicationController
   end
 
   def create
+    # game_index毎に保存方法を定義する必要あり！
     @game = Game.new
     @game.event_id = params[:event_id]
     team1 = Team.team_detail(params[:event_id]).second
     team2 = Team.team_detail(params[:event_id]).first
     score1 = params[:score1].to_i
     score2 = params[:score2].to_i
+    @number_of_teams = params[:number_of_teams].to_i
 
     if score1 > score2
       @game.win_id = team1.id
@@ -409,9 +411,29 @@ class GamesController < ApplicationController
         game_id: @game.id,
       )
     end
+    case @number_of_teams
+    when 2
+      @team1 = Team.team_detail(params[:event_id]).second
+      @team2 = Team.team_detail(params[:event_id]).first
+      @event = Event.find(params[:event_id])
+      @teams = []
+      @teams.push(@team1)
+      @teams.push(@team2)
+      
+    when 3
+      @team1 = Team.team_detail(params[:event_id]).third
+      @team2 = Team.team_detail(params[:event_id]).second
+      @team3 = Team.team_detail(params[:event_id]).first
+      @event = Event.find(params[:event_id])
+      @teams = []
+      @teams.push(@team1)
+      @teams.push(@team2)
+      @teams.push(@team3)
+    end
 
-    # redirect_to event_game_path(event_id: @game.event_id, id: @game.id)
-    redirect_back(fallback_location: root_path)
+    # redirect_to halfway_event_games_path(event_id: @game.event_id, number_of_teams: @number_of_teams, teams: @teams)
+    # redirect_back(fallback_location: root_path)
+    render :halfway
   end
 
   def edit
