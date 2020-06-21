@@ -24,4 +24,7 @@
 
 <div class="text-center">
   <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
+  <% if Game.find(params[:event_id]) != nil %>
+    <%= link_to "試合結果一覧を見る", event_games_path(event_id: params[:event_id]), class: "btn btn-primary" %>
+  <% end %>
 </div>
