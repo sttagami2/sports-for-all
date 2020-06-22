@@ -349,6 +349,7 @@ class GamesController < ApplicationController
   def create
     # game_index毎に保存方法を定義する必要あり！
     # team1とteam2がgame_index毎に値が変わる
+    @number_of_teams = params[:number_of_teams].to_i
     @game = Game.new
     @game.event_id = params[:event_id]
     team1 = Team.team_detail(params[:event_id]).second
@@ -356,6 +357,7 @@ class GamesController < ApplicationController
     score1 = params[:score1].to_i
     score2 = params[:score2].to_i
     @number_of_teams = params[:number_of_teams].to_i
+    binding.pry
 
     if score1 > score2
       @game.win_id = team1.id

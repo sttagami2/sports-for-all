@@ -9,7 +9,7 @@
             <h4>直近10試合の結果です。</h4>
           <% end %>
           <table class="table table-borderless">
-            <% @games.order(id: "DESC").each.with_index(1) do |game, i| %>
+            <% @games.order(id: "DESC").first(10).each.with_index(1) do |game, i| %>
               <% if @games.count < 10 %>
                 <tr>
                   <th class="index"><%= "#{@games.count+1-i}試合目" %></th>
