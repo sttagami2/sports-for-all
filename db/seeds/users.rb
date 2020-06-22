@@ -159,17 +159,17 @@ User.create!(
   password: "111111"
 )
 
-50.times do
-  gimei = Gimei.new
+# 50.times do
+#   gimei = Gimei.new
   
-  User.create!(
-    name: gimei.name.kanji,
-    name_k: gimei.name.hiragana,
-    image: File.open('app/assets/images/sissors.png'),
-    introduction: "#{gimei.name.kanji}です。よろしくお願いします！",
-    phone_number: "08000001111",
-    age: rand(16..40).to_i,
-    email: Faker::Internet.email,
-    password: "111111",
-  )
-end
+#   User.create!(
+#     name: gimei.name.kanji,
+#     name_k: gimei.name.hiragana,
+#     image: File.open('app/assets/images/sissors.png'),
+#     introduction: "#{gimei.name.kanji}です。よろしくお願いします！",
+#     phone_number: "08000001111",
+#     age: rand(16..40).to_i,
+#     email: Faker::Internet.email,
+#     password: "111111",
+#   )
+# end

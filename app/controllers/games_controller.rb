@@ -107,7 +107,6 @@ class GamesController < ApplicationController
     @event = Event.find(params[:event_id])
     @game = Game.new
     @number_of_teams = params[:number_of_teams].to_i
-
     # チームを自動で作成
     @number_of_teams.times do
       Team.create(
@@ -349,30 +348,42 @@ class GamesController < ApplicationController
   def create
     # game_index毎に保存方法を定義する必要あり！
     # team1とteam2がgame_index毎に値が変わる
-    @number_of_teams = params[:number_of_teams].to_i
     @game = Game.new
     @game.event_id = params[:event_id]
-    team1 = Team.team_detail(params[:event_id]).second
-    team2 = Team.team_detail(params[:event_id]).first
+
+    # 対戦表からどこのチームとどこのチームが対戦するか判断
+    @game_index = params[:game_index].to_i
+    case @game_index
+    when 1
+      team1 = Team.team_detail(params[:event_id]).third
+      team2 = Team.team_detail(params[:event_id]).second      
+    when 2
+      team1 = Team.team_detail(params[:event_id]).third
+      team2 = Team.team_detail(params[:event_id]).first      
+    when 3
+      team1 = Team.team_detail(params[:event_id]).second
+      team2 = Team.team_detail(params[:event_id]).first      
+    when 4
+      team1 = Team.team_detail(params[:event_id]).second
+      team2 = Team.team_detail(params[:event_id]).first      
+    end
     score1 = params[:score1].to_i
     score2 = params[:score2].to_i
-    @number_of_teams = params[:number_of_teams].to_i
-    binding.pry
-
+    
     if score1 > score2
       @game.win_id = team1.id
       @game.lose_id = team2.id
       @game.win_score = score1
-      @game.lose_score = score2
-
+      @game.lose_score = score2      
+      
     else
       @game.win_id = team2.id
       @game.lose_id = team1.id
       @game.win_score = score2
-      @game.lose_score = score1
+      @game.lose_score = score1      
     end
     @game.save
-
+        
     GameDetail.create!(
       game_id: @game.id,
       team_id: @game.win_id,
@@ -389,31 +400,32 @@ class GamesController < ApplicationController
     team_details << winer_team_details
     team_details << loser_team_details
     team_details.flatten!
-
     # チーム詳細で参加者id(participation_id)のみを取得する
     participation_ids = []
     team_details.each do |team_detail|
       participation_ids.push(team_detail.participation_id.to_i)
     end
-
     # 参加者詳細を取得する
-    participations = Participation.where(id: participation_ids)
-
+    participations = Participation.where(id: participation_ids)    
+    
     # 参加者詳細から会員id(user_id)のみを取得する
     user_ids = []
     participations.each do |participation|
       user_ids.push(participation.user_id)
     end
-
+    
     # 試合参加メンバーを取得する
-    @members = User.where(id: user_ids)
-
+    @members = User.where(id: user_ids)    
+    
     @members.each do |member|
       Resolute.create!(
         user_id: member.id,
         game_id: @game.id,
       )
     end
+
+    # 対戦表に戻れるようにチームを取得する
+    @number_of_teams = params[:number_of_teams].to_i
     case @number_of_teams
     when 2
       @team1 = Team.team_detail(params[:event_id]).second

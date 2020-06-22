@@ -17,14 +17,14 @@
   <div class="text-center">
     <div class="game-list">
       <%= "#{@teams[0].name} VS #{@teams[1].name}" %><br>
-      <%= link_to "試合をする", battles_event_games_path(event_id: params[:event_id], game_index: 1, number_of_teams: @number_of_teams), class: "btn btn-success" %><br>
+      <%= link_to "試合をする", battles_event_games_path(event_id: params[:event_id], game_index: 4, number_of_teams: @number_of_teams), class: "btn btn-success" %><br>
     </div>
   </div>
 <% end %>
 
 <div class="text-center">
   <%= link_to "新たな試合を始める", new_event_game_path(event_id: params[:event_id]), class: "btn btn-success" %>
-  <% if Game.find(params[:event_id]) != nil %>
+  <% if Game.find_by(event_id: params[:event_id]).present? %>
     <%= link_to "試合結果一覧を見る", event_games_path(event_id: params[:event_id]), class: "btn btn-primary" %>
   <% end %>
 </div>
