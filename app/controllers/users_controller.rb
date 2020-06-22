@@ -27,15 +27,19 @@ class UsersController < ApplicationController
 
 
 
-
-
     # where関数にて重複したデータを削除してしまっている
-    team_details = TeamDetail.where(team_id: win_ids)                   # 取得した勝利チームのidからそのチームに所属していたチーム詳細情報を取得する
+    team_details = []
+    win_ids.each do |win_id|
+      team_detail = TeamDetail.where(team_id: win_id)
+      team_details.push(team_detail)              # 取得した勝利チームのidからそのチームに所属していたチーム詳細情報を取得する
+    end
+    binding.pry
+    # team_details = TeamDetail.where(team_id: win_ids)                 # 取得した勝利チームのidからそのチームに所属していたチーム詳細情報を取得する
     participation_ids = []                                              # チーム詳細情報から勝利したチームに所属していた参加者のidを取得するため空の配列を定義
-    team_details.each do |team_detail|                                  # 取得した参加者情報から参加者idを取得する
+    team_details.flatten.each do |team_detail|                                  # 取得した参加者情報から参加者idを取得する
       participation_ids.push(team_detail.participation_id.to_i)
     end    
-
+    binding.pry
 
 
 
