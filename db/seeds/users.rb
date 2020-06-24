@@ -160,6 +160,7 @@ User.create!(
 )
 
 User.create!(
+  # 15
   name: "田上",
   name_k: "タガミ",
   image: File.open('app/assets/images/shoto.jpg'),
@@ -171,6 +172,7 @@ User.create!(
 )
 
 User.create!(
+  # 16
   name: "太一",
   name_k: "タイチ",
   phone_number: "09041973142",
@@ -181,6 +183,7 @@ User.create!(
 )
 
 User.create!(
+  # 17
   name: "たえ",
   name_k: "タエ",
   phone_number: "09017594740",
@@ -191,6 +194,7 @@ User.create!(
 )
 
 User.create!(
+  # 18
   name: "王",
   name_k: "オウ",
   phone_number: "08041618116",
@@ -201,6 +205,7 @@ User.create!(
 )
 
 User.create!(
+  # 19
   name: "幸一",
   name_k: "コウイチ",
   phone_number: "09091789023",
@@ -211,16 +216,7 @@ User.create!(
 )
 
 User.create!(
-  name: "幸一",
-  name_k: "コウイチ",
-  phone_number: "09091789023",
-  age: 24,
-  introduction: "船渡幸一です。",
-  email: "koichi@hunato",
-  password: "111111"
-)
-
-User.create!(
+  # 20
   name: "拓真",
   name_k: "タクマ",
   phone_number: '09098919021',
@@ -231,6 +227,7 @@ User.create!(
 )
 
 User.create!(
+  # 21
   name: "芝",
   name_k: "シバ",
   phone_number: '09047847283',
@@ -241,6 +238,7 @@ User.create!(
 )
 
 User.create!(
+  # 22
   name: "おかちゃん",
   name_k: "オカチャン",
   phone_number: '09042682754',
@@ -251,6 +249,7 @@ User.create!(
 )
 
 User.create!(
+  # 23
   name: "かおり",
   name_k: "カオリ",
   phone_number: '08033261771',
@@ -261,6 +260,7 @@ User.create!(
 )
 
 User.create!(
+  # 24
   name: "大暉",
   name_k: "ダイキ",
   phone_number: '08036498258',
@@ -271,6 +271,7 @@ User.create!(
 )
 
 User.create!(
+  # 25
   name: "おさむ",
   name_k: "オサム",
   phone_number: '08036498258',
@@ -281,6 +282,7 @@ User.create!(
 )
 
 User.create!(
+  # 26
   name: "さおりん",
   name_k: "サオリン",
   phone_number: '09099195483',
@@ -291,6 +293,7 @@ User.create!(
 )
 
 User.create!(
+  # 27
   name: "なお",
   name_k: "ナオ",
   phone_number: '09048588386',
@@ -301,6 +304,7 @@ User.create!(
 )
 
 User.create!(
+  # 28
   name: "がんちゃん",
   name_k: "ガンチャン",
   phone_number: '08043007171',
@@ -311,6 +315,7 @@ User.create!(
 )
 
 User.create!(
+  # 29
   name: "つかさ",
   name_k: "ツカサ",
   phone_number: '09092628908',
@@ -321,6 +326,7 @@ User.create!(
 )
 
 User.create!(
+  # 30
   name: "みすず",
   name_k: "ミスズ",
   phone_number: '0566741009',
@@ -331,6 +337,7 @@ User.create!(
 )
 
 User.create!(
+  # 31
   name: "太田ポン",
   name_k: "オオタ",
   phone_number: '08015581854',
@@ -341,6 +348,7 @@ User.create!(
 )
 
 User.create!(
+  # 32
   name: "ウィリちゃん",
   name_k: "ウィリチャン",
   phone_number: '09065777418',
@@ -351,6 +359,7 @@ User.create!(
 )
 
 User.create!(
+  # 33
   name: "笠井",
   name_k: "カサイ",
   phone_number: '09099159002',
@@ -361,6 +370,7 @@ User.create!(
 )
 
 User.create!(
+  # 34
   name: "ひさ",
   name_k: "ヒサ",
   phone_number: '09088627828',
