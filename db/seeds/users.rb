@@ -233,7 +233,7 @@ User.create!(
   phone_number: '09047847283',
   age: 24,
   introduction: "芝です。",
-  email: "shuto@shiba",
+  email: "naoto@shiba",
   password: "111111"
 )
 
