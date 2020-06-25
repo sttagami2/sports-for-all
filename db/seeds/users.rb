@@ -250,6 +250,17 @@ User.create!(
 
 User.create!(
   # 23
+  name: "ゆか",
+  name_k: "ユカ",
+  phone_number: '08069630803',
+  age: 24,
+  introduction: "ゆかちゃんです。",
+  email: "yuka@kanazawa",
+  password: "111111"
+)
+
+User.create!(
+  # 23
   name: "かおり",
   name_k: "カオリ",
   phone_number: '08033261771',
