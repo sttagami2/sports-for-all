@@ -175,6 +175,7 @@ User.create!(
   # 16
   name: "太一",
   name_k: "タイチ",
+  image: File.open('app/assets/images/taichi.png'),
   phone_number: "09041973142",
   age: 24,
   introduction: "太一です。",
@@ -186,6 +187,7 @@ User.create!(
   # 17
   name: "たえ",
   name_k: "タエ",
+  image: File.open('app/assets/images/tae.png'),
   phone_number: "09017594740",
   age: 24,
   introduction: "たえです。",
@@ -197,6 +199,7 @@ User.create!(
   # 18
   name: "王",
   name_k: "オウ",
+  image: File.open('app/assets/images/oh.png'),
   phone_number: "08041618116",
   age: 24,
   introduction: "王です。",
@@ -219,6 +222,7 @@ User.create!(
   # 20
   name: "拓真",
   name_k: "タクマ",
+  image: File.open('app/assets/images/yasuda.png'),
   phone_number: '09098919021',
   age: 24,
   introduction: "安田拓馬です。",
@@ -230,6 +234,7 @@ User.create!(
   # 21
   name: "芝",
   name_k: "シバ",
+  image: File.open('app/assets/images/shiba.png'),
   phone_number: '09047847283',
   age: 24,
   introduction: "芝です。",
@@ -241,6 +246,7 @@ User.create!(
   # 22
   name: "おかちゃん",
   name_k: "オカチャン",
+  image: File.open('app/assets/images/hiroki.png'),
   phone_number: '09042682754',
   age: 24,
   introduction: "おかちゃんです。",
@@ -285,6 +291,7 @@ User.create!(
   # 25
   name: "おさむ",
   name_k: "オサム",
+  image: File.open('app/assets/images/osamu.png'),
   phone_number: '08036498258',
   age: 24,
   introduction: "おさむです！",
@@ -296,6 +303,7 @@ User.create!(
   # 26
   name: "さおりん",
   name_k: "サオリン",
+  image: File.open('app/assets/images/saori.png'),
   phone_number: '09099195483',
   age: 24,
   introduction: "さおりんです！",
@@ -307,6 +315,7 @@ User.create!(
   # 27
   name: "なお",
   name_k: "ナオ",
+  image: File.open('app/assets/images/nao.png'),
   phone_number: '09048588386',
   age: 24,
   introduction: "なおです！",
@@ -318,6 +327,7 @@ User.create!(
   # 28
   name: "がんちゃん",
   name_k: "ガンチャン",
+  image: File.open('app/assets/images/iwai.png'),
   phone_number: '08043007171',
   age: 24,
   introduction: "岩井です！",
@@ -329,6 +339,7 @@ User.create!(
   # 29
   name: "つかさ",
   name_k: "ツカサ",
+  image: File.open('app/assets/images/tsukasa.png'),
   phone_number: '09092628908',
   age: 24,
   introduction: "つかさです！",
@@ -340,6 +351,7 @@ User.create!(
   # 30
   name: "みすず",
   name_k: "ミスズ",
+  image: File.open('app/assets/images/misuzu.png'),
   phone_number: '0566741009',
   age: 24,
   introduction: "みすずです！",
@@ -351,6 +363,7 @@ User.create!(
   # 31
   name: "太田ポン",
   name_k: "オオタ",
+  image: File.open('app/assets/images/ota.png'),
   phone_number: '08015581854',
   age: 24,
   introduction: "太田です！",
@@ -362,6 +375,7 @@ User.create!(
   # 32
   name: "ウィリちゃん",
   name_k: "ウィリチャン",
+  image: File.open('app/assets/images/will.png'),
   phone_number: '09065777418',
   age: 24,
   introduction: "ウィリウィリです！",
@@ -373,21 +387,11 @@ User.create!(
   # 33
   name: "笠井",
   name_k: "カサイ",
+  image: File.open('app/assets/images/kasai.png'),
   phone_number: '09099159002',
   age: 24,
   introduction: "笠井です！",
   email: "yusuke@kasai",
-  password: "111111"
-)
-
-User.create!(
-  # 34
-  name: "ひさ",
-  name_k: "ヒサ",
-  phone_number: '09088627828',
-  age: 24,
-  introduction: "ひさです！",
-  email: "hisayuki@komatsu",
   password: "111111"
 )
 
