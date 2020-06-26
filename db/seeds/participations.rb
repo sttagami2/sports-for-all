@@ -1335,3 +1335,123 @@ Participation.create!(
   event_id: 19,
   status: "参加",
 )
+
+Participation.create!(
+  user_id: 15,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 16,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 17,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 18,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 19,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 20,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 21,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 22,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 23,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 24,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 25,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 26,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 27,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 28,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 29,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 30,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 31,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 32,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 33,
+  event_id: 20,
+  status: "参加",
+)
+
+Participation.create!(
+  user_id: 34,
+  event_id: 20,
+  status: "参加",
+)
